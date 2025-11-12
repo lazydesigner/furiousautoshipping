@@ -37,7 +37,7 @@ const values = [
 
 const team = [
   {
-    name: 'Mike Johnson',
+    name: 'Christopher Whitman',
     role: 'CEO & Founder',
     image: '/images/team/mike-johnson.jpg',
     bio: 'Mike founded Furious Auto Shipping with a vision to revolutionize the auto transport industry through technology and exceptional service.',
@@ -91,7 +91,7 @@ export default function AboutPage() {
               <h2 className="heading-2 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  Founded in 2013, Furious Auto Shipping began with a simple mission: to make 
+                  Founded in 2021, Furious Auto Shipping began with a simple mission: to make 
                   auto transport more transparent, reliable, and customer-focused. We saw an 
                   industry that was often confusing and unpredictable for customers, and we 
                   knew we could do better.
@@ -110,13 +110,12 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative w-full h-96">
               <Image
-                src="/images/about/company-history.jpg"
+                src="/images/about-1.png"
                 alt="Furious Auto Shipping team and trucks"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-xl"
+                fill
+                className="rounded-lg shadow-xl absolute object-cover"
               />
             </div>
           </div>
@@ -164,9 +163,9 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member) => (
               <div key={member.name} className="text-center">
-                <div className="relative mb-4">
+                <div className="relative mb-4 ">
                   <Image
-                    src={member.image}
+                    src='/images/final-logo.png'
                     alt={member.name}
                     width={200}
                     height={200}
@@ -226,13 +225,12 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
+            <div className="relative w-full h-96 ">
               <Image
-                src="/images/about/why-choose-us.jpg"
+                src="/images/about-2.png"
                 alt="Professional auto transport service"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-xl"
+                fill
+                className="rounded-lg shadow-xl object-cover absolute"
               />
             </div>
             <div>

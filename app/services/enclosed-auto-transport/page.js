@@ -97,7 +97,7 @@ export default function EnclosedTransportPage() {
             </div>
             <div className="relative">
               <Image
-                src="/images/services/enclosed-hero.jpg"
+                src="/images/enclosed-bg.png"
                 alt="Enclosed auto transport trailer"
                 width={600}
                 height={400}
@@ -132,7 +132,7 @@ export default function EnclosedTransportPage() {
             </div>
             <div className="relative">
               <Image
-                src="/images/services/enclosed-benefits.jpg"
+                src="/images/Enclosed-Transport.png"
                 alt="Enclosed transport benefits"
                 width={500}
                 height={400}
@@ -213,7 +213,7 @@ export default function EnclosedTransportPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <Image
-                src="/images/services/enclosed-pricing.jpg"
+                src="/images/Enclosed-Transport.png"
                 alt="Enclosed transport pricing"
                 width={500}
                 height={400}

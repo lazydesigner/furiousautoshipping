@@ -75,13 +75,13 @@ export default function ServicePageTemplate({
               </div>
             </div>
             {heroImage && (
-              <div className="relative">
+              <div className="relative h-96 overflow-hidden">
                 <Image
                   src={heroImage}
                   alt={heroImageAlt || title}
                   width={600}
                   height={400}
-                  className="rounded-lg shadow-xl"
+                  className="rounded-lg shadow-xl "
                   priority
                 />
               </div>
@@ -113,8 +113,15 @@ export default function ServicePageTemplate({
               </div>
               {benefits[0]?.image && (
                 <div className="relative">
-                  <Image
+                  {/* <Image
                     src={benefits[0].image}
+                    alt="Service benefits"
+                    width={500}
+                    height={400}
+                    className="rounded-lg shadow-lg"
+                  /> */}
+                   <Image
+                    src='/images/final-logo.png'
                     alt="Service benefits"
                     width={500}
                     height={400}

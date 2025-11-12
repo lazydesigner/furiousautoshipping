@@ -76,7 +76,7 @@ export default function OpenTransportPage() {
             </div>
             <div className="relative">
               <Image
-                src="/images/services/open-transport-hero.jpg"
+                src="/images/step-5-transport.png"
                 alt="Open auto transport carrier"
                 width={600}
                 height={400}
@@ -111,7 +111,7 @@ export default function OpenTransportPage() {
             </div>
             <div className="relative">
               <Image
-                src="/images/services/open-transport-benefits.jpg"
+                src="/images/Open-Transport.png"
                 alt="Open transport benefits"
                 width={500}
                 height={400}
@@ -154,7 +154,7 @@ export default function OpenTransportPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <Image
-                src="/images/services/open-transport-ideal.jpg"
+                src="/images/step-4-pickup.png"
                 alt="Vehicles perfect for open transport"
                 width={500}
                 height={400}

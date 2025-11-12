@@ -28,7 +28,7 @@ const serviceData = {
   title: "Door-to-Door Auto Transport",
   subtitle: "Ultimate Convenience in Vehicle Shipping",
   description: "Experience hassle-free auto transport with our premium door-to-door service. We pick up your vehicle from your location and deliver it directly to your destination.",
-  heroImage: "/images/services/door-to-door-hero.jpg",
+  heroImage: "/images/Door-to-Door.png",
   heroImageAlt: "Professional door-to-door auto transport service",
   
   // Main Content - Your 1000+ Words Content
@@ -198,19 +198,19 @@ const serviceData = {
       title: "Enclosed Transport",
       description: "Premium protection for luxury and classic vehicles with covered trailers.",
       href: "/services/enclosed-auto-transport",
-      image: "/images/services/enclosed-small.jpg"
+      image: "/images/Enclosed-Transport.png"
     },
     {
       title: "Expedited Shipping",
       description: "Fast-track service for urgent deliveries with priority scheduling.",
       href: "/services/expedited-auto-transport", 
-      image: "/images/services/expedited-small.jpg"
+      image: "/images/Expedited-shipping.png"
     },
     {
       title: "Open Transport",
       description: "Cost-effective standard transport using open car carriers.",
       href: "/services/open-auto-transport",
-      image: "/images/services/open-small.jpg"
+      image: "/images/Open-Transport.png"
     }
   ],
   

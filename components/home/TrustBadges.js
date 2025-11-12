@@ -32,7 +32,7 @@ const stats = [
 
 export default function TrustBadges() {
   return (
-    <section className="section bg-white border-t border-gray-100">
+    <section className="section bg-white border-t border-gray-100 hidden">
       <div className="container">
         {/* Trust Badges */}
         <div className="border-t border-gray-200 pt-8">

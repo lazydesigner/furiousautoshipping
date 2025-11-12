@@ -6,7 +6,7 @@ const services = [
   {
     title: 'Open Transport',
     description: 'Most popular and economical option for shipping your vehicle safely across the country.',
-    image: '/images/services/open-transport-home.jpg',
+    image: '/images/Open-Transport.png',
     features: ['Most cost-effective', 'Fast availability', 'Same insurance coverage'],
     href: '/services/open',
     popular: true,
@@ -14,21 +14,21 @@ const services = [
   {
     title: 'Enclosed Transport',
     description: 'Premium protection for luxury, classic, or high-value vehicles with covered trailers.',
-    image: '/images/services/enclosed-transport-home.jpg',
+    image: '/images/Enclosed-Transport.png',
     features: ['Weather protection', 'Luxury vehicle specialty', 'Extra security'],
     href: '/services/enclosed',
   },
   {
     title: 'Door-to-Door',
     description: 'Ultimate convenience with pickup and delivery right at your preferred locations.',
-    image: '/images/services/door-to-door-home.jpg',
+    image: '/images/Door-to-Door.png',
     features: ['Maximum convenience', 'No terminal visits', 'Flexible scheduling'],
     href: '/services/door-to-door',
   },
   {
     title: 'Expedited Shipping',
     description: 'Fast-track service for urgent deliveries with priority carrier assignment.',
-    image: '/images/services/expedited-home.jpg',
+    image: '/images/Expedited-shipping.png',
     features: ['Priority scheduling', '2-7 day delivery', 'Dedicated support'],
     href: '/services/expedited',
   },

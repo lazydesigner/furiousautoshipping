@@ -3,8 +3,9 @@ import { ArrowRightIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 export default function CTA() {
   return (
-    <section className="section bg-gradient-to-r from-brand-600 to-brand-800 text-white">
-      <div className="container">
+    <section className="section relative bg-gradient-to-r from-brand-600 -z-10 to-brand-800 text-white" style={{backgroundImage:'url("/images/cta.png")'}}>
+      <div className='absolute bg-gradient-to-r top-0 w-full h-full from-brand-600/60 to-brand-800/90 z-10'></div>
+      <div className="container relative z-20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="heading-2 mb-6">
             Ready to Ship Your Vehicle?

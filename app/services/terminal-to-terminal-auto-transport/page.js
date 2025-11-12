@@ -196,10 +196,10 @@ export default function TerminalToTerminalPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="section bg-gradient-to-r from-blue-600 to-blue-700 text-white overflow-hidden relative">
+      <section className="section bg-gradient-to-r from-brand-600 to-brand-700 text-white overflow-hidden relative">
         <div className="absolute inset-0">
           <Image
-            src="/images/services/terminal-hero-bg.jpg"
+            src="/images/terminal-to-terminal.png"
             alt="Auto transport terminal facility"
             fill
             className="object-cover opacity-20"
@@ -215,7 +215,7 @@ export default function TerminalToTerminalPage() {
               </div>
 
               <h1 className="heading-1 mb-6">
-                Terminal-to-Terminal Auto Shipping: A Smart Choice for the Savvy Shipper
+                Terminal to Terminal Auto Shipping: A Smart Choice for the Savvy Shipper
               </h1>
               <p className="text-xl leading-relaxed mb-8">
                 Save money without sacrificing quality. Drop off and pick up your vehicle
@@ -228,7 +228,7 @@ export default function TerminalToTerminalPage() {
                 </Link>
                 <a
                   href={`tel:${process.env.NEXT_PUBLIC_COMPANY_PHONE}`}
-                  className="btn-outline btn-lg border-white   hover:bg-white hover:text-blue-600"
+                  className="btn-outline btn-lg border-white   hover:bg-white hover:text-brand-600"
                 >
                   Find Nearest Terminal
                 </a>
@@ -236,12 +236,12 @@ export default function TerminalToTerminalPage() {
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-200">$100-200</div>
-                  <div className="text-sm text-blue-100">Average Savings</div>
+                  <div className="text-2xl font-bold text-brand-200">$100-200</div>
+                  <div className="text-sm text-brand-100">Average Savings</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-200">50+</div>
-                  <div className="text-sm text-blue-100">Terminal Locations</div>
+                  <div className="text-2xl font-bold text-brand-200">50+</div>
+                  <div className="text-sm text-brand-100">Terminal Locations</div>
                 </div>
               </div>
             </div>
@@ -256,17 +256,17 @@ export default function TerminalToTerminalPage() {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-brand-50 rounded-lg">
                     <span className="text-gray-700">500 mile transport:</span>
-                    <span className="font-bold text-blue-600">Save $150</span>
+                    <span className="font-bold text-brand-600">Save $150</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-brand-50 rounded-lg">
                     <span className="text-gray-700">1000 mile transport:</span>
-                    <span className="font-bold text-blue-600">Save $200</span>
+                    <span className="font-bold text-brand-600">Save $200</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-brand-50 rounded-lg">
                     <span className="text-gray-700">Cross-country:</span>
-                    <span className="font-bold text-blue-600">Save $250</span>
+                    <span className="font-bold text-brand-600">Save $250</span>
                   </div>
                 </div>
               </div>
@@ -290,13 +290,13 @@ export default function TerminalToTerminalPage() {
             {benefits.map((benefit, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-blue-100 rounded-full">
-                    <benefit.icon className="h-8 w-8 text-blue-600" />
+                  <div className="p-3 bg-brand-100 rounded-full">
+                    <benefit.icon className="h-8 w-8 text-brand-600" />
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold mb-3">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">{benefit.description}</p>
-                <div className="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                <div className="inline-flex items-center bg-brand-50 text-brand-700 px-3 py-1 rounded-full text-sm font-medium">
                   {benefit.savings || benefit.benefit || benefit.feature || benefit.advantage}
                 </div>
               </div>
@@ -323,11 +323,11 @@ export default function TerminalToTerminalPage() {
                     <h3 className="text-lg font-semibold text-gray-900">
                       {terminal.city}, {terminal.state}
                     </h3>
-                    <div className="text-sm text-blue-600 font-medium">
+                    <div className="text-sm text-brand-600 font-medium">
                       {terminal.routes} Routes Available
                     </div>
                   </div>
-                  <BuildingOfficeIcon className="h-8 w-8 text-blue-600" />
+                  <BuildingOfficeIcon className="h-8 w-8 text-brand-600" />
                 </div>
 
                 <div className="space-y-3 text-sm">
@@ -341,7 +341,7 @@ export default function TerminalToTerminalPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <span className="text-gray-400">📞</span>
-                    <a href={`tel:${terminal.contact}`} className="text-blue-600 hover:text-blue-700 font-medium">
+                    <a href={`tel:${terminal.contact}`} className="text-brand-600 hover:text-brand-700 font-medium">
                       {terminal.contact}
                     </a>
                   </div>
@@ -386,17 +386,17 @@ export default function TerminalToTerminalPage() {
               <div key={index} className="text-center">
                 <div className="relative mb-6">
                   <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                    <div className="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
                       {step.step}
                     </div>
                   </div>
                   <div className="flex justify-center">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <step.icon className="h-6 w-6 text-blue-600" />
+                    <div className="p-2 bg-brand-100 rounded-lg">
+                      <step.icon className="h-6 w-6 text-brand-600" />
                     </div>
                   </div>
                   {index < process2.length - 1 && (
-                    <div className="hidden lg:block absolute -z-10 top-8 left-1/2 w-full h-0.5 bg-blue-200 z-0" />
+                    <div className="hidden lg:block absolute -z-10 top-8 left-1/2 w-full h-0.5 bg-brand-200 z-0" />
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-3">{step.title}</h3>
@@ -423,10 +423,10 @@ export default function TerminalToTerminalPage() {
                 <div className="bg-gray-50 p-4 font-semibold text-gray-900 border-r border-gray-200">
                   Feature
                 </div>
-                <div className="bg-blue-50 p-4 font-semibold text-blue-800 text-center border-r border-gray-200">
+                <div className="bg-brand-50 p-4 font-semibold text-brand-800 text-center border-r border-gray-200">
                   Terminal Service
                 </div>
-                <div className="bg-blue-50 p-4 font-semibold text-blue-800 text-center border-r border-gray-200">
+                <div className="bg-brand-50 p-4 font-semibold text-brand-800 text-center border-r border-gray-200">
                   Door-to-Door
                 </div>
                 <div className="bg-gray-50 p-4 font-semibold text-gray-900 text-center">
@@ -447,12 +447,12 @@ export default function TerminalToTerminalPage() {
                   </div>
                   <div className="p-4 text-center">
                     {item.advantage === 'terminal' && (
-                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-brand-100 text-brand-800 px-2 py-1 rounded-full text-sm font-medium">
                         Terminal
                       </span>
                     )}
                     {item.advantage === 'door' && (
-                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-brand-100 text-brand-800 px-2 py-1 rounded-full text-sm font-medium">
                         Door-to-Door
                       </span>
                     )}
@@ -479,7 +479,7 @@ export default function TerminalToTerminalPage() {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <CheckCircleIcon className="h-6 w-6 text-blue-600" />
+                    <CheckCircleIcon className="h-6 w-6 text-brand-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Same Insurance Coverage</h4>
@@ -491,7 +491,7 @@ export default function TerminalToTerminalPage() {
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <CheckCircleIcon className="h-6 w-6 text-blue-600" />
+                    <CheckCircleIcon className="h-6 w-6 text-brand-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Professional Inspection</h4>
@@ -503,7 +503,7 @@ export default function TerminalToTerminalPage() {
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <CheckCircleIcon className="h-6 w-6 text-blue-600" />
+                    <CheckCircleIcon className="h-6 w-6 text-brand-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Flexible Scheduling</h4>
@@ -601,7 +601,7 @@ export default function TerminalToTerminalPage() {
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
-                <h3 className="font-semibold text-lg mb-3 text-blue-900">{faq.question}</h3>
+                <h3 className="font-semibold text-lg mb-3 text-brand-900">{faq.question}</h3>
                 <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
@@ -610,7 +610,7 @@ export default function TerminalToTerminalPage() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <section className="section bg-gradient-to-r from-brand-600 to-brand-700 text-white">
         <div className="container text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="heading-2 mb-6">Save Money with Terminal Service</h2>
@@ -621,16 +621,16 @@ export default function TerminalToTerminalPage() {
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-200 mb-2">$200</div>
-                <div className="text-blue-100">Average savings per shipment</div>
+                <div className="text-3xl font-bold text-brand-200 mb-2">$200</div>
+                <div className="text-brand-100">Average savings per shipment</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-200 mb-2">50+</div>
-                <div className="text-blue-100">Secure terminal locations</div>
+                <div className="text-3xl font-bold text-brand-200 mb-2">50+</div>
+                <div className="text-brand-100">Secure terminal locations</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-200 mb-2">100%</div>
-                <div className="text-blue-100">Same insurance coverage</div>
+                <div className="text-3xl font-bold text-brand-200 mb-2">100%</div>
+                <div className="text-brand-100">Same insurance coverage</div>
               </div>
             </div>
 
@@ -643,13 +643,13 @@ export default function TerminalToTerminalPage() {
               </Link>
               <a
                 href={`tel:${process.env.NEXT_PUBLIC_COMPANY_PHONE}`}
-                className="btn-outline btn-lg border-white  hover:bg-white hover:text-blue-600"
+                className="btn-outline btn-lg border-white  hover:bg-white hover:text-brand-600"
               >
                 Find Your Terminal
               </a>
             </div>
 
-            <p className="text-blue-200 text-sm mt-6">
+            <p className="text-brand-200 text-sm mt-6">
               ✓ Save $100-200 ✓ Professional terminals ✓ Same insurance coverage
             </p>
           </div>

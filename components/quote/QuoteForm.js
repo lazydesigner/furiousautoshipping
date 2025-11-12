@@ -381,13 +381,13 @@ export default function QuoteForm() {
                 )}
 
                 {/* Address Details Debug (remove in production) */}
-                {process.env.NODE_ENV === 'development' && (
+                {/* {process.env.NODE_ENV === 'development' && (
                   <div className="text-xs text-gray-500 bg-gray-50 p-2 rounded">
                     <div>Origin: {addressDetails.origin?.city}, {addressDetails.origin?.state}</div>
                     <div>Destination: {addressDetails.destination?.city}, {addressDetails.destination?.state}</div>
                     <div>Distance: {distance}</div>
                   </div>
-                )}
+                )} */}
               </div>
             )}
 
@@ -431,7 +431,7 @@ export default function QuoteForm() {
         </AnimatePresence>
 
         {/* Debug Panel - only in development */}
-        {process.env.NODE_ENV === 'development' && (
+        {/* {process.env.NODE_ENV === 'development' && (
           <div className="fixed bottom-4 right-4 bg-gray-900 text-white p-4 rounded-lg text-xs max-w-md max-h-96 overflow-y-auto z-50">
             <h3 className="font-bold mb-2">Debug Panel</h3>
             
@@ -473,7 +473,7 @@ export default function QuoteForm() {
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Navigation Buttons */}
         <div className={`flex justify-between items-center mt-8 pt-6 border-t border-gray-200`}>

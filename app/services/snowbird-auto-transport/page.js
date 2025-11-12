@@ -173,10 +173,10 @@ export default function SnowbirdPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="section bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white overflow-hidden relative">
+      <section className="section bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 text-white overflow-hidden relative">
         <div className="absolute inset-0">
           <Image
-            src="/images/services/snowbird-hero-bg.jpg"
+            src="/images/snowbird-hero-bg.png"
             alt="Snowbird migration route"
             fill
             className="object-cover opacity-20"
@@ -204,7 +204,7 @@ export default function SnowbirdPage() {
                 </Link>
                 <a
                   href={`tel:${process.env.NEXT_PUBLIC_COMPANY_PHONE}`}
-                  className="btn-outline btn-lg border-white hover:bg-white hover:text-blue-600"
+                  className="btn-outline btn-lg border-white hover:bg-white hover:text-brand-600"
                 >
                   Call {process.env.NEXT_PUBLIC_COMPANY_PHONE}
                 </a>
@@ -219,11 +219,11 @@ export default function SnowbirdPage() {
                   </h3>
                   <div className="grid grid-cols-2 gap-6 mb-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600">15%</div>
+                      <div className="text-3xl font-bold text-brand-600">15%</div>
                       <div className="text-sm text-gray-600">Average Savings</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600">50+</div>
+                      <div className="text-3xl font-bold text-brand-600">50+</div>
                       <div className="text-sm text-gray-600">Popular Routes</div>
                     </div>
                   </div>
@@ -253,7 +253,7 @@ export default function SnowbirdPage() {
               <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-shadow">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-2">
-                    <MapPinIcon className="h-5 w-5 text-blue-600" />
+                    <MapPinIcon className="h-5 w-5 text-brand-600" />
                     <span className="font-semibold text-gray-900">{route.from}</span>
                   </div>
                   <div className="text-gray-400">→</div>
@@ -313,8 +313,8 @@ export default function SnowbirdPage() {
             {benefits.map((benefit, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-blue-100 rounded-lg">
-                    <benefit.icon className="h-6 w-6 text-blue-600" />
+                  <div className="p-2 bg-brand-100 rounded-lg">
+                    <benefit.icon className="h-6 w-6 text-brand-600" />
                   </div>
                   <h3 className="ml-3 text-lg font-semibold text-gray-900">
                     {benefit.title}
@@ -458,12 +458,12 @@ export default function SnowbirdPage() {
               <div key={index} className="text-center">
                 <div className="relative mb-6">
                   <div className="flex justify-center">
-                    <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                    <div className="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
                       {step.step}
                     </div>
                   </div>
                   {index < 3 && (
-                    <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200" />
+                    <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-brand-200" />
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-3">{step.title}</h3>
@@ -489,7 +489,7 @@ export default function SnowbirdPage() {
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
-                <h3 className="font-semibold text-lg mb-3 text-blue-900">{faq.question}</h3>
+                <h3 className="font-semibold text-lg mb-3 text-brand-900">{faq.question}</h3>
                 <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
@@ -498,7 +498,7 @@ export default function SnowbirdPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="section bg-gradient-to-r from-brand-600 to-brand-800 text-white">
         <div className="container text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="heading-2 mb-6">Ready for Your Seasonal Migration?</h2>
@@ -509,16 +509,16 @@ export default function SnowbirdPage() {
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-200 mb-2">10+</div>
-                <div className="text-blue-100">Years of snowbird experience</div>
+                <div className="text-3xl font-bold text-brand-200 mb-2">10+</div>
+                <div className="text-brand-100">Years of snowbird experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-200 mb-2">15%</div>
-                <div className="text-blue-100">Average seasonal savings</div>
+                <div className="text-3xl font-bold text-brand-200 mb-2">15%</div>
+                <div className="text-brand-100">Average seasonal savings</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-200 mb-2">98%</div>
-                <div className="text-blue-100">Customer satisfaction rate</div>
+                <div className="text-3xl font-bold text-brand-200 mb-2">98%</div>
+                <div className="text-brand-100">Customer satisfaction rate</div>
               </div>
             </div>
             
@@ -531,13 +531,13 @@ export default function SnowbirdPage() {
               </Link>
               <a
                 href={`tel:${process.env.NEXT_PUBLIC_COMPANY_PHONE}`}
-                className="btn-outline btn-lg border-white text-white hover:bg-white hover:text-blue-600"
+                className="btn-outline btn-lg border-white text-brand-400 hover:bg-white hover:text-brand-600"
               >
                 Speak with Snowbird Specialist
               </a>
             </div>
             
-            <p className="text-blue-200 text-sm mt-6">
+            <p className="text-brand-200 text-sm mt-6">
               ✓ Seasonal discounts available ✓ Flexible return scheduling ✓ Priority booking
             </p>
           </div>

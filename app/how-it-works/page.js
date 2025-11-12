@@ -28,7 +28,7 @@ const steps = [
       'Transparent pricing breakdown'
     ],
     timeframe: '2 minutes',
-    image: '/images/how-it-works/step-1-quote.jpg'
+    image: '/images/step-1-quote.png'
   },
   {
     number: '02',
@@ -42,7 +42,7 @@ const steps = [
       'Driver contact information provided'
     ],
     timeframe: '24-48 hours',
-    image: '/images/how-it-works/step-2-book.jpg'
+    image: '/images/step-2-book.png'
   },
   {
     number: '03',
@@ -57,7 +57,7 @@ const steps = [
       'Document existing damage'
     ],
     timeframe: '30 minutes',
-    image: '/images/how-it-works/step-3-prepare.jpg'
+    image: '/images/step-3-prepare.png'
   },
   {
     number: '04',
@@ -72,7 +72,7 @@ const steps = [
       'Photos taken for records'
     ],
     timeframe: '30-60 minutes',
-    image: '/images/how-it-works/step-4-pickup.jpg'
+    image: '/images/step-4-pickup.png'
   },
   {
     number: '05',
@@ -87,7 +87,7 @@ const steps = [
       'Direct driver contact available'
     ],
     timeframe: '5-14 days',
-    image: '/images/how-it-works/step-5-transport.jpg'
+    image: '/images/step-5-transport.png'
   },
   {
     number: '06',
@@ -102,7 +102,7 @@ const steps = [
       'Rate your experience'
     ],
     timeframe: '30-60 minutes',
-    image: '/images/how-it-works/step-6-delivery.jpg'
+    image: '/images/step-6-delivery.png'
   }
 ]
 
@@ -342,7 +342,7 @@ export default function HowItWorksPage() {
             </Link>
             <a
               href={`tel:${process.env.NEXT_PUBLIC_COMPANY_PHONE}`}
-              className="btn-outline btn-lg border-white text-white hover:bg-white hover:text-brand-600"
+              className="btn-outline btn-lg border-white text-brand-400 hover:bg-white hover:text-brand-600"
             >
               Speak to Specialist
             </a>

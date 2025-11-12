@@ -98,10 +98,10 @@ const featuredReviews = [
 ]
 
 const platforms = [
-  { name: 'Google Reviews', rating: 4.9, reviews: 1847, logo: '/images/reviews/google.png' },
-  { name: 'Trustpilot', rating: 4.8, reviews: 623, logo: '/images/reviews/trustpilot.png' },
-  { name: 'BBB', rating: 'A+', reviews: 234, logo: '/images/reviews/bbb.png' },
-  { name: 'Yelp', rating: 4.7, reviews: 143, logo: '/images/reviews/yelp.png' },
+  { name: 'Google Reviews', rating: 4.9, reviews: 1847, logo: '/images/google.png' },
+  { name: 'Trustpilot', rating: 4.8, reviews: 623, logo: '/images/trust.png' },
+  { name: 'BBB', rating: 'A+', reviews: 234, logo: '/images/bbb.png' },
+  { name: 'Yelp', rating: 4.7, reviews: 143, logo: '/images/yelp.png' },
 ]
 
 function StarRating({ rating, size = 'w-5 h-5' }) {
@@ -322,7 +322,7 @@ export default function ReviewsPage() {
             </a>
             <a
               href="/get-quote"
-              className="btn-outline btn-lg border-white text-white hover:bg-white hover:text-brand-600"
+              className="btn-outline btn-lg border-white text-brand-400 hover:bg-white hover:text-brand-700"
             >
               Get Your Quote
             </a>
