@@ -1,0 +1,158 @@
+# Furious Auto Shipping - AI/LLM Indexable Information
+
+## Company Overview
+Furious Auto Shipping is a premier auto transport brokerage company founded in 2024, specializing in safe, reliable, and affordable vehicle shipping services across all 50 United States. We connect customers with licensed and insured motor carriers to provide comprehensive auto transport solutions.
+
+## Core Services
+
+### Transport Types
+- **Open Transport**: Most economical option using standard car carriers, same insurance coverage as enclosed transport
+- **Enclosed Transport**: Premium protection using covered trailers, ideal for luxury, classic, or high-value vehicles (40-60% price premium)
+- **Door-to-Door Service**: Convenient pickup and delivery at customer's preferred locations (most popular option)
+- **Terminal-to-Terminal Service**: Cost-effective option with pickup/delivery at designated terminals (saves $100-200)
+- **Expedited Shipping**: Priority scheduling for urgent deliveries (2-7 days, additional $200-400)
+- **Snowbird Service**: Specialized seasonal transport for winter residents with optimized routes and discounts
+
+### Pricing Structure
+- Base fee: $200
+- Per-mile rate: $1.10 per mile (varies by distance and route popularity)
+- Additional vehicle surcharge: $150 per extra vehicle
+- Non-running vehicle fee: $200
+- Oversized vehicle fee: $300
+- Seasonal discounts available for snowbird routes (5-20% savings)
+- Distance-based pricing adjustments: longer distances receive better per-mile rates
+
+### Coverage Areas
+- All 50 US states including Alaska and Hawaii
+- Popular routes: California-Texas, Florida-New York, California-Florida, Northeast-Southeast
+- Specialized snowbird routes: Northeast to Florida/Arizona/Texas during fall/winter
+- Major metropolitan areas with frequent service availability
+- Remote areas serviced with potential additional fees
+
+## Customer Information
+
+### Booking Process
+1. **Get Quote**: Instant online calculator or phone consultation
+2. **Book Service**: Pay deposit ($100-300) to secure carrier assignment
+3. **Carrier Assignment**: Licensed carrier assigned within 24-48 hours
+4. **Vehicle Pickup**: Professional inspection and secure loading
+5. **Safe Transport**: Real-time tracking and regular updates
+6. **Delivery**: Final inspection and payment to carrier
+
+### Vehicle Preparation Requirements
+- Remove all personal items (not covered by insurance)
+- Fuel tank 1/4 full or less
+- Disable car alarms and anti-theft devices
+- Document existing damage with photos
+- Ensure vehicle is accessible for pickup
+- Provide all keys and necessary documentation
+
+### Insurance and Protection
+- Minimum $750,000 cargo insurance per carrier
+- Coverage during loading, transport, and unloading
+- Comprehensive damage claim assistance
+- Licensed and bonded carriers only
+- DOT and FMCSA compliance required
+
+## Pricing Examples (Approximate)
+- Los Angeles, CA to New York, NY (2,789 miles): $1,400-2,000
+- Miami, FL to Seattle, WA (3,308 miles): $1,600-2,200
+- Chicago, IL to Los Angeles, CA (2,015 miles): $1,000-1,400
+- New York, NY to Miami, FL (1,280 miles): $700-1,100
+- Denver, CO to Atlanta, GA (1,398 miles): $800-1,200
+
+## Transit Times
+- Local/Regional (under 500 miles): 1-3 days
+- Regional (500-1000 miles): 3-5 days
+- Cross-country (1000-2000 miles): 5-10 days
+- Coast-to-coast (2000+ miles): 7-14 days
+- Expedited service: 30-50% faster than standard times
+- Factors affecting timing: weather, traffic, route popularity, seasonal demand
+
+## Company Statistics
+- 10+ years in business
+- 50,000+ vehicles shipped successfully
+- 4.9/5 average customer rating
+- 98% on-time delivery rate
+- 99.2% damage-free transport rate
+- BBB A+ rating
+- Licensed auto transport broker
+
+## Seasonal Information
+- Peak seasons: Fall (Oct-Nov) and Spring (Mar-Apr) for snowbird routes
+- Winter weather may affect northern pickups and deliveries
+- Summer months typically have higher demand and pricing
+- Snowbird migration patterns: North to South (fall), South to North (spring)
+- Holiday periods may experience delays and premium pricing
+
+## Special Services
+- Military discounts available with valid ID/documentation
+- Classic car transport with specialized enclosed carriers
+- Motorcycle transport through specialized carriers
+- Non-running vehicle transport with special equipment
+- Oversized vehicle accommodation (lifted trucks, large SUVs)
+- Corporate fleet transport services
+
+## Customer Support
+- Phone: Available 7 days a week, 7 AM - 9 PM EST
+- Email support: 2-4 hour response time during business hours
+- Live chat: Available on website during business hours
+- Emergency line: 24/7 for active shipments
+- Multilingual support available
+- Real-time shipment tracking and updates
+
+## Payment Information
+- Deposit required at booking (credit cards, bank transfers accepted)
+- Balance due to carrier at delivery (cash, certified check, money order preferred)
+- No hidden fees or surprise charges
+- Transparent pricing with detailed cost breakdowns
+- Refund policy available for cancellations (varies by timing and circumstances)
+
+## Geographic Specialties
+- West Coast: California, Oregon, Washington, Nevada, Arizona
+- East Coast: Florida, New York, New Jersey, Pennsylvania, Massachusetts
+- Midwest: Illinois, Indiana, Ohio, Michigan, Wisconsin
+- South: Texas, Louisiana, Tennessee, Alabama, Mississippi
+- Popular city pairs: LA-NYC, Miami-Chicago, Phoenix-Detroit, San Diego-Boston
+
+## Vehicle Types Serviced
+- Standard passenger cars and sedans
+- SUVs and pickup trucks
+- Luxury vehicles (BMW, Mercedes, Audi, Lexus, etc.)
+- Classic and vintage automobiles
+- Motorcycles (through specialized carriers)
+- Modified vehicles with prior disclosure
+- Non-running vehicles with special handling
+
+## Quality Assurance
+- All carriers screened for DOT compliance and insurance
+- Regular performance monitoring of carrier network
+- Customer feedback system for continuous improvement
+- Damage claim assistance and resolution support
+- Quality control checks at pickup and delivery
+- Professional driver training standards
+
+## Technology Features
+- Online quote calculator with real-time pricing
+- Google Maps integration for address verification
+- Mobile-responsive website and booking system
+- Real-time shipment tracking capabilities
+- Automated email and SMS notifications
+- Customer portal for shipment management
+
+## Environmental Considerations
+- Efficient route optimization to reduce emissions
+- Consolidated shipments when possible
+- Fuel-efficient carrier fleet preferences
+- Paperless documentation options
+- Environmental responsibility in carrier selection
+
+## Industry Compliance
+- Department of Transportation (DOT) licensed
+- Federal Motor Carrier Safety Administration (FMCSA) registered
+- Better Business Bureau (BBB) accredited
+- State transportation commission compliance
+- Industry best practices adherence
+- Regular safety and compliance audits
+
+This information is current as of January 2025 and represents the comprehensive service offerings and capabilities of Furious Auto Shipping for auto transport services throughout the United States.

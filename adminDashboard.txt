@@ -1,0 +1,315 @@
+Admin Dashboard - Complete File Structure & Database Schema
+📋 Prompt for Creating Admin Dashboard
+Create a comprehensive admin dashboard for Furious Auto Shipping with the following specifications:
+🗄️ Database Schema (PostgreSQL)
+Primary Tables:
+
+quotes - Store all quote requests with status tracking
+vehicles - Vehicle details linked to quotes
+users - Admin users and customers
+contact_forms - Contact form submissions
+blog_posts - Blog management
+system_logs - Activity logging
+carriers - Carrier management
+payments - Payment tracking
+
+Key Columns for Admin Dashboard:
+Quote {
+  id                String   @id @default(cuid())
+  trackingId        String   @unique
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Customer Info
+  name              String
+  phone             String  
+  email             String
+  
+  // Route Info
+  originAddress     String
+  destinationAddress String
+  originCity        String
+  originState       String
+  destinationCity   String
+  destinationState  String
+  distance          Float?
+  
+  // Pricing
+  baseCost          Float?
+  totalCost         Float?
+  costBreakdown     Json?
+  
+  // Status & Assignment
+  status            QuoteStatus @default(NEW)
+  assignedTo        String?     // Admin user ID
+  carrierId         String?     // Assigned carrier
+  followUpDate      DateTime?
+  priority          Priority    @default(NORMAL)
+  
+  // Dates
+  pickupDate        DateTime?
+  deliveryDate      DateTime?
+  estimatedDelivery DateTime?
+  
+  // Service Details
+  transportType     TransportType
+  pickupType        PickupType
+  expedited         Boolean @default(false)
+  seasonalService   Boolean @default(false)
+  
+  // Business Metrics
+  leadSource        String?
+  conversionDate    DateTime?
+  revenue           Float?
+  profit            Float?
+  
+  // Relations
+  vehicles          Vehicle[]
+  notes             QuoteNote[]
+  documents         Document[]
+  payments          Payment[]
+  
+  @@map("quotes")
+}
+
+model QuoteNote {
+  id        String   @id @default(cuid())
+  quoteId   String
+  quote     Quote    @relation(fields: [quoteId], references: [id])
+  userId    String   // Admin who added note
+  content   String
+  isInternal Boolean @default(true)
+  createdAt DateTime @default(now())
+  
+  @@map("quote_notes")
+}
+
+model Carrier {
+  id            String   @id @default(cuid())
+  name          String
+  contactPerson String
+  phone         String
+  email         String
+  dotNumber     String   @unique
+  mcNumber      String?
+  insuranceExp  DateTime
+  rating        Float?
+  activeRoutes  String[] // JSON array of state codes
+  capacity      Int
+  available     Boolean  @default(true)
+  
+  quotes        Quote[]
+  
+  @@map("carriers")
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  quoteId     String
+  quote       Quote         @relation(fields: [quoteId], references: [id])
+  amount      Float
+  type        PaymentType   // DEPOSIT, BALANCE, FULL
+  status      PaymentStatus @default(PENDING)
+  method      String?       // Cash, Check, Credit
+  paidAt      DateTime?
+  dueDate     DateTime?
+  
+  @@map("payments")
+}
+
+// Enums
+enum QuoteStatus {
+  NEW
+  CONTACTED  
+  QUOTED
+  NEGOTIATING
+  ACCEPTED
+  CARRIER_ASSIGNED
+  PICKED_UP
+  IN_TRANSIT
+  DELIVERED
+  COMPLETED
+  CANCELLED
+  FOLLOW_UP
+}
+
+enum Priority {
+  LOW
+  NORMAL  
+  HIGH
+  URGENT
+}
+
+enum PaymentType {
+  DEPOSIT
+  BALANCE
+  FULL
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  OVERDUE
+  CANCELLED
+}
+📁 Admin Dashboard File Structure
+src/app/admin/
+├── layout.js                 # Admin layout with sidebar
+├── page.js                   # Dashboard overview
+├── login/
+│   └── page.js               # Admin login
+├── quotes/
+│   ├── page.js               # Quotes list with filters
+│   ├── [id]/
+│   │   ├── page.js           # Quote details/edit
+│   │   └── notes/page.js     # Quote notes
+│   └── new/page.js           # Manual quote creation
+├── customers/
+│   ├── page.js               # Customer list
+│   └── [id]/page.js          # Customer details
+├── carriers/
+│   ├── page.js               # Carrier management
+│   ├── [id]/page.js          # Carrier details
+│   └── new/page.js           # Add new carrier
+├── payments/
+│   ├── page.js               # Payment tracking
+│   └── [id]/page.js          # Payment details  
+├── analytics/
+│   ├── page.js               # Reports & analytics
+│   ├── revenue/page.js       # Revenue reports
+│   └── performance/page.js   # Performance metrics
+├── blog/
+│   ├── page.js               # Blog post management
+│   ├── [id]/page.js          # Edit blog post
+│   └── new/page.js           # Create new post
+├── users/
+│   ├── page.js               # Admin user management
+│   └── [id]/page.js          # User details
+├── settings/
+│   ├── page.js               # System settings
+│   ├── pricing/page.js       # Pricing configuration
+│   └── email/page.js         # Email templates
+└── reports/
+    ├── page.js               # Report center
+    ├── daily/page.js         # Daily reports
+    └── export/page.js        # Data export
+
+src/components/admin/
+├── layout/
+│   ├── AdminSidebar.js       # Navigation sidebar
+│   ├── AdminHeader.js        # Top header with user menu
+│   └── AdminBreadcrumb.js    # Breadcrumb navigation
+├── dashboard/
+│   ├── StatsCards.js         # KPI cards
+│   ├── RecentQuotes.js       # Recent activity
+│   ├── RevenueChart.js       # Revenue visualization
+│   └── AlertsPanel.js        # Important alerts
+├── quotes/
+│   ├── QuotesList.js         # Data table with filters
+│   ├── QuoteForm.js          # Quote edit/create form
+│   ├── QuoteTimeline.js      # Status timeline
+│   ├── QuoteNotes.js         # Notes component
+│   ├── StatusBadge.js        # Status indicators
+│   └── PriorityBadge.js      # Priority indicators
+├── carriers/
+│   ├── CarriersList.js       # Carrier data table
+│   ├── CarrierForm.js        # Add/edit carrier
+│   ├── CarrierMap.js         # Route visualization
+│   └── CarrierRating.js      # Rating component
+├── analytics/
+│   ├── RevenueChart.js       # Revenue analytics
+│   ├── ConversionChart.js    # Conversion funnel
+│   ├── LeadSourceChart.js    # Lead source breakdown
+│   └── PerformanceMetrics.js # KPI dashboard
+├── ui/
+│   ├── DataTable.js          # Reusable data table
+│   ├── FilterBar.js          # Advanced filters
+│   ├── ExportButton.js       # Data export
+│   ├── DatePicker.js         # Date range picker
+│   ├── SearchInput.js        # Search component
+│   └── Modal.js              # Modal dialogs
+└── forms/
+    ├── FormField.js          # Form input wrapper
+    ├── SelectField.js        # Select dropdown
+    ├── TextareaField.js      # Textarea component
+    └── FileUpload.js         # File upload
+
+src/lib/admin/
+├── auth.js                   # Admin authentication
+├── permissions.js            # Role-based access
+├── analytics.js              # Analytics calculations
+├── exports.js                # Data export functions
+├── notifications.js          # Admin notifications
+└── validation.js             # Form validation schemas
+
+src/app/api/admin/
+├── auth/
+│   ├── login/route.js        # Admin login
+│   └── logout/route.js       # Admin logout
+├── quotes/
+│   ├── route.js              # CRUD quotes
+│   ├── [id]/route.js         # Single quote operations
+│   ├── [id]/notes/route.js   # Quote notes
+│   └── stats/route.js        # Quote statistics
+├── carriers/
+│   ├── route.js              # CRUD carriers
+│   ├── [id]/route.js         # Single carrier
+│   └── assign/route.js       # Carrier assignment
+├── analytics/
+│   ├── dashboard/route.js    # Dashboard data
+│   ├── revenue/route.js      # Revenue analytics
+│   └── conversion/route.js   # Conversion metrics
+├── customers/
+│   ├── route.js              # Customer management
+│   └── [id]/route.js         # Customer details
+├── payments/
+│   ├── route.js              # Payment tracking
+│   └── [id]/route.js         # Payment operations
+└── export/
+    ├── quotes/route.js       # Export quotes
+    ├── revenue/route.js      # Export revenue data
+    └── reports/route.js      # Export reports
+🎯 Dashboard Features to Implement
+Core Dashboard Pages:
+
+Overview Dashboard - KPIs, recent activity, alerts
+Quote Management - List, search, filter, edit, assign
+Customer Management - Customer profiles, history
+Carrier Management - Carrier database, assignments
+Payment Tracking - Payment status, collections
+Analytics & Reports - Revenue, conversion, performance
+User Management - Admin users, permissions
+Settings - System configuration, pricing
+
+Key Functionalities:
+
+Real-time updates with WebSocket connections
+Advanced filtering and search across all data
+Bulk operations for status updates and assignments
+Export capabilities (CSV, PDF, Excel)
+Role-based permissions (Admin, Manager, Agent)
+Activity logging and audit trails
+Email/SMS notifications for important events
+Mobile-responsive design for tablet use
+
+Dashboard Widgets:
+
+Daily/Weekly/Monthly quote volume
+Revenue tracking and forecasting
+Conversion funnel analysis
+Lead source performance
+Carrier performance metrics
+Payment collection status
+Customer satisfaction scores
+Geographic heat maps
+
+Data Tables Features:
+
+Server-side pagination
+Column sorting and filtering
+Bulk selection and actions
+Export filtered results
+Column customization
+Saved filter presets
+
+This structure provides a complete foundation for a professional auto transport admin dashboard with all necessary database relationships and component architecture.
