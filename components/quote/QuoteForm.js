@@ -74,9 +74,9 @@ export default function QuoteForm() {
     origin: null,
     destination: null
   })
-  const [pricing, setPricing] = useState(null)
+  const [pricing, setPricing] = useState(2)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [distance, setDistance] = useState(null)
+  const [distance, setDistance] = useState(100)
   const [isCalculatingDistance, setIsCalculatingDistance] = useState(false)
 
   const {

@@ -77,7 +77,12 @@ const createQuoteSchema = z.object({
 
 export async function POST(request) {
   try {
-    const body = await request.json()
+    const body = await request.json() 
+
+    const A1 = convertLeadForExternalDB(body)
+    console.log(A1)
+
+
     const validatedData = createQuoteSchema.parse(body)
 
     // Create quote in database using transaction to ensure tracking ID uniqueness
@@ -123,9 +128,9 @@ export async function POST(request) {
         validatedData.seasonalReturnDate ? new Date(validatedData.seasonalReturnDate) : null,
         validatedData.moveDate ? new Date(validatedData.moveDate) : null,
         validatedData.flexible || false,
-        validatedData.distance,
-        validatedData.pricing?.estimatedPrice,
-        validatedData.pricing?.estimatedPrice,
+        validatedData.distance || 0,
+        validatedData.pricing?.estimatedPrice || 0,
+        validatedData.pricing?.estimatedPrice || 0,
         JSON.stringify(validatedData.pricing?.breakdown || {}),
         validatedData.promoCode || null
       ])
@@ -179,7 +184,7 @@ export async function POST(request) {
       console.warn('Could not log to system_logs table:', logError.message)
     }
 
-    // Send confirmation email (implement if needed)
+    // Send confirmation email (implement if needed) 
     try {
       // Import email functions with error handling
       const { sendQuoteConfirmation, sendAdminNotification } = await import('../../../lib/nodemailer.js')
@@ -189,7 +194,7 @@ export async function POST(request) {
           to: result.quote.email,
           quote: {
             ...result.quote,
-            vehicles: result.vehicles,
+            vehicles: result.vehicles, 
             pricing: validatedData.pricing,
           },
         })
@@ -531,4 +536,59 @@ export async function GET(request) {
       { status: 500 }
     )
   }
+}
+
+function convertLeadForExternalDB(lead) {
+  if (!lead) return null;
+
+  // Extract vehicle details (assuming only 1 vehicle per lead)
+  const vehicle = lead.vehicles?.[0] || {};
+
+  // Basic name split (handles single names gracefully)
+  const nameParts = lead.name ? lead.name.trim().split(" ") : [];
+  const firstName = nameParts[0] || "";
+  const lastName = nameParts.slice(1).join(" ") || "";
+
+  // Construct new object for external DB
+  const externalData = {
+    lp_campaign_id: "TEST12345",
+    lp_campaign_key: "KEY98765",
+    first_name: firstName,
+    last_name: lastName,
+    phone_home: lead.phone || "",
+    city: lead.origin_city || "",
+    state: lead.origin_state || "",
+    zip_code: lead.origin_zip || "",
+    country: "USA",
+    email_address: lead.email || "",
+    ip_address: lead.ip_address || "", // optional if you have it
+    to_city: lead.destination_city || "",
+    to_state: lead.destination_state || "",
+    to_zip_code: lead.destination_zip || "",
+    to_country: "USA",
+    move_date: lead.move_date
+      ? new Date(lead.move_date).toISOString().split("T")[0]
+      : "",
+    vehicle_year: vehicle.year || "",
+    vehicle_make: vehicle.make || "",
+    vehicle_model: vehicle.model || "",
+    vehicle_type: vehicle.type || "",
+    comments: lead.notes || "",
+
+    // Optional Lead Provider fields
+    lp_s1: "",
+    lp_s2: "",
+    lp_s3: "",
+    lp_s4: "",
+    lp_s5: "",
+    lp_test: "1",
+    lp_response: "JSON",
+    referer: lead.referer || "",
+    tcpa_consent: "Yes",
+    tcpa_text: "I consent to receive calls and messages.",
+    user_agent: lead.user_agent || "Mozilla/5.0",
+    url: lead.url || "",
+  };
+
+  return externalData;
 }

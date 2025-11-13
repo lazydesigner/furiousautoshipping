@@ -60,8 +60,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
   })
 
   const [errors, setErrors] = useState({})
-  const [distance, setDistance] = useState(null)
-  const [pricing, setPricing] = useState(null)
+  const [distance, setDistance] = useState(0)
+  const [pricing, setPricing] = useState(0)
 
   // Initialize Google Maps
   useEffect(() => {
@@ -315,31 +315,36 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         destinationCity: formData.toDetails?.city || '',
         destinationState: formData.toDetails?.state || '',
         moveDate: formData.moveDate || null,
-        flexible: formData.flexible,
+        flexible: formData.flexible || false,
 
         // Vehicle data
         vehicles: [{
           year: parseInt(formData.year),
           make: formData.make,
           model: formData.model,
-          condition: formData.condition,
+          condition: formData.condition || 'running',
           isOversized: formData.isOversized, 
+          specialInstructions: 'Not specified'
         }],
 
         // Service options
         transportType: formData.transportType,
         pickupType: formData.pickupType,
-        expedited: formData.expedited,
+        expedited: formData.expedited || false,
+        seasonalService: false,
+        seasonalStartDate: '',
+        seasonalReturnDate: '',
+
 
         // Contact info
         name: formData.name,
         phone: formData.phone,
         email: formData.email,
+        promoCode: '',
 
         // Calculated data
-        distance,
-        pricing,
-      }
+        distance, 
+      } 
 
       const response = await fetch('/api/quotes', {
         method: 'POST',

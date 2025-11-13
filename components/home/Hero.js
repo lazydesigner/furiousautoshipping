@@ -155,7 +155,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block relative z-10"
+            className="hidden lg:block relative z-30"
           > 
                <WorkingQuoteForm /> 
           </motion.div>
