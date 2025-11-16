@@ -8,7 +8,7 @@ async function geocodeAddress(address) {
     throw new Error('Google Maps API key not configured')
   }
 
-  try {
+  try { 
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${process.env.GOOGLE_MAPS_SERVER_KEY}`
     )

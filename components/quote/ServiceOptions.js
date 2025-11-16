@@ -212,14 +212,14 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                         <div className="flex items-center mb-2">
                           <type.icon className="h-5 w-5 text-brand-600 mr-2" />
                           <div className="font-medium text-gray-900">{type.name}</div>
-                          {pricing && (
+                          {/* {pricing && (
                             <div className="ml-auto text-sm font-medium text-brand-600">
                               {type.priceMultiplier === 1 
                                 ? 'Included' 
                                 : `+${formatCurrency(calculatePriceImpact(pricing.estimatedPrice, 'transport', type.id))}`
                               }
                             </div>
-                          )}
+                          )} */}
                         </div>
                         
                         <p className="text-sm text-gray-600 mb-3">{type.description}</p>
@@ -299,14 +299,14 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                         <div className="flex items-center mb-2">
                           <type.icon className="h-5 w-5 text-brand-600 mr-2" />
                           <div className="font-medium text-gray-900">{type.name}</div>
-                          {pricing && (
+                          {/* {pricing && (
                             <div className="ml-auto text-sm font-medium">
                               {type.priceAdjustment === 0 
                                 ? <span className="text-brand-600">Included</span>
                                 : <span className="text-green-600">Save {formatCurrency(Math.abs(type.priceAdjustment))}</span>
                               }
                             </div>
-                          )}
+                          )} */}
                         </div>
                         
                         <p className="text-sm text-gray-600 mb-3">{type.description}</p>
@@ -349,7 +349,7 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                   <div className="flex items-center mb-2">
                     <service.icon className="h-5 w-5 text-brand-600 mr-2" />
                     <div className="font-medium text-gray-900">{service.name}</div>
-                    {pricing && service.price && (
+                    {/* {pricing && service.price && (
                       <div className="ml-auto text-sm font-medium text-brand-600">
                         +{formatCurrency(service.price)}
                       </div>
@@ -358,7 +358,7 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                       <div className="ml-auto text-sm font-medium text-green-600">
                         Save {Math.round(service.discount * 100)}%
                       </div>
-                    )}
+                    )} */}
                   </div>
                   
                   <p className="text-sm text-gray-600 mb-3">{service.description}</p>
@@ -413,7 +413,7 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
       )}
 
       {/* Pricing Summary */}
-      {pricing && (
+      {/* {pricing && (
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h4 className="font-semibold mb-4">Price Estimate</h4>
           <div className="space-y-2">
@@ -457,7 +457,7 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
             * Final price confirmed upon carrier assignment. Prices may vary based on current market conditions.
           </p>
         </div>
-      )}
+      )} */}
 
       {errors.transportType && (
         <p className="form-error">{errors.transportType.message}</p>

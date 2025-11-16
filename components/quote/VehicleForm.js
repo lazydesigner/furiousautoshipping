@@ -188,7 +188,7 @@ export default function VehicleForm({ register, setValue, watch, errors }) {
         ))}
 
         {/* Add Vehicle Button */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <button
             type="button"
             onClick={addVehicle}
@@ -200,11 +200,11 @@ export default function VehicleForm({ register, setValue, watch, errors }) {
           <p className="text-sm text-gray-500 mt-2">
             Shipping multiple vehicles? Add them to get volume pricing.
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* Vehicle Count Summary */}
-      <div className="bg-brand-50 rounded-lg p-4">
+      {/* <div className="bg-brand-50 rounded-lg p-4">
         <div className="text-center">
           <div className="text-lg font-semibold text-brand-800">
             {vehicles.length} Vehicle{vehicles.length !== 1 ? 's' : ''} to Ship
@@ -213,7 +213,7 @@ export default function VehicleForm({ register, setValue, watch, errors }) {
             Multiple vehicles may qualify for discounted pricing
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

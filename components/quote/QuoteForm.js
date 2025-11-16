@@ -74,7 +74,7 @@ export default function QuoteForm() {
     origin: null,
     destination: null
   })
-  const [pricing, setPricing] = useState(2)
+  const [pricing, setPricing] = useState(0)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [distance, setDistance] = useState(100)
   const [isCalculatingDistance, setIsCalculatingDistance] = useState(false)
@@ -113,7 +113,7 @@ export default function QuoteForm() {
     if (!originAddress || !destinationAddress) {
       console.log('Missing addresses for distance calculation')
       return
-    }
+    } 
 
     setIsCalculatingDistance(true)
     
@@ -364,7 +364,7 @@ export default function QuoteForm() {
                 </div>
 
                 {/* Distance Display */}
-                {isCalculatingDistance && (
+                {/* {isCalculatingDistance && (
                   <div className="bg-blue-50 rounded-lg p-4 text-center">
                     <p className="text-blue-700 font-medium">
                       Calculating distance...
@@ -378,7 +378,7 @@ export default function QuoteForm() {
                       Estimated Distance: {Math.round(distance)} miles
                     </p>
                   </div>
-                )}
+                )} */}
 
                 {/* Address Details Debug (remove in production) */}
                 {/* {process.env.NODE_ENV === 'development' && (

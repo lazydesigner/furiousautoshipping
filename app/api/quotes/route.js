@@ -79,9 +79,9 @@ export async function POST(request) {
   try {
     const body = await request.json() 
 
-    const A1 = convertLeadForExternalDB(body)
-    console.log(A1)
+    const A1 = sendLeadToTOLM(body)   
 
+    console.log(A1)
 
     const validatedData = createQuoteSchema.parse(body)
 
@@ -592,3 +592,37 @@ function convertLeadForExternalDB(lead) {
 
   return externalData;
 }
+
+
+// ✅ Function to send lead data to TOLM
+async function sendLeadToTOLM(lead) {
+  try {
+    const externalData = convertLeadForExternalDB(lead);
+    if (!externalData) throw new Error("Invalid lead data.");
+
+    const response = await fetch("https://tolmco.leadspediatrack.com/post.do", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(externalData).toString(),
+    });
+
+    const textResponse = await response.text();
+
+    // Try to parse JSON response if possible
+    let result;
+    try {
+      result = JSON.parse(textResponse);
+    } catch {
+      result = textResponse;
+    }
+
+    console.log("✅ Lead sent successfully:", result);
+    return result;
+  } catch (error) {
+    console.error("❌ Error sending lead:", error);
+    throw error;
+  }
+}
+

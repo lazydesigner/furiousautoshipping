@@ -495,13 +495,13 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                     </div> */}
                   </div>
 
-                  {distance && (
+                  {/* {distance && (
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <p className="text-blue-800 font-medium">
                         Distance: {distance} miles
                       </p>
                     </div>
-                  )}
+                  )} */}
                 </div>
               )}
 
@@ -582,7 +582,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                           className="sr-only"
                         />
                         <div className="font-medium">Not Running</div>
-                        <div className="text-sm text-gray-600">Inoperable (+$200)</div>
+                        <div className="text-sm text-gray-600">Inoperable</div>
+                        {/* <div className="text-sm text-gray-600">Inoperable (+$200)</div> */}
                       </label>
                     </div>
                   </div>
@@ -596,7 +597,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                         className="h-4 w-4 text-brand-600 border-gray-300 rounded"
                       />
                       <span className="ml-2 text-sm">
-                        Oversized vehicle (lifted trucks, large SUVs) +$300
+                        {/* Oversized vehicle (lifted trucks, large SUVs) +$300 */}
+                        Oversized vehicle (lifted trucks, large SUVs)
                       </span>
                     </label>
                   </div> 
@@ -681,7 +683,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                       <span className="ml-2">
                         <span className="font-medium">Expedited Service</span>
                         <span className="text-sm text-gray-600 block">
-                          Priority scheduling for faster delivery (+$300)
+                          Priority scheduling for faster delivery
+                          {/* Priority scheduling for faster delivery (+$300) */}
                         </span>
                       </span>
                     </label>

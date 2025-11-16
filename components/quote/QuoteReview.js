@@ -51,12 +51,12 @@ export default function QuoteReview({ formData, pricing, register, errors }) {
             </div>
           )}
           
-          {pricing?.distance && (
+          {/* {pricing?.distance && (
             <div className="mt-4 pt-4 border-t border-gray-200">
               <div className="text-sm font-medium text-gray-500 mb-1">Distance</div>
               <div className="text-gray-900">{Math.round(pricing.distance)} miles</div>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Vehicle Information */}
@@ -160,7 +160,7 @@ export default function QuoteReview({ formData, pricing, register, errors }) {
 
         {/* Pricing Summary */}
         {pricing && (
-          <div className="bg-gradient-to-r from-brand-50 to-brand-100 border border-brand-200 rounded-lg p-6">
+          <div className="bg-gradient-to-r from-brand-50 to-brand-100 border border-brand-200 rounded-lg p-6 hidden">
             <div className="flex items-center mb-4">
               <CurrencyDollarIcon className="h-5 w-5 text-brand-600 mr-2" />
               <h3 className="text-lg font-semibold text-brand-900">Price Estimate</h3>
