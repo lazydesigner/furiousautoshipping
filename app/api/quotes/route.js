@@ -551,8 +551,8 @@ function convertLeadForExternalDB(lead) {
 
   // Construct new object for external DB
   const externalData = {
-    lp_campaign_id: "691390c8e722b",
-    lp_campaign_key: "XpWGxmjnMBbytCVYfH6T",
+    lp_campaign_id: "TEST12345",
+    lp_campaign_key: "KEY98765",
     first_name: firstName,
     last_name: lastName,
     phone_home: lead.phone || "",
