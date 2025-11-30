@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
   const canonicalUrl = `/locations/${fromState}/${toState}`;
 
   return {
-    title: `Car Shipping2 From ${fromStateData.name} to ${toStateData.name} | Safe, Fast & Affordable Auto Transport`,
+    title: `Car Shipping From ${fromStateData.name} to ${toStateData.name} | Safe, Fast & Affordable Auto Transport`,
     description: `Moving across state lines? Save time and money with our expert car shipping services. We offer reliable auto shipping from ${fromStateData.name} to ${toStateData.name}. Get a free quote today!`,
 
     keywords: `Auto Transport ${fromStateData.name} to ${toStateData.name}, Shipping a car from ${fromStateData.name} to ${toStateData.name}, Car shipping ${fromStateData.name} to ${toStateData.name} cost, Door-to-door auto transport, Licensed and insured carriers, Enclosed car transport`,
