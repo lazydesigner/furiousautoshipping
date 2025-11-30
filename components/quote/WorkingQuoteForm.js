@@ -38,6 +38,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
     toDetails: null,
     moveDate: '',
     flexible: false,
+    fromZip: '', // <--- NEW
+    toZip: '',
     
     // Step 2: Vehicle
     year: currentYear.toString(),
@@ -98,7 +100,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         if (fromInput && !autocompleteFrom) {
           const fromAutocomplete = new window.google.maps.places.Autocomplete(fromInput, {
             componentRestrictions: { country: 'us' },
-            types: ['(cities)'],
+            types: ['geocode'],
           })
 
           fromAutocomplete.addListener('place_changed', () => {
@@ -107,6 +109,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
               setFormData(prev => ({
                 ...prev,
                 from: place.formatted_address,
+                fromZip: extractZipCode(place.address_components), //
                 fromDetails: {
                   lat: place.geometry?.location?.lat(),
                   lng: place.geometry?.location?.lng(),
@@ -123,7 +126,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         if (toInput && !autocompleteTo) {
           const toAutocomplete = new window.google.maps.places.Autocomplete(toInput, {
             componentRestrictions: { country: 'us' },
-            types: ['(cities)'],
+            types: ['geocode'],
           })
 
           toAutocomplete.addListener('place_changed', () => {
@@ -132,6 +135,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
               setFormData(prev => ({
                 ...prev,
                 to: place.formatted_address,
+                toZip: extractZipCode(place.address_components),
                 toDetails: {
                   lat: place.geometry?.location?.lat(),
                   lng: place.geometry?.location?.lng(),
@@ -163,6 +167,15 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
       calculatePricing()
     }
   }, [distance, formData.transportType, formData.pickupType, formData.expedited, formData.condition])
+
+  // New helper function to extract Zip Code
+  const extractZipCode = (components) => {
+    if (!components) return null
+    const zipComponent = components.find(c => 
+      c.types.includes('postal_code')
+    )
+    return zipComponent?.long_name || null
+  }
 
   const extractState = (components) => {
     if (!components) return null
@@ -314,6 +327,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         originState: formData.fromDetails?.state || '',
         destinationCity: formData.toDetails?.city || '',
         destinationState: formData.toDetails?.state || '',
+        originZip: formData.fromZip || '',      // <--- NEW
+        destinationZip: formData.toZip || '',
         moveDate: formData.moveDate || null,
         flexible: formData.flexible || false,
 
@@ -345,6 +360,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         // Calculated data
         distance, 
       } 
+
+      console.log(quoteData)
 
       const response = await fetch('/api/quotes', {
         method: 'POST',
@@ -381,8 +398,8 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
   }
 
   const containerClass = isPopup 
-    ? "bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 relative max-h-[90vh] overflow-y-auto"
-    : "bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20"
+    ? "bg-white rounded-2xl shadow-2xl w-full mt-8 max-w-2xl mx-4 relative max-h-[90vh] overflow-y-auto"
+    : "bg-white/95 backdrop-blur-md rounded-2xl  mt-8 shadow-2xl border border-white/20"
 
   return (
     <div className={containerClass}>

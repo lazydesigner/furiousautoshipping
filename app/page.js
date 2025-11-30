@@ -26,7 +26,7 @@ export default function HomePage() {
       <Features />
       <Services />
       <HowItWorks />
-      <Testimonials />
+      <Testimonials /> 
       <FAQ />
       <CTA />
     </>

@@ -2,23 +2,23 @@ import Image from 'next/image'
 
 const badges = [
   {
-    name: 'BBB A+ Rating',
-    image: '/images/badges/bbb-logo.png',
+    name: 'Trustpilot A+ Rating',
+    image: '/images/588-5885660_adding-trustpilot-image-next-to-logo-on-supply.png',
     description: 'Better Business Bureau A+ Accredited'
   },
   {
-    name: 'DOT Licensed',
-    image: '/images/badges/dot-logo.png',
-    description: 'Department of Transportation Licensed'
+  name: 'Happy Customers',
+  image: '/images/happy-customers.png',
+  description: 'Trusted by Thousands of Happy Customers'
   },
   {
     name: 'FMCSA Registered',
-    image: '/images/badges/fmcsa-logo.png',
+    image: '/images/fmcsa-logo-400x-102.png',
     description: 'Federal Motor Carrier Safety Administration'
   },
   {
     name: '$1M Insurance',
-    image: '/images/badges/insurance-badge.png',
+    image: '/images/insurance.png',
     description: 'Comprehensive Insurance Coverage'
   },
 ]
@@ -32,7 +32,7 @@ const stats = [
 
 export default function TrustBadges() {
   return (
-    <section className="section bg-white border-t border-gray-100 hidden">
+    <section className="section bg-white border-t border-gray-100">
       <div className="container">
         {/* Trust Badges */}
         <div className="border-t border-gray-200 pt-8">

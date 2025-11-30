@@ -1,185 +1,269 @@
 'use client'
+import React, { useRef } from 'react';
+import { Star, Users, Clock, Shield, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { useState, useEffect } from 'react'
-import { StarIcon } from '@heroicons/react/24/solid'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-
-const testimonials = [
+const reviewsData = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    location: 'Denver, CO',
+    name: "Michael Rodriguez",
+    location: "Dallas, TX",
     rating: 5,
-    text: 'Exceptional service from start to finish! My car was picked up on time and delivered in perfect condition. The communication throughout the process was outstanding.',
-    vehicle: '2021 Honda Accord',
-    route: 'Denver, CO to Miami, FL'
+    date: "March 15, 2025",
+    text: "Excellent service from start to finish! My Tesla was picked up on time and delivered without a single scratch. The driver was professional and kept me updated throughout the journey. Highly recommend for anyone shipping luxury vehicles.",
+    verified: true
   },
   {
     id: 2,
-    name: 'Michael Chen',
-    location: 'Los Angeles, CA',
+    name: "Sarah Mitchell",
+    location: "Miami, FL",
     rating: 5,
-    text: 'I was nervous about shipping my classic Mustang, but Furious Auto Shipping made it easy. The enclosed transport was worth every penny for the peace of mind.',
-    vehicle: '1967 Ford Mustang',
-    route: 'Los Angeles, CA to Austin, TX'
+    date: "February 28, 2025", 
+    text: "This was my first time shipping a car cross-country and they made it so easy. Great communication, fair pricing, and my Honda Accord arrived in perfect condition. Will definitely use them again when I move back!",
+    verified: true
   },
   {
     id: 3,
-    name: 'Jennifer Davis',
-    location: 'Chicago, IL',
-    rating: 5,
-    text: 'Great communication and fair pricing. I always knew where my car was and when to expect delivery. The whole experience was stress-free.',
-    vehicle: '2020 Toyota Camry',
-    route: 'Chicago, IL to Phoenix, AZ'
+    name: "David Chen",
+    location: "Phoenix, AZ",
+    rating: 4,
+    date: "March 8, 2025",
+    text: "Very satisfied with the service. Delivery was one day later than expected due to weather, but the team kept me informed. My truck was well-protected during transport and arrived safely. Fair price for the quality of service.",
+    verified: true
   },
   {
     id: 4,
-    name: 'Robert Martinez',
-    location: 'New York, NY',
+    name: "Jennifer Thompson",
+    location: "Chicago, IL",
     rating: 5,
-    text: 'Needed expedited service for a work relocation. They delivered exactly as promised - fast, professional, and reliable. Highly recommend!',
-    vehicle: '2022 BMW X5',
-    route: 'New York, NY to Tampa, FL'
+    date: "January 22, 2025",
+    text: "Shipped my daughter's car to college and couldn't be happier. Professional staff, competitive pricing, and zero hassles. They handled all the paperwork and made the entire process stress-free. A+ service all around!",
+    verified: true
   },
   {
     id: 5,
-    name: 'Lisa Thompson',
-    location: 'Seattle, WA',
+    name: "Robert Williams",
+    location: "Los Angeles, CA",
     rating: 5,
-    text: 'Third year using their snowbird service. They understand our seasonal needs and always provide competitive rates. Excellent service every time.',
-    vehicle: '2020 Lexus RX',
-    route: 'Seattle, WA to Orlando, FL'
+    date: "February 14, 2025",
+    text: "Best auto transport company I've used in 20 years of military relocations. They understand the unique needs of service members and delivered my Jeep exactly when promised. Reliable, affordable, and trustworthy.",
+    verified: true
+  },
+  {
+    id: 6,
+    name: "Amanda Garcia",
+    location: "Denver, CO",
+    rating: 4,
+    date: "March 3, 2025",
+    text: "Great experience overall! The quote was accurate, pickup was smooth, and delivery was on schedule. My only minor complaint was the initial phone wait time, but once connected, everyone was very helpful and professional.",
+    verified: true
+  },
+  {
+    id: 7,
+    name: "James Patterson",
+    location: "Seattle, WA",
+    rating: 5,
+    date: "December 18, 2024",
+    text: "Moved from Seattle to Atlanta and these guys transported both our vehicles flawlessly. Enclosed transport option gave us peace of mind for our vintage Mustang. Worth every penny and the customer service was outstanding.",
+    verified: true
+  },
+  {
+    id: 8,
+    name: "Lisa Anderson",
+    location: "Austin, TX",
+    rating: 5,
+    date: "January 30, 2025",
+    text: "After getting quotes from five different companies, they offered the best price without compromising quality. My BMW was handled with care and arrived three days early. The driver even helped me with some questions about the delivery area!",
+    verified: true
+  },
+  {
+    id: 9,
+    name: "Christopher Lee",
+    location: "Boston, MA",
+    rating: 4,
+    date: "February 7, 2025",
+    text: "Solid service for cross-country transport. Communication was excellent and they accommodated my tight schedule. The vehicle arrived clean and undamaged. Would give 5 stars but felt the price was slightly high compared to competitors.",
+    verified: true
+  },
+  {
+    id: 10,
+    name: "Michelle Davis",
+    location: "Portland, OR",
+    rating: 5,
+    date: "March 12, 2025",
+    text: "Fantastic experience shipping my classic Corvette from Oregon to Florida. They assigned a dedicated specialist who answered all my questions and ensured enclosed transport. Arrived exactly as promised. These folks are the real deal!",
+    verified: true
+  },
+  {
+    id: 11,
+    name: "Daniel Martinez",
+    location: "Nashville, TN",
+    rating: 5,
+    date: "January 5, 2025",
+    text: "Shipped two vehicles for my business and both arrived on time and in excellent condition. Their online tracking system kept me informed every step of the way. Professional team that clearly knows what they're doing.",
+    verified: true
+  },
+  {
+    id: 12,
+    name: "Emily Wilson",
+    location: "San Diego, CA",
+    rating: 4,
+    date: "February 20, 2025",
+    text: "Very happy with the service. Driver was courteous and careful loading my SUV. Delivery window was accurate and the price was reasonable. Minor hiccup with billing but customer service resolved it quickly and professionally.",
+    verified: true
   }
-]
+];
 
-function StarRating({ rating }) {
+const StarRating = ({ rating }) => {
   return (
-    <div className="flex items-center">
+    <div className="flex gap-1">
       {[1, 2, 3, 4, 5].map((star) => (
-        <StarIcon
+        <Star
           key={star}
-          className={`h-5 w-5 ${
-            star <= rating ? 'text-yellow-400' : 'text-gray-300'
-          }`}
+          className={`w-5 h-5 ${star <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 fill-gray-300'}`}
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+const ReviewCard = ({ review }) => {
+  return (
+    <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 h-full flex flex-col border border-gray-100">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+            {review.name.charAt(0)}
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h3 className="font-bold text-gray-900 text-lg">{review.name}</h3>
+              {review.verified && (
+                <CheckCircle className="w-5 h-5 text-green-500 fill-green-500" />
+              )}
+            </div>
+            <p className="text-sm text-gray-500">{review.location}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="mb-4">
+        <StarRating rating={review.rating} />
+      </div>
+      
+      <p className="text-gray-700 leading-relaxed text-base mb-6 flex-grow">
+        "{review.text}"
+      </p>
+      
+      <div className="text-sm text-gray-400 pt-4 border-t border-gray-100">
+        {review.date}
+      </div>
+    </div>
+  );
+};
 
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return
+const ReviewsComponent = () => {
+  const swiperRef = useRef(null);
 
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 5000)
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying])
+    const link = document.createElement('link');
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
 
-  const goToNext = () => {
-    setCurrentIndex(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1)
-    setIsAutoPlaying(false)
-  }
+    script.onload = () => {
+      if (window.Swiper) {
+        swiperRef.current = new window.Swiper('.swiper-container', {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          grabCursor: true,
+        simulateTouch: true,
+        mousewheel: {
+            forceToAxis: true,
+            sensitivity: 1,
+            releaseOnEdges: true,
+        },
+          breakpoints: {
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+          },
+        });
+      }
+    };
 
-  const goToPrevious = () => {
-    setCurrentIndex(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1)
-    setIsAutoPlaying(false)
-  }
-
-  const goToSlide = (index) => {
-    setCurrentIndex(index)
-    setIsAutoPlaying(false)
-  }
+    return () => {
+      if (swiperRef.current) {
+        swiperRef.current.destroy(true, true);
+      }
+      document.body.removeChild(script);
+      document.head.removeChild(link);
+    };
+  }, []);
 
   return (
-    <section className="section bg-white">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="heading-2 mb-4">What Our Customers Say</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what real customers say about 
-            their auto transport experience with us.
+    <section className='section'>
+    <div className="container bg-gradient-to-b from-gray-50 via-white to-gray-50 py-20 px-4 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            What Our Customers Say
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Don't just take our word for it. Here's what real customers say about their auto transport experience with us.
           </p>
-        </div>
+        </div> 
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Testimonial Carousel */}
-          <div className="relative overflow-hidden rounded-2xl bg-gray-50 p-8 md:p-12">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="w-full flex-shrink-0">
-                  <div className="text-center">
-                    {/* Rating */}
-                    <div className="flex justify-center mb-4">
-                      <StarRating rating={testimonial.rating} />
-                    </div>
-
-                    {/* Quote */}
-                    <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 italic">
-                      "{testimonial.text}"
-                    </blockquote>
-
-                    {/* Customer Info */}
-                    <div className="space-y-2">
-                      <div className="font-semibold text-gray-900 text-lg">
-                        {testimonial.name}
-                      </div>
-                      <div className="text-gray-600">
-                        {testimonial.location}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {testimonial.vehicle} • {testimonial.route}
-                      </div>
-                    </div>
-                  </div>
+        {/* Swiper Slider */}
+        <div className="relative px-12">
+          <div className="swiper-container overflow-visible">
+            <div className="swiper-wrapper pb-12">
+              {reviewsData.map((review) => (
+                <div key={review.id} className="swiper-slide h-auto">
+                  <ReviewCard review={review} />
                 </div>
               ))}
             </div>
+            
+            {/* Pagination */}
+            <div className="swiper-pagination"></div>
           </div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeftIcon className="h-6 w-6 text-gray-600" />
+          {/* Navigation Buttons */}
+          <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:bg-blue-600 hover:text-white transition-all z-10 border border-gray-200">
+            <ChevronLeft className="w-6 h-6" />
           </button>
-          
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
-            aria-label="Next testimonial"
-          >
-            <ChevronRightIcon className="h-6 w-6 text-gray-600" />
+          <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:bg-blue-600 hover:text-white transition-all z-10 border border-gray-200">
+            <ChevronRight className="w-6 h-6" />
           </button>
-
-          {/* Dot Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-brand-600' : 'bg-gray-300'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
-
         {/* Trust Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-12 border-t border-gray-200">
           <div className="text-center">
@@ -200,6 +284,28 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px;
+          background: #cbd5e1;
+          opacity: 1;
+          transition: all 0.3s;
+        }
+        .swiper-pagination-bullet-active {
+          background: #2563eb;
+          width: 32px;
+          border-radius: 5px;
+        }
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+          content: none;
+        }
+      `}</style>
+    </div>
     </section>
-  )
-}
+  );
+};
+
+export default ReviewsComponent;

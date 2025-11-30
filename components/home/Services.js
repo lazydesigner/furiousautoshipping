@@ -8,7 +8,7 @@ const services = [
     description: 'Most popular and economical option for shipping your vehicle safely across the country.',
     image: '/images/Open-Transport.png',
     features: ['Most cost-effective', 'Fast availability', 'Same insurance coverage'],
-    href: '/services/open',
+    href: '/services/open-auto-transport',
     popular: true,
   },
   {
@@ -16,21 +16,21 @@ const services = [
     description: 'Premium protection for luxury, classic, or high-value vehicles with covered trailers.',
     image: '/images/Enclosed-Transport.png',
     features: ['Weather protection', 'Luxury vehicle specialty', 'Extra security'],
-    href: '/services/enclosed',
+    href: '/services/enclosed-auto-transport',
   },
   {
     title: 'Door-to-Door',
     description: 'Ultimate convenience with pickup and delivery right at your preferred locations.',
     image: '/images/Door-to-Door.png',
     features: ['Maximum convenience', 'No terminal visits', 'Flexible scheduling'],
-    href: '/services/door-to-door',
+    href: '/services/door-to-door-auto-transport',
   },
   {
     title: 'Expedited Shipping',
     description: 'Fast-track service for urgent deliveries with priority carrier assignment.',
     image: '/images/Expedited-shipping.png',
     features: ['Priority scheduling', '2-7 day delivery', 'Dedicated support'],
-    href: '/services/expedited',
+    href: '/services/expedited-auto-transport',
   },
 ]
 

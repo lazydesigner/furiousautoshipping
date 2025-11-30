@@ -76,7 +76,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 container">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Main Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

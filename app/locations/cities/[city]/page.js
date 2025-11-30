@@ -14,6 +14,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { formatCurrency } from '@/lib/utils'
 import AutoShippingSchema from './AutoShippingSchema';
+import ReviewsComponent from '@/components/ReviewsComponent';
+import CommonTrustBadges from '@/components/CommonTrustBadges'
 
 // City data - in a real app, this would come from a database
 const cityData = {
@@ -24,7 +26,7 @@ const cityData = {
     population: '875,000',
     region: 'West Coast',
     description: 'San Francisco is a major cultural and economic hub in Northern California, known for its steep hills, iconic Golden Gate Bridge, and vibrant tech scene.',
-    image: '/images/cities/san-francisco.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 37.7749, lng: -122.4194 },
     routes: 45,
     avgTransitTime: '7-12 days',
@@ -58,7 +60,7 @@ const cityData = {
     population: '8.3 million',
     region: 'East Coast',
     description: 'The largest city in the United States, NYC is a global hub for finance, arts, fashion, and culture. Auto transport here serves millions of residents and businesses.',
-    image: '/images/cities/new-york.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 40.7128, lng: -74.0060 },
     routes: 42,
     avgTransitTime: '5-10 days',
@@ -91,7 +93,7 @@ const cityData = {
     population: '4 million',
     region: 'West Coast',
     description: 'The entertainment capital of the world, LA is also a major business and cultural center with extensive auto transport needs.',
-    image: '/images/cities/los-angeles.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 34.0522, lng: -118.2437 },
     routes: 48,
     avgTransitTime: '6-11 days',
@@ -125,7 +127,7 @@ const cityData = {
     population: '2.7 million',
     region: 'Midwest',
     description: 'The transportation hub of America, Chicago connects East and West Coast routes and serves as a major logistics center.',
-    image: '/images/cities/chicago.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 41.8781, lng: -87.6298 },
     routes: 35,
     avgTransitTime: '4-8 days',
@@ -159,7 +161,7 @@ const cityData = {
     population: '470,000',
     region: 'Southeast',
     description: 'A major international gateway and popular destination for luxury vehicle transport, especially for seasonal residents.',
-    image: '/images/cities/miami.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 25.7617, lng: -80.1918 },
     routes: 38,
     avgTransitTime: '5-9 days',
@@ -193,7 +195,7 @@ const cityData = {
     population: '1.4 million',
     region: 'West Coast',
     description: 'San Diego is California’s second-largest city, known for its Mediterranean climate, vibrant cultural scene, prominent naval and biotech sectors, and bustling cross-border trade with Mexico.',
-    image: '/images/cities/san-diego.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 32.7157, lng: -117.1611 },
     routes: '30',
     avgTransitTime: '7–12 days',
@@ -223,7 +225,7 @@ const cityData = {
     population: '≈816,600',
     region: 'Pacific Northwest',
     description: 'Seattle is Washington’s largest city—a tech and innovation powerhouse, major seaport, cultural capital, and gateway to the Pacific Rim.',
-    image: '/images/cities/seattle.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 47.6062, lng: -122.3321 },
     routes: '32',
     avgTransitTime: 'N/A',
@@ -252,7 +254,7 @@ const cityData = {
     population: '≈660,000',
     region: 'Pacific Northwest',
     description: 'Portland is Oregon’s largest city and a regional freight and logistics hub with a major river port, significant rail links, and an international airport (PDX). It balances manufacturing, exports (lumber, paper, agri-products) and a growing tech/services sector.',
-    image: '/images/cities/portland.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 45.5152, lng: -122.6784 },
     routes: '5',
     avgTransitTime: '2–6 days',
@@ -281,7 +283,7 @@ const cityData = {
     population: '≈650,000 ',
     region: 'Intermountain West / Southwest',
     description: 'Las Vegas is a major leisure & convention economy with large logistics needs (retail, hospitality supplies, and construction material flows). The region depends on trucking via I-15 and I-95 and distribution centers serving the desert Southwest.',
-    image: '/images/cities/las-vegas.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 36.1699, lng: -115.1398 },
     routes: '3',
     avgTransitTime: '2–3 days.',
@@ -310,7 +312,7 @@ const cityData = {
     population: '≈1.6M',
     region: 'Mid-Atlantic / Northeast',
     description: 'Philadelphia is a large historic port city on the Delaware River — a major East Coast freight gateway for container, bulk and auto cargo with close rail and highway links to the Northeast distribution network.',
-    image: '/images/cities/philadelphia.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 39.9526, lng: -75.1652 },
     routes: '5',
     avgTransitTime: '1–2 days',
@@ -340,7 +342,7 @@ const cityData = {
     population: '≈700,000',
     region: 'New England / Northeast',
     description: 'Boston is an historic Northeast port and a major center for education, healthcare, life sciences and finance. Boston Harbor handles container, bulk and significant cruise traffic; Logan Airport is a major air cargo hub for New England.',
-    image: '/images/cities/boston.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 42.3601, lng: -71.0589 },
     routes: '5',
     avgTransitTime: '1–2 days.',
@@ -369,7 +371,7 @@ const cityData = {
     population: '≈520,000',
     region: 'Southeast',
     description: 'Atlanta is the Southeast’s major logistics hub — massive highway and rail convergence, a major air cargo role at Hartsfield-Jackson (global cargo and express), and large distribution centers surrounding the metro.',
-    image: '/images/cities/atlanta.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 33.7490, lng: -84.3880 },
     routes: '6',
     avgTransitTime: '1-2 Days',
@@ -399,7 +401,7 @@ const cityData = {
     population: '≈700,000',
     region: 'Mid-Atlantic',
     description: 'The U.S. capital is a major administrative and cultural center. Freight flows focus on highway/rail drayage and express air services via DCA/IAD; significant government logistics and event-driven surges shape demand.',
-    image: '/images/cities/washington-dc.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 38.9072, lng: -77.0369 },
     routes: '5',
     avgTransitTime: '1 day.',
@@ -429,7 +431,7 @@ const cityData = {
     population: '≈640,000',
     region: 'Great Lakes / Midwest',
     description: 'Detroit remains a core automotive manufacturing and transport node with large vehicle-handling ports (Detroit River), rail yards, and interstate links into the Midwest — crucial for autos and industrial freight.',
-    image: '/images/cities/detroit.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 42.3314, lng: -83.0458 },
     routes: '5',
     avgTransitTime: '2–3 days.',
@@ -457,7 +459,7 @@ const cityData = {
     population: '≈370,000',
     region: 'Great Lakes / Midwest',
     description: 'Cleveland on Lake Erie is an important Great Lakes port (bulk, autos, breakbulk) with rail and highway connections to the Midwest and Northeast.',
-    image: '/images/cities/cleveland.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 41.4993, lng: -81.6944 },
     routes: '4',
     avgTransitTime: '1–2 days.',
@@ -487,7 +489,7 @@ const cityData = {
     population: '≈590,000',
     region: 'Great Lakes / Midwest',
     description: 'Milwaukee sits on Lake Michigan and serves regional manufacturing and distribution demands with port facilities, rail and highway access into the Midwest.',
-    image: '/images/cities/milwaukee.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 43.0389, lng: -87.9065 },
     routes: '4',
     avgTransitTime: '1–2 days.',
@@ -517,7 +519,7 @@ const cityData = {
     population: '≈430,000',
     region: 'Upper Midwest',
     description: 'Minneapolis (together with St. Paul) is a major Upper Midwest logistics and distribution center — strong rail yards, interstate links (I-94/I-35) and an air cargo presence at MSP.',
-    image: '/images/cities/minneapolis.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 44.9778, lng: -93.2650 },
     routes: '5',
     avgTransitTime: '2–3 days.',
@@ -546,7 +548,7 @@ const cityData = {
     population: '≈2.3M',
     region: 'Gulf Coast / South',
     description: 'Houston is one of the U.S.’s largest port regions (Port of Houston) and a major energy, petrochemical, and containerized cargo gateway with vast rail and trucking infrastructure.',
-    image: '/images/cities/houston.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 29.7604, lng: -95.3698 },
     routes: '6',
     avgTransitTime: '2–5 days.',
@@ -576,7 +578,7 @@ const cityData = {
     population: '≈1.0M',
     region: 'South / Southwest',
     description: 'Dallas is a major inland logistics node with multiple interstates (I-35E/I-20/I-30), large distribution parks, and air cargo capacity via DFW and Dallas Love Field for express freight.',
-    image: '/images/cities/dallas.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 32.7767, lng: -96.7970 },
     routes: '6',
     avgTransitTime: '2–3 days.',
@@ -605,7 +607,7 @@ const cityData = {
     population: '≈1.0M',
     region: 'Central Texas / Southwest',
     description: 'Austin’s fast growth has increased logistics demand for tech, consumer goods, and construction; relies on I-35 corridor, Bergstrom Airport for air cargo, and nearby distribution in San Antonio/Dallas.',
-    image: '/images/cities/austin.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 30.2672, lng: -97.7431 },
     routes: '3',
     avgTransitTime: '(3–4 hours)-1 day.',
@@ -635,7 +637,7 @@ const cityData = {
     population: '≈1.7M',
     region: 'Desert Southwest',
     description: 'Phoenix is a major inland distribution center for the Southwest, with large logistics parks, strong interstate truck flows (I-10, I-17), and air cargo capacity at Sky Harbor for express shipments.',
-    image: '/images/cities/phoenix.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 33.4484, lng: -112.0740 },
     routes: '3',
     avgTransitTime: 'same day',
@@ -665,7 +667,7 @@ const cityData = {
     population: '≈1.6M  ',
     region: 'South / Texas',
     description: 'San Antonio supports military, manufacturing and distribution logistics for south/central Texas with interstate access (I-35/I-10) and a growing industrial footprint.',
-    image: '/images/cities/san-antonio.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 29.4241, lng: -98.4936 },
     routes: '3',
     avgTransitTime: 'same day–1 day',
@@ -694,7 +696,7 @@ const cityData = {
     population: '≈735,000',
     region: 'Mountain West / Intermountain',
     description: 'Denver is the Mountain West’s major freight and logistics hub with strong interstate links (I-25/I-70), intermodal rail yards, and a major air cargo presence at Denver International Airport (DEN).',
-    image: '/images/cities/denver.jpg',
+    image: '/images/common-cities.png',
     coordinates: { lat: 39.7392, lng: -104.9903 },
     routes: '5',
     avgTransitTime: '1–3 days.',
@@ -864,6 +866,8 @@ export default function CityPage({ params }) {
         </div>
       </section>
 
+      <CommonTrustBadges />
+
       {/* Popular Routes */}
       <section className="section">
         <div className="container">
@@ -914,6 +918,8 @@ export default function CityPage({ params }) {
           </div>
         </div>
       </section>
+
+      <ReviewsComponent />
 
       {/* Service Information */}
       <section className="section bg-gray-50">

@@ -77,9 +77,9 @@ const createQuoteSchema = z.object({
 
 export async function POST(request) {
   try {
-    const body = await request.json() 
+    const body = await request.json()  
 
-    const A1 = sendLeadToTOLM(body)   
+    const A1 = convertLeadForExternalDB(body)   
 
     console.log(A1)
 
@@ -559,13 +559,13 @@ function convertLeadForExternalDB(lead) {
     city: lead.origin_city || "",
     state: lead.origin_state || "",
     zip_code: lead.origin_zip || "",
-    country: "USA",
+    country: "US",
     email_address: lead.email || "",
     ip_address: lead.ip_address || "", // optional if you have it
     to_city: lead.destination_city || "",
     to_state: lead.destination_state || "",
     to_zip_code: lead.destination_zip || "",
-    to_country: "USA",
+    to_country: "US",
     move_date: lead.move_date
       ? new Date(lead.move_date).toISOString().split("T")[0]
       : "",
@@ -598,28 +598,30 @@ function convertLeadForExternalDB(lead) {
 async function sendLeadToTOLM(lead) {
   try {
     const externalData = convertLeadForExternalDB(lead);
+
+    console.log(externalData)
     if (!externalData) throw new Error("Invalid lead data.");
 
-    const response = await fetch("https://tolmco.leadspediatrack.com/post.do", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams(externalData).toString(),
-    });
+    // const response = await fetch("https://tolmco.leadspediatrack.com/post.do", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //   },
+    //   body: new URLSearchParams(externalData).toString(),
+    // });
 
-    const textResponse = await response.text();
+    // const textResponse = await response.text();
 
     // Try to parse JSON response if possible
-    let result;
-    try {
-      result = JSON.parse(textResponse);
-    } catch {
-      result = textResponse;
-    }
+    // let result;
+    // try {
+    //   result = JSON.parse(textResponse);
+    // } catch {
+    //   result = textResponse;
+    // }
 
-    console.log("✅ Lead sent successfully:", result);
-    return result;
+    // console.log("✅ Lead sent successfully:", result);
+    // return result;
   } catch (error) {
     console.error("❌ Error sending lead:", error);
     throw error;

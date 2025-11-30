@@ -143,7 +143,7 @@ export default function Footer() {
 
             {/* Services */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
+              <p className="text-lg font-semibold mb-4">Services</p>
               <ul className="space-y-3">
                 {navigation.services.map((item) => (
                   <li key={item.name}>
@@ -160,7 +160,7 @@ export default function Footer() {
 
             {/* Company */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Company</h3>
+              <p className="text-lg font-semibold mb-4">Company</p>
               <ul className="space-y-3">
                 {navigation.company.map((item) => (
                   <li key={item.name}>
@@ -177,7 +177,7 @@ export default function Footer() {
 
             {/* Locations */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Locations</h3>
+              <p className="text-lg font-semibold mb-4">Locations</p>
               <ul className="space-y-3">
                 {navigation.locations.map((item) => (
                   <li key={item.name}>
@@ -198,18 +198,18 @@ export default function Footer() {
         <div className="border-t border-gray-800 py-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Stay Updated</h3>
+              <p className="text-lg font-semibold mb-2">Stay Updated</p>
               <p className="text-gray-300 text-sm">
                 Get auto transport tips, industry news, and exclusive offers.
               </p>
             </div>
-            <div className="flex space-x-3">
+            <div className="flex flex-wrap space-x-3">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
               />
-              <button className="btn-primary whitespace-nowrap">
+              <button className="btn-primary whitespace-nowrap mt-2 sm:mt-0">
                 Subscribe
               </button>
             </div>

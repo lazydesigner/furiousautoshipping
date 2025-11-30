@@ -70,7 +70,7 @@ export default function AddressAutocomplete({
         {
           input: newValue,
           componentRestrictions: { country: 'us' },
-          types: ['(cities)'],
+          types: ['geocode'],
         },
         (predictions, status) => {
           if (status === window.google.maps.places.PlacesServiceStatus.OK && predictions) {
