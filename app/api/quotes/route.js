@@ -79,9 +79,9 @@ export async function POST(request) {
   try {
     const body = await request.json()  
 
-    const A1 = convertLeadForExternalDB(body)   
+    // const A1 = convertLeadForExternalDB(body)   
 
-    console.log(A1)
+    // console.log(A1)
 
     const validatedData = createQuoteSchema.parse(body)
 
@@ -198,7 +198,7 @@ export async function POST(request) {
             pricing: validatedData.pricing,
           },
         })
-        console.log('Quote confirmation email sent successfully')
+        // console.log('Quote confirmation email sent successfully')
       }
 
       if (sendAdminNotification) {
@@ -209,7 +209,7 @@ export async function POST(request) {
             pricing: validatedData.pricing,
           },
         })
-        console.log('Admin notification email sent successfully')
+        // console.log('Admin notification email sent successfully')
       }
     } catch (emailError) {
       console.error('Failed to send emails:', emailError)
@@ -599,7 +599,7 @@ async function sendLeadToTOLM(lead) {
   try {
     const externalData = convertLeadForExternalDB(lead);
 
-    console.log(externalData)
+    // console.log(externalData)
     if (!externalData) throw new Error("Invalid lead data.");
 
     // const response = await fetch("https://tolmco.leadspediatrack.com/post.do", {

@@ -63,9 +63,9 @@ export async function POST(request) {
           geocodeAddress(origin),
           geocodeAddress(destination)
         ])
-        console.log('Geocoded coordinates:', { originCoords, destCoords })
+        // console.log('Geocoded coordinates:', { originCoords, destCoords })
       } catch (geocodeError) {
-        console.error('Geocoding failed:', geocodeError)
+        // console.error('Geocoding failed:', geocodeError)
         return NextResponse.json(
           { 
             error: 'Failed to geocode addresses',
@@ -78,7 +78,7 @@ export async function POST(request) {
       // Coordinates already provided
       originCoords = { lat: origin.lat, lng: origin.lng }
       destCoords = { lat: destination.lat, lng: destination.lng }
-      console.log('Using provided coordinates:', { originCoords, destCoords })
+      // console.log('Using provided coordinates:', { originCoords, destCoords })
     } else {
       return NextResponse.json(
         { 

@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import { Toaster } from 'react-hot-toast'
 import Analytics from '@/components/Analytics'
 import FloatingQuoteButton from '@/components/ui/FloatingQuoteButton'
+import ChristmasDecoration from '@/components/ChristmasDecoration'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -73,7 +74,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarnings>
+    <html lang="en" className={inter.variable}>
       <head>
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -116,11 +117,12 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased bg-white text-gray-900`}>
+      <body className={`${inter.className} antialiased bg-white text-gray-900`} suppressHydrationWarnings={true}>
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
+              <ChristmasDecoration />
               {children}
             </main>
             <Footer />
