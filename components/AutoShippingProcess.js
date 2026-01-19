@@ -19,7 +19,7 @@ export default function AutoShippingProcess() {
       icon: CheckCircle,
       color: "from-purple-500 to-purple-600",
       borderColor: "border-purple-500",
-      description: "Once you accept the quote, a representative confirms your details and secures your spot on a carrier's schedule. A small initial deposit is charged, and your vehicle is dispatched to the carrier network."
+      description: "Once you accept the quote, a representative will confirm your details and reserve your vehicle on a carrier’s schedule. Your order is then dispatched to our carrier network, with no upfront payment required—you only pay when your vehicle is assigned or delivered, depending on the carrier."
     },
     {
       number: 3,

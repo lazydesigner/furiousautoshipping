@@ -17,19 +17,19 @@ const faqCategories = [
     faqs: [
       {
         question: 'How does auto transport work?',
-        answer: 'Auto transport involves picking up your vehicle from a specified location and delivering it to your destination using professional car carriers. We handle all logistics, from coordinating with certified drivers to providing tracking and insurance coverage throughout the journey.'
+        answer: 'Auto transport works by dispatching a professional carrier to pick up your vehicle from a specified location and deliver it to your destination. We handle the entire logistics chain, including carrier vetting, insurance verification, and driver coordination, ensuring a seamless door-to-door experience.'
       },
       {
-        question: 'How much does it cost to ship a car?',
-        answer: 'Car shipping costs typically range from $500-$1,500 depending on distance, vehicle size, transport type, and season. Factors affecting price include route popularity, fuel costs, vehicle condition, and service options like expedited delivery or enclosed transport.'
+        question: 'How much does it cost to ship a car cross-country?',
+        answer: 'The average cost to ship a car cross-country (approx. 2,000 miles) is between $1,100 and $1,500 for open transport. Prices vary based on vehicle size, fuel costs, and seasonal demand. Enclosed transport typically costs 40% to 60% more than standard open shipping.'
       },
       {
-        question: 'How long does car shipping take?',
-        answer: 'Transit times vary by distance: local/regional routes take 1-3 days, cross-country shipments take 7-14 days. Factors affecting timing include weather conditions, route traffic, pickup/delivery scheduling, and whether you choose standard or expedited service.'
+        question: 'How long does auto transport take?',
+        answer: 'Auto transport transit times depend on distance. 0-500 miles takes 1-2 days, 500-1,500 miles takes 3-5 days, and coast-to-coast (2,500+ miles) takes 7-10 days. These estimates assume standard weather and traffic conditions.'
       },
       {
-        question: 'Is my car insured during transport?',
-        answer: 'Yes, all shipments are covered by comprehensive insurance. Our carriers maintain cargo insurance that covers your vehicle during loading, transport, and unloading. Coverage typically ranges from $100,000 to $1,000,000 depending on the carrier and your vehicle\'s value.'
+        question: 'Is my vehicle insured during transport?',
+        answer: 'Yes, your vehicle is fully insured. All carriers in the Furious Auto Shipping network are required by the FMCSA to maintain active cargo insurance. This coverage protects your vehicle from external damage, fire, and theft from the moment of pickup until delivery.'
       }
     ]
   },
@@ -39,19 +39,19 @@ const faqCategories = [
     faqs: [
       {
         question: 'How far in advance should I book?',
-        answer: 'We recommend booking 1-2 weeks in advance for standard service. For expedited shipping, we can often accommodate requests with 2-7 days notice. Peak seasons (summer months) and popular routes may require earlier booking for best availability.'
+        answer: 'Booking 1 to 2 weeks in advance guarantees the best rates and carrier availability. While we can accommodate last-minute requests (2-5 days notice), expedited shipping often carries a premium. Peak seasons, such as summer and snowbird season (Oct-Jan), may require earlier booking.'
       },
       {
         question: 'Can I choose specific pickup and delivery dates?',
-        answer: 'We provide pickup and delivery windows rather than exact dates. Standard windows are 1-7 days for pickup and similar for delivery. Expedited service offers narrower windows. Weather, traffic, and carrier schedules can affect exact timing.'
+        answer: 'Auto transport operates on "pickup windows" rather than exact appointments due to traffic and weather variables. The standard window is 1-3 days for pickup. However, the driver will call you 12-24 hours in advance to schedule a specific meeting time for both pickup and delivery.'
       },
       {
         question: 'What if I need to change my dates?',
-        answer: 'Date changes are possible but depend on carrier availability and timing. Changes made more than 48 hours before pickup usually have no fees. Last-minute changes may incur fees or require rebooking. Contact us as soon as possible for any schedule changes.'
+        answer: 'Date changes can be made without penalty if requested at least 48 hours before the scheduled dispatch. Changes made after a carrier has been assigned may incur a rescheduling fee or require a new quote based on current market rates.'
       },
       {
         question: 'Do you offer same-day or rush shipping?',
-        answer: 'We offer expedited service that can arrange pickup within 24-48 hours and faster delivery. This premium service costs more but provides priority scheduling. Availability depends on your route and current carrier capacity.'
+        answer: 'Yes, we offer Expedited Shipping which prioritizes your vehicle for pickup within 24-48 hours. This premium service moves your vehicle to the top of the dispatch board but typically costs 20-30% more than standard shipping due to the urgent routing required.'
       }
     ]
   },
@@ -61,19 +61,19 @@ const faqCategories = [
     faqs: [
       {
         question: 'How should I prepare my car for shipping?',
-        answer: 'Clean your vehicle inside and out, remove all personal items, ensure the gas tank is 1/4 full or less, disable car alarms, remove or secure loose parts, and document existing damage with photos. Provide us with all necessary keys and documentation.'
+        answer: 'To prepare your car, ensure the gas tank is roughly 1/4 full (to reduce weight) and remove all toll tags (EZ-Pass) to avoid accidental charges. You must also disable any alarm systems and provide a clean set of keys to the driver. A clean exterior allows for a more accurate inspection.'
       },
       {
-        question: 'Can I leave personal items in my car?',
-        answer: 'We strongly recommend removing all personal items. Carriers typically don\'t allow personal belongings due to insurance and weight restrictions. If you must leave something, limit it to 100 lbs in the trunk, but these items won\'t be covered by insurance.'
+        question: 'Can I pack personal items in my car?',
+        answer: 'You can typically pack up to 100 lbs of personal items in the trunk or cargo area. These items must be secured below the window line to ensure driver visibility. Note that personal items are NOT covered by the carrier\'s cargo insurance policy and are shipped at your own risk.'
       },
       {
         question: 'What if my car doesn\'t run?',
-        answer: 'Non-running vehicles can be shipped but require special equipment and handling, which increases the cost by $150-300. The car must roll, steer, and brake for loading/unloading. Completely inoperable vehicles may require special arrangements.'
+        answer: 'Inoperable vehicles can be shipped but require a carrier equipped with a winch. This service typically adds $150 to the total cost. You must notify us in advance if the vehicle cannot roll, brake, or steer, as this may require a specialized forklift for loading.'
       },
       {
         question: 'Do I need to be present for pickup and delivery?',
-        answer: 'Yes, you or an authorized representative (18+) must be present for both pickup and delivery to sign paperwork, hand over keys, and conduct vehicle inspections. The representative should be familiar with the vehicle\'s condition.'
+        answer: 'Yes, you or a designated agent (over 18) must be present at both pickup and delivery. This person is required to sign the Bill of Lading (inspection report), which documents the vehicle\'s condition before and after transport. Without a signature, insurance claims cannot be processed.'
       }
     ]
   },
@@ -82,20 +82,20 @@ const faqCategories = [
     name: 'Services & Options',
     faqs: [
       {
-        question: 'What\'s the difference between open and enclosed transport?',
-        answer: 'Open transport uses standard car carriers (like those you see on highways) and is more economical. Enclosed transport uses covered trailers that protect from weather and road debris, ideal for luxury, classic, or high-value vehicles. Enclosed costs 40-60% more.'
+        question: 'What is the difference between open and enclosed transport?',
+        answer: 'Open transport places your vehicle on a standard open trailer (exposed to road elements) and is the most cost-effective option. Enclosed transport uses a hard-sided trailer to protect vehicles from weather, dust, and debris, making it the recommended choice for luxury, classic, and high-value cars.'
       },
       {
-        question: 'What is door-to-door vs terminal-to-terminal service?',
-        answer: 'Door-to-door picks up and delivers at your specified addresses (most popular). Terminal-to-terminal requires you to drop off and pick up at designated locations, but costs $100-200 less. Door-to-door offers maximum convenience.'
+        question: 'What is door-to-door vs. terminal-to-terminal service?',
+        answer: 'Door-to-door service means the truck picks up and delivers as close to your specified address as legally possible. Terminal-to-terminal requires you to drop off and retrieve the car at a storage depot. We primarily specialize in door-to-door shipping for maximum convenience and security.'
       },
       {
         question: 'Do you ship to Alaska or Hawaii?',
-        answer: 'Yes, we provide shipping to Alaska and Hawaii, but it requires special arrangements and takes longer (7-14+ days). Alaska shipments often go through Seattle, while Hawaii requires port-to-port ocean freight. Costs are higher due to logistics complexity.'
+        answer: 'Yes, we facilitate shipping to Alaska and Hawaii via port-to-port logistics. Vehicles going to Hawaii are shipped via ocean freight from West Coast ports (Long Beach, Oakland, Seattle), while Alaska shipments often depart from Tacoma, WA. Transit times for these routes range from 7 to 14 days.'
       },
       {
         question: 'Can you ship motorcycles, boats, or RVs?',
-        answer: 'We specialize in standard passenger vehicles. For motorcycles, boats, RVs, or oversized vehicles, we can connect you with specialized carriers. These shipments require custom quotes due to size, weight, and handling requirements.'
+        answer: 'Yes, we ship motorcycles, boats, and RVs using specialized equipment. Motorcycles are typically shipped in enclosed crates, while boats and RVs may require flatbed or lowboy trailers depending on their dimensions. Custom quotes are required for these oversized items.'
       }
     ]
   },
@@ -105,19 +105,19 @@ const faqCategories = [
     faqs: [
       {
         question: 'How do I pay for auto transport?',
-        answer: 'Payment is typically split: a deposit (usually $100-300) to secure booking, with the balance paid to the driver upon delivery. We accept cash, certified checks, and money orders. Some carriers accept credit cards for the final payment.'
+        answer: 'Payment is split into two parts: a small reservation deposit (Credit Card) charged only after a carrier is assigned, and the remaining balance paid directly to the driver at delivery via Cash, Money Order, or Cashier\'s Check. We do not require any upfront payment to start the search.'
       },
       {
         question: 'Are there any hidden fees?',
-        answer: 'No, we provide transparent pricing. Our quotes include all standard fees. Additional costs only apply if you request extra services (expedited shipping, enclosed transport) or if special circumstances arise (ferry fees, residential delivery challenges).'
+        answer: 'No, our "Price Lock Promise" means the quote you accept is the price you pay. The only potential extra costs are for undeclared items in the vehicle (over 100 lbs) or if the vehicle condition is misrepresented (e.g., listed as running but is actually inoperable).'
       },
       {
         question: 'What factors affect the shipping cost?',
-        answer: 'Key factors include distance, route popularity, vehicle size/weight, transport type (open vs enclosed), season, fuel costs, pickup/delivery locations, and timeline. Rural locations or less popular routes may cost more due to limited carrier availability.'
+        answer: 'Shipping costs are primarily determined by total mileage, vehicle size (weight/dimensions), and seasonal demand. Routes moving "against the flow" of traffic (backhaul) are cheaper, while shipping during peak snowbird season or to rural locations may increase the rate.'
       },
       {
         question: 'Do you offer military discounts?',
-        answer: 'Yes, we offer military discounts for active duty, veterans, and their families. The discount varies by route and season but typically ranges from $50-200. Valid military ID or documentation is required to qualify for the discount.'
+        answer: 'Yes, we offer discounts for Active Duty military and Veterans (PCS moves). The discount amount varies by route but typically saves $50-$100 off the standard rate. Please mention your military status when booking to have this applied.'
       }
     ]
   },
@@ -127,23 +127,23 @@ const faqCategories = [
     faqs: [
       {
         question: 'Can I track my vehicle during transport?',
-        answer: 'Yes, we provide tracking updates and driver contact information once your vehicle is assigned to a carrier. You\'ll receive pickup confirmation, in-transit updates, and delivery scheduling. You can also call our customer service for status updates anytime.'
+        answer: 'Yes, once your vehicle is dispatched, you will receive the driver\'s direct cell phone number for real-time updates. Additionally, our support team monitors the route and can provide GPS location updates upon request throughout the journey.'
       },
       {
         question: 'What if there are delays?',
-        answer: 'Weather, traffic, mechanical issues, or regulatory delays can occur. We monitor all shipments and communicate any delays immediately. If delays are significant, we may offer compensation or help expedite alternative arrangements.'
+        answer: 'Delays can occur due to weather, traffic, or mandatory DOT rest breaks. If a delay exceeds 24 hours, we will notify you immediately. Safety is our priority, so we do not pressure drivers to violate federal safety regulations to meet a deadline.'
       },
       {
         question: 'How will I know when my car will be delivered?',
-        answer: 'The driver will contact you 24-48 hours before delivery to schedule an appointment. You\'ll receive advance notice and can coordinate a convenient delivery time within the scheduled window. Emergency contact information is always provided.'
+        answer: 'The driver will contact you 12 to 24 hours prior to arrival to confirm the delivery window. About an hour before arriving at your specific location, they will call again to ensure you are ready to meet them.'
       },
       {
-        question: 'What if I can\'t be reached for delivery?',
-        answer: 'It\'s crucial to maintain communication during transport. If unreachable, drivers may charge storage fees or return the vehicle to a terminal. Always provide current contact information and alternative contacts to avoid complications and additional fees.'
+        question: 'What if I cannot be reached for delivery?',
+        answer: 'If you are unavailable, you must assign a backup person (friend/neighbor) to accept the vehicle. If no one can accept delivery, the vehicle may be placed in a local storage facility at your expense. Communication is key to avoiding these storage fees.'
       }
     ]
   }
-]
+];
 
 export default function FAQPage() {
   const [searchTerm, setSearchTerm] = useState('')

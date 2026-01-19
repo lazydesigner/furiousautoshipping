@@ -21,6 +21,9 @@ const navigation = [
       { name: 'Open Transport', href: '/services/open-auto-transport' },
       { name: 'Expedited Shipping', href: '/services/expedited-auto-transport' },
       { name: 'Snowbird Service', href: '/services/snowbird-auto-transport' },
+      { name: 'Residential Service', href: '/services/residential-car-shipping' },
+      { name: 'Military Service', href: '/services/military-car-shipping' },
+      { name: 'Dealer Service', href: '/services/dealer-auto-transport' },
     ],
   },
   {
@@ -57,7 +60,7 @@ export default function Header() {
         ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
         : 'bg-transparent'
     )}>
-      {({ open }) => (
+      {({ open, close }) => (
         <>
           <div className="container">
             <div className="flex justify-between items-center h-16 lg:h-20">
@@ -111,7 +114,7 @@ export default function Header() {
                   'inline-flex items-center justify-center p-2 rounded-md transition-colors',
                   isScrolled 
                     ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100' 
-                    : 'text-white hover:text-gray-200 hover:bg-white/10'
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-white/10'
                 )}>
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -133,6 +136,7 @@ export default function Header() {
                     key={item.name}
                     item={item}
                     pathname={pathname}
+                    closeMenu={close}
                   />
                 ))}
               </div>
@@ -226,7 +230,7 @@ function NavItem({ item, pathname, isScrolled }) {
   )
 }
 
-function MobileNavItem({ item, pathname }) {
+function MobileNavItem({ item, pathname, closeMenu }) {
   const [isOpen, setIsOpen] = useState(false)
   const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
 
@@ -237,23 +241,25 @@ function MobileNavItem({ item, pathname }) {
           onClick={() => setIsOpen(!isOpen)}
           className={cn(
             'flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium transition-colors',
-            isActive ? 'text-brand-600 bg-brand-50' : 'text-gray-700 hover:text-brand-600 hover:bg-gray-100'
+            isActive
+              ? 'text-brand-600 bg-brand-50'
+              : 'text-gray-700 hover:text-brand-600 hover:bg-gray-100'
           )}
         >
           <span>{item.name}</span>
-          <ChevronDownIcon className={cn(
-            'h-5 w-5 transition-transform',
-            isOpen ? 'rotate-180' : ''
-          )} />
+          <ChevronDownIcon
+            className={cn('h-5 w-5 transition-transform', isOpen && 'rotate-180')}
+          />
         </button>
-        
+
         {isOpen && (
           <div className="pl-4 mt-2 space-y-1">
             {item.children.map((child) => (
               <Link
                 key={child.href}
                 href={child.href}
-                className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-brand-600 hover:bg-gray-100 transition-colors"
+                onClick={() => closeMenu()}
+                className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-brand-600 hover:bg-gray-100"
               >
                 {child.name}
               </Link>
@@ -267,9 +273,12 @@ function MobileNavItem({ item, pathname }) {
   return (
     <Link
       href={item.href}
+      onClick={() => closeMenu()}
       className={cn(
         'block px-3 py-2 rounded-md text-base font-medium transition-colors',
-        isActive ? 'text-brand-600 bg-brand-50' : 'text-gray-700 hover:text-brand-600 hover:bg-gray-100'
+        isActive
+          ? 'text-brand-600 bg-brand-50'
+          : 'text-gray-700 hover:text-brand-600 hover:bg-gray-100'
       )}
     >
       {item.name}

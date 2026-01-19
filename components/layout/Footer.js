@@ -235,29 +235,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Trust Badges */}
-        <div className="border-t border-gray-800 py-6">
-          <div className="flex flex-wrap justify-center items-center space-x-8 space-y-4">
-            <div className="text-center">
-              <div className="text-xs text-gray-400 mb-1">Licensed & Bonded</div>
-              <div className="text-sm font-medium text-white">USDOT Carrier</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xs text-gray-400 mb-1">Insured</div>
-              <div className="text-sm font-medium text-white">$1M Coverage</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xs text-gray-400 mb-1">BBB Rating</div>
-              <div className="text-sm font-medium text-white">A+ Accredited</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xs text-gray-400 mb-1">Customer Rating</div>
-              <div className="text-sm font-medium text-white">4.9/5 Stars</div>
-            </div>
-          </div>
-        </div>
+        </div> 
       </div>
     </footer>
   )

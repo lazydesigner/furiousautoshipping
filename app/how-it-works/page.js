@@ -36,7 +36,7 @@ const steps = [
     description: 'Secure your booking with a small deposit and we handle the rest.',
     icon: CheckCircleIcon,
     details: [
-      'Small deposit to secure booking',
+      'No Upfront Cost',
       'Carrier assignment within 24-48 hours',
       'Pickup scheduling coordination',
       'Driver contact information provided'

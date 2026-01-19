@@ -53,20 +53,20 @@ const offices = [
   {
     city: 'Headquarters',
     address: '123 Transport Way, Miami, FL 33101',
-    phone: '(555) 123-4567',
-    email: 'miami@furiousautoshipping.com',
+    phone: '(888) 706-8784',
+    email: 'info@furiousautoshipping.com',
   },
   {
     city: 'West Coast Office',
     address: '456 Shipping Blvd, Los Angeles, CA 90210',
-    phone: '(555) 234-5678',
-    email: 'la@furiousautoshipping.com',
+    phone: '(888) 706-8784',
+    email: 'info@furiousautoshipping.com',
   },
   {
     city: 'East Coast Office',
     address: '789 Auto Lane, New York, NY 10001',
-    phone: '(555) 345-6789',
-    email: 'ny@furiousautoshipping.com',
+    phone: '(888) 706-8784',
+    email: 'info@furiousautoshipping.com',
   },
 ]
 
@@ -389,7 +389,7 @@ export default function ContactPage() {
                 href="tel:+15551234567"
                 className="text-lg font-bold text-red-800 hover:text-red-900"
               >
-                Emergency Line: (555) 123-4567
+                Emergency Line: (888) 706-8784
               </a>
               <p className="text-sm text-red-600 mt-1">Available 24/7</p>
             </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRightIcon, ChevronLeftIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import { Loader } from '@googlemaps/js-api-loader'
@@ -11,9 +11,62 @@ const currentYear = new Date().getFullYear()
 const years = Array.from({ length: 30 }, (_, i) => currentYear - i)
 
 const popularMakes = [
-  'Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'BMW', 'Mercedes-Benz',
-  'Audi', 'Volkswagen', 'Hyundai', 'Kia', 'Mazda', 'Subaru', 'Lexus', 'Acura'
-]
+  // 🇯🇵 Japan
+  'Toyota', 'Lexus', 'Honda', 'Acura', 'Nissan', 'Infiniti', 'Mazda',
+  'Subaru', 'Suzuki', 'Mitsubishi', 'Daihatsu', 'Isuzu',
+
+  // 🇺🇸 USA
+  'Ford', 'Chevrolet', 'GMC', 'Cadillac', 'Buick', 'Chrysler', 'Dodge',
+  'Jeep', 'Ram', 'Tesla', 'Lincoln', 'Rivian', 'Lucid', 'Fisker',
+
+  // 🇩🇪 Germany
+  'Volkswagen', 'Audi', 'BMW', 'Mercedes-Benz', 'Porsche', 'Opel',
+  'Maybach', 'Smart',
+
+  // 🇰🇷 South Korea
+  'Hyundai', 'Kia', 'Genesis', 'SsangYong',
+
+  // 🇫🇷 France
+  'Renault', 'Peugeot', 'Citroën', 'DS Automobiles',
+
+  // 🇮🇹 Italy
+  'Fiat', 'Alfa Romeo', 'Lancia', 'Ferrari', 'Lamborghini',
+  'Maserati', 'Abarth',
+
+  // 🇬🇧 United Kingdom
+  'Jaguar', 'Land Rover', 'Mini', 'Rolls-Royce', 'Bentley',
+  'Aston Martin', 'McLaren', 'Lotus',
+
+  // 🇨🇳 China
+  'BYD', 'Geely', 'Chery', 'Great Wall', 'Haval', 'MG',
+  'NIO', 'XPeng', 'Li Auto', 'Hongqi', 'GAC', 'BAIC',
+
+  // 🇮🇳 India
+  'Maruti Suzuki', 'Tata Motors', 'Mahindra', 'Ashok Leyland',
+  'Force Motors',
+
+  // 🇪🇸 Spain
+  'SEAT', 'Cupra',
+
+  // 🇸🇪 Sweden
+  'Volvo', 'Polestar', 'Koenigsegg',
+
+  // 🇷🇺 Russia
+  'Lada', 'GAZ', 'UAZ',
+
+  // 🇨🇿 Czech Republic
+  'Škoda', 'Tatra',
+
+  // 🇷🇴 Romania
+  'Dacia',
+
+  // 🇮🇷 Iran
+  'Iran Khodro', 'SAIPA',
+
+  // 🌍 Others / Niche
+  'Bugatti', 'Pagani', 'Rimac', 'Zotye', 'Proton', 'Perodua'
+];
+
 
 const STEPS = [
   { id: 1, name: 'Location', title: 'Where are you shipping?' },
@@ -27,8 +80,10 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
-  const [autocompleteFrom, setAutocompleteFrom] = useState(null)
-  const [autocompleteTo, setAutocompleteTo] = useState(null)
+  const autocompleteFromRef = useRef(null)
+  const autocompleteToRef = useRef(null)
+  const ignoreNextChangeFrom = useRef(false)
+  const ignoreNextChangeTo = useRef(false)
   
   const [formData, setFormData] = useState({
     // Step 1: Location
@@ -38,7 +93,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
     toDetails: null,
     moveDate: '',
     flexible: false,
-    fromZip: '', // <--- NEW
+    fromZip: '',
     toZip: '',
     
     // Step 2: Vehicle
@@ -60,6 +115,20 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
     email: '',
     promoCode: ''
   })
+
+  const formatUSPhone = (value) => {
+  // Remove all non-digits
+  const digits = value.replace(/\D/g, '').slice(0, 10);
+
+  const len = digits.length;
+
+  if (len === 0) return '';
+  if (len < 4) return `(${digits}`;
+  if (len < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+};
+
 
   const [errors, setErrors] = useState({})
   const [distance, setDistance] = useState(0)
@@ -97,7 +166,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         const fromInput = document.getElementById('complete-from-input')
         const toInput = document.getElementById('complete-to-input')
 
-        if (fromInput && !autocompleteFrom) {
+        if (fromInput && !autocompleteFromRef.current) {
           const fromAutocomplete = new window.google.maps.places.Autocomplete(fromInput, {
             componentRestrictions: { country: 'us' },
             types: ['geocode'],
@@ -106,10 +175,11 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
           fromAutocomplete.addListener('place_changed', () => {
             const place = fromAutocomplete.getPlace()
             if (place.formatted_address) {
+              ignoreNextChangeFrom.current = true
               setFormData(prev => ({
                 ...prev,
                 from: place.formatted_address,
-                fromZip: extractZipCode(place.address_components), //
+                fromZip: extractZipCode(place.address_components),
                 fromDetails: {
                   lat: place.geometry?.location?.lat(),
                   lng: place.geometry?.location?.lng(),
@@ -117,13 +187,17 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                   city: extractCity(place.address_components)
                 }
               }))
+              // Reset the flag after a short delay
+              setTimeout(() => {
+                ignoreNextChangeFrom.current = false
+              }, 100)
             }
           })
 
-          setAutocompleteFrom(fromAutocomplete)
+          autocompleteFromRef.current = fromAutocomplete
         }
 
-        if (toInput && !autocompleteTo) {
+        if (toInput && !autocompleteToRef.current) {
           const toAutocomplete = new window.google.maps.places.Autocomplete(toInput, {
             componentRestrictions: { country: 'us' },
             types: ['geocode'],
@@ -132,6 +206,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
           toAutocomplete.addListener('place_changed', () => {
             const place = toAutocomplete.getPlace()
             if (place.formatted_address) {
+              ignoreNextChangeTo.current = true
               setFormData(prev => ({
                 ...prev,
                 to: place.formatted_address,
@@ -143,16 +218,20 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                   city: extractCity(place.address_components)
                 }
               }))
+              // Reset the flag after a short delay
+              setTimeout(() => {
+                ignoreNextChangeTo.current = false
+              }, 100)
             }
           })
 
-          setAutocompleteTo(toAutocomplete)
+          autocompleteToRef.current = toAutocomplete
         }
       }, 100)
 
       return () => clearTimeout(timer)
     }
-  }, [currentStep, isLoaded, autocompleteFrom, autocompleteTo])
+  }, [currentStep, isLoaded])
 
   // Calculate distance and pricing when both locations are set
   useEffect(() => {
@@ -168,7 +247,6 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
     }
   }, [distance, formData.transportType, formData.pickupType, formData.expedited, formData.condition])
 
-  // New helper function to extract Zip Code
   const extractZipCode = (components) => {
     if (!components) return null
     const zipComponent = components.find(c => 
@@ -196,6 +274,10 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
   const calculateDistance = async () => {
     if (!formData.fromDetails || !formData.toDetails) return
 
+    console.log(formData)
+    console.log('====================')
+    console.log(formData)
+
     try {
       const response = await fetch('/api/calculate-distance', {
         method: 'POST',
@@ -203,14 +285,15 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          origin: formData.fromDetails,
-          destination: formData.toDetails,
+          origin: formData.from,
+          destination: formData.to,
         }),
       })
 
       if (response.ok) {
         const data = await response.json()
         setDistance(data.distance)
+        console.log(data.distance)
       }
     } catch (error) {
       console.error('Error calculating distance:', error)
@@ -220,22 +303,18 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
   const calculatePricing = () => {
     if (!distance) return
 
-    // Basic pricing calculation
     const baseFee = 200
     const perMile = 1.10
     let basePrice = baseFee + (distance * perMile)
 
-    // Transport type multiplier
     if (formData.transportType === 'enclosed') {
       basePrice *= 1.4
     }
 
-    // Pickup type adjustment
     if (formData.pickupType === 'terminalToTerminal') {
       basePrice -= 100
     }
 
-    // Additional services
     if (formData.expedited) {
       basePrice += 300
     }
@@ -259,6 +338,14 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
   }
 
   const handleInputChange = (field, value) => {
+    // Check if we should ignore this change (autocomplete is updating)
+    if (field === 'from' && ignoreNextChangeFrom.current) {
+      return
+    }
+    if (field === 'to' && ignoreNextChangeTo.current) {
+      return
+    }
+
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -271,6 +358,22 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         [field]: null
       }))
     }
+
+    // Clear location details when user manually edits the field
+    if (field === 'from') {
+      setFormData(prev => ({
+        ...prev,
+        fromDetails: null,
+        fromZip: ''
+      }))
+    }
+    if (field === 'to') {
+      setFormData(prev => ({
+        ...prev,
+        toDetails: null,
+        toZip: ''
+      }))
+    }
   }
 
   const validateStep = (step) => {
@@ -280,6 +383,7 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
       case 1:
         if (!formData.from.trim()) newErrors.from = 'Pickup location is required'
         if (!formData.to.trim()) newErrors.to = 'Delivery location is required'
+        if (!formData.moveDate) newErrors.moveDate = 'Preferred Ship Date is required'
         break
       case 2:
         if (!formData.year) newErrors.year = 'Vehicle year is required'
@@ -287,7 +391,6 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         if (!formData.model.trim()) newErrors.model = 'Vehicle model is required'
         break
       case 3:
-        // Service options are optional or have defaults
         break
       case 4:
         if (!formData.name.trim()) newErrors.name = 'Name is required'
@@ -320,19 +423,17 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
 
     try {
       const quoteData = {
-        // Location data
         originAddress: formData.from,
         destinationAddress: formData.to,
         originCity: formData.fromDetails?.city || '',
         originState: formData.fromDetails?.state || '',
         destinationCity: formData.toDetails?.city || '',
         destinationState: formData.toDetails?.state || '',
-        originZip: formData.fromZip || '',      // <--- NEW
+        originZip: formData.fromZip || '',
         destinationZip: formData.toZip || '',
         moveDate: formData.moveDate || null,
         flexible: formData.flexible || false,
 
-        // Vehicle data
         vehicles: [{
           year: parseInt(formData.year),
           make: formData.make,
@@ -342,7 +443,6 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
           specialInstructions: 'Not specified'
         }],
 
-        // Service options
         transportType: formData.transportType,
         pickupType: formData.pickupType,
         expedited: formData.expedited || false,
@@ -350,14 +450,11 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
         seasonalStartDate: '',
         seasonalReturnDate: '',
 
-
-        // Contact info
         name: formData.name,
         phone: formData.phone,
         email: formData.email,
         promoCode: '',
 
-        // Calculated data
         distance, 
       } 
 
@@ -377,16 +474,13 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
 
       const result = await response.json()
       
-      // Clear form data
       if (typeof window !== 'undefined') {
         localStorage.removeItem('homepageQuoteData')
         localStorage.removeItem('quoteFormData')
       }
 
-      // Close popup if it's a popup
       if (onClose) onClose()
 
-      // Redirect to success page
       router.push(`/quote-success/${result.quoteId}`)
       
     } catch (error) {
@@ -399,14 +493,14 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
 
   const containerClass = isPopup 
     ? "bg-white rounded-2xl shadow-2xl w-full mt-8 max-w-2xl mx-4 relative max-h-[90vh] overflow-y-auto"
-    : "bg-white/95 backdrop-blur-md rounded-2xl  mt-8 shadow-2xl border border-white/20"
+    : "bg-white/95 backdrop-blur-md rounded-2xl mt-8 shadow-2xl border border-white/20"
 
   return (
     <div className={containerClass}>
       {isPopup && (
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-30"
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -496,29 +590,12 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                         value={formData.moveDate}
                         onChange={(e) => handleInputChange('moveDate', e.target.value)}
                         className="form-input"
+                        required
                         min={new Date().toISOString().split('T')[0]}
                       />
+                      {errors.moveDate && <p className="form-error">{errors.moveDate}</p>}
                     </div>
-                    {/* <div className="flex items-center pt-6">
-                      <input
-                        type="checkbox"
-                        checked={formData.flexible}
-                        onChange={(e) => handleInputChange('flexible', e.target.checked)}
-                        className="h-4 w-4 text-brand-600 border-gray-300 rounded"
-                      />
-                      <label className="ml-2 text-sm text-gray-700">
-                        I'm flexible with dates
-                      </label>
-                    </div> */}
                   </div>
-
-                  {/* {distance && (
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <p className="text-blue-800 font-medium">
-                        Distance: {distance} miles
-                      </p>
-                    </div>
-                  )} */}
                 </div>
               )}
 
@@ -600,7 +677,6 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                         />
                         <div className="font-medium">Not Running</div>
                         <div className="text-sm text-gray-600">Inoperable</div>
-                        {/* <div className="text-sm text-gray-600">Inoperable (+$200)</div> */}
                       </label>
                     </div>
                   </div>
@@ -614,7 +690,6 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                         className="h-4 w-4 text-brand-600 border-gray-300 rounded"
                       />
                       <span className="ml-2 text-sm">
-                        {/* Oversized vehicle (lifted trucks, large SUVs) +$300 */}
                         Oversized vehicle (lifted trucks, large SUVs)
                       </span>
                     </label>
@@ -701,12 +776,10 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                         <span className="font-medium">Expedited Service</span>
                         <span className="text-sm text-gray-600 block">
                           Priority scheduling for faster delivery
-                          {/* Priority scheduling for faster delivery (+$300) */}
                         </span>
                       </span>
                     </label>
                   </div>
- 
                 </div>
               )}
 
@@ -728,15 +801,21 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="form-label">Phone Number *</label>
+
                       <input
                         type="tel"
                         placeholder="(555) 123-4567"
                         value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange('phone', formatUSPhone(e.target.value))
+                        }
                         className={`form-input ${errors.phone ? 'border-red-500' : ''}`}
+                        maxLength={14}
                       />
+
                       {errors.phone && <p className="form-error">{errors.phone}</p>}
                     </div>
+
                     <div>
                       <label className="form-label">Email Address *</label>
                       <input
@@ -749,8 +828,6 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
                       {errors.email && <p className="form-error">{errors.email}</p>}
                     </div>
                   </div>
- 
- 
                 </div>
               )}
             </motion.div>
@@ -807,7 +884,6 @@ export default function CompleteQuoteForm({ isPopup = false, onClose }) {
           </div>
         </form>
 
-        {/* Loading State */}
         {!isLoaded && currentStep === 1 && (
           <div className="text-center text-sm text-gray-500 mt-4">
             Loading Google Maps...

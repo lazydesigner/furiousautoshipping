@@ -12,11 +12,12 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+  preload: true,
 })
 
 export const metadata = {
   title: {
-    default: 'Furious Auto Shipping - Fast, Reliable Car Transport Services',
+    default: 'Nationwide Auto Transport & Car Shipping Services | Furious',
     template: '%s | Furious Auto Shipping',
   },
   description: 'Get instant quotes for auto transport services across the USA. Door-to-door car shipping with competitive rates and excellent customer service.',
@@ -39,7 +40,7 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_SITE_URL,
-    title: 'Furious Auto Shipping - Fast, Reliable Car Transport Services',
+    title: 'Nationwide Auto Transport & Car Shipping Services | Furious',
     description: 'Get instant quotes for auto transport services across the USA. Professional car shipping with competitive rates.',
     siteName: 'Furious Auto Shipping',
     images: [
@@ -53,7 +54,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Furious Auto Shipping - Fast, Reliable Car Transport Services',
+    title: 'Nationwide Auto Transport & Car Shipping Services | Furious',
     description: 'Get instant quotes for auto transport services across the USA.',
     images: ['/images/twitter-image.jpg'],
     creator: '@furiousauto',
@@ -79,13 +80,13 @@ export default function RootLayout({ children }) {
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://maps.googleapis.com" />
-        
+
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        
+
         {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
@@ -116,21 +117,85 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+
+        <script type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Furious Auto Shipping",
+              "url": "https://furiousautoshipping.com",
+              "logo": "https://furiousautoshipping.com/logo.png",
+              "foundingDate": "2015",
+              "description": "A nationwide auto transport logistics network specializing in door-to-door vehicle shipping.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-800-555-0199",
+                "contactType": "customer service",
+                "areaServed": "US",
+                "availableLanguage": "en"
+              },
+              "sameAs": [
+                "https://www.facebook.com/furiousautoshipping",
+                "https://www.linkedin.com/company/furiousautoshipping",
+                "https://www.bbb.org/us/tx/furious-auto-shipping",
+                "https://www.transportreviews.com/company/furious-auto-shipping"
+              ]
+            }),
+          }} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AutoDealer",
+              "name": "Furious Auto Shipping",
+              "description": "Nationwide auto transport broker serving all 50 United States.",
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "National Shipping Routes",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Cross-Country Auto Transport",
+                      "description": "Coast-to-coast vehicle shipping."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "State-to-State Shipping",
+                      "description": "Direct routes between any two US states."
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} antialiased bg-white text-gray-900`} suppressHydrationWarnings={true}>
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
-              <ChristmasDecoration />
+              {/* <ChristmasDecoration /> */}
               {children}
             </main>
             <Footer />
           </div>
-          
+
           {/* Floating Quote Button */}
           <FloatingQuoteButton />
-          
+
           {/* Toast notifications */}
           <Toaster
             position="top-right"
@@ -156,7 +221,7 @@ export default function RootLayout({ children }) {
               },
             }}
           />
-          
+
           {/* Analytics */}
           <Analytics />
         </Providers>

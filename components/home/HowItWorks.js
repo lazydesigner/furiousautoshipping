@@ -11,7 +11,7 @@ const steps = [
     number: '02',
     title: 'Book Your Shipment',
     description: 'Secure your booking with a small deposit. We assign a licensed carrier and schedule your pickup.',
-    details: ['Pay deposit to secure booking', 'Carrier assignment within 24-48 hours', 'Receive pickup scheduling', 'Get driver contact information']
+    details: ['Reserve with $0 Upfront', 'Carrier assignment within 24-48 hours', 'Receive pickup scheduling', 'Get driver contact information']
   },
   {
     number: '03',

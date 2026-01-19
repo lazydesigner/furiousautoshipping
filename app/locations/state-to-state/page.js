@@ -28,22 +28,22 @@ const regions = [
   {
     name: 'West Coast',
     states: ['CA', 'OR', 'WA', 'NV', 'AZ'],
-    description: 'Pacific Coast and Southwest routes with frequent service'
+    description: 'Daily routes covering the Pacific Coast Highway (I-5) and inland connections. Frequent service to California, Oregon, and Washington with connections to Hawaii ports.'
   },
   {
     name: 'East Coast',
     states: ['NY', 'NJ', 'PA', 'CT', 'MA', 'FL', 'GA', 'NC', 'SC', 'VA', 'MD', 'DE'],
-    description: 'Atlantic corridor with high-frequency departures'
+    description: 'High-volume transport along the Atlantic I-95 corridor. Serving snowbirds and professionals from New England down to Florida and the Keys.'
   },
   {
     name: 'Midwest',
     states: ['IL', 'IN', 'OH', 'MI', 'WI', 'MN', 'IA', 'MO', 'KS', 'NE'],
-    description: 'Central hub connecting all major routes'
+    description: 'The central hub of American auto manufacturing. connecting Chicago, Detroit, and Ohio to the Sunbelt states via I-35 and I-55.'
   },
   {
     name: 'South',
     states: ['TX', 'LA', 'AR', 'TN', 'AL', 'MS', 'OK', 'KY'],
-    description: 'Southern corridor with competitive pricing'
+    description: 'Rapidly growing relocation routes. Heavy volume into Texas, Tennessee, and Georgia. Specialized open and enclosed options for the Southern heat.'
   },
 ]
 

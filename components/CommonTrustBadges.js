@@ -1,25 +1,25 @@
 import Image from 'next/image'
 
 const badges = [
+  
   {
+    name: 'FMCSA Licensed',
+    image: '/images/fmcsa-logo-400x-102.png',
+    description: ''
+  },{
     name: 'Trustpilot A+ Rating',
     image: '/images/588-5885660_adding-trustpilot-image-next-to-logo-on-supply.png',
-    description: 'Better Business Bureau A+ Accredited'
+    description: ''
   },
   {
   name: 'Happy Customers',
   image: '/images/happy-customers.png',
-  description: 'Trusted by Thousands of Happy Customers'
+  description: ''
   },
   {
-    name: 'FMCSA Registered',
-    image: '/images/fmcsa-logo-400x-102.png',
-    description: 'Federal Motor Carrier Safety Administration'
-  },
-  {
-    name: '$1M Insurance',
+    name: 'Damage-Free Guarantee',
     image: '/images/insurance.png',
-    description: 'Comprehensive Insurance Coverage'
+    description: ''
   },
 ]
  

@@ -58,12 +58,15 @@ export async function POST(request) {
         )
       }
 
+      console.log(origin)
+      console.log(destination)
+
       try {
         [originCoords, destCoords] = await Promise.all([
           geocodeAddress(origin),
           geocodeAddress(destination)
         ])
-        // console.log('Geocoded coordinates:', { originCoords, destCoords })
+        console.log('Geocoded coordinates:', { originCoords, destCoords })
       } catch (geocodeError) {
         // console.error('Geocoding failed:', geocodeError)
         return NextResponse.json(
@@ -74,10 +77,10 @@ export async function POST(request) {
           { status: 400 }
         )
       }
-    } else if (origin.lat && origin.lng && destination.lat && destination.lng) {
+    } else if (origin.coords.lat && origin.coords.lng && destination.coords.lat && destination.coords.lng) {
       // Coordinates already provided
-      originCoords = { lat: origin.lat, lng: origin.lng }
-      destCoords = { lat: destination.lat, lng: destination.lng }
+      originCoords = { lat: origin.coords.lat, lng: origin.coords.lng }
+      destCoords = { lat: destination.coords.lat, lng: destination.coords.lng }
       // console.log('Using provided coordinates:', { originCoords, destCoords })
     } else {
       return NextResponse.json(

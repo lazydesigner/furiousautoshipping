@@ -91,7 +91,7 @@ export default function AboutPage() {
               <h2 className="heading-2 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  Founded in 2021, Furious Auto Shipping began with a simple mission: to make 
+                  Founded in 2018, Furious Auto Shipping began with a simple mission: to make 
                   auto transport more transparent, reliable, and customer-focused. We saw an 
                   industry that was often confusing and unpredictable for customers, and we 
                   knew we could do better.

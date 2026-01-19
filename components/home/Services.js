@@ -4,32 +4,32 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
 const services = [
   {
-    title: 'Open Transport',
-    description: 'Most popular and economical option for shipping your vehicle safely across the country.',
+    title: 'Standard Open Shipping',
+    description: 'The most cost-effective way to move daily drivers. Safe, reliable, and insured.',
     image: '/images/Open-Transport.png',
-    features: ['Most cost-effective', 'Fast availability', 'Same insurance coverage'],
+    features: ["Family Relocation", "Dealerships", "Auction Deliveries"],
     href: '/services/open-auto-transport',
     popular: true,
   },
   {
-    title: 'Enclosed Transport',
-    description: 'Premium protection for luxury, classic, or high-value vehicles with covered trailers.',
+    title: 'Premium Enclosed Protection',
+    description: 'Climate-controlled protection for exotics, classics, and high-value assets.',
     image: '/images/Enclosed-Transport.png',
-    features: ['Weather protection', 'Luxury vehicle specialty', 'Extra security'],
+    features: ["Luxury Cars", "Collectors", "Show Vehicles"],
     href: '/services/enclosed-auto-transport',
   },
   {
-    title: 'Door-to-Door',
+    title: 'Door-to-Door Service',
     description: 'Ultimate convenience with pickup and delivery right at your preferred locations.',
     image: '/images/Door-to-Door.png',
-    features: ['Maximum convenience', 'No terminal visits', 'Flexible scheduling'],
+    features: ['Maximum convenience', 'No terminal visits', 'Flexible scheduling', "Non-running vehicles"],
     href: '/services/door-to-door-auto-transport',
   },
   {
     title: 'Expedited Shipping',
-    description: 'Fast-track service for urgent deliveries with priority carrier assignment.',
+    description: 'Guaranteed pickup within 24-48 hours for urgent moves.',
     image: '/images/Expedited-shipping.png',
-    features: ['Priority scheduling', '2-7 day delivery', 'Dedicated support'],
+    features: ['Priority scheduling', '2-7 day delivery', "Last-minute moves", "Corporate transfers"],
     href: '/services/expedited-auto-transport',
   },
 ]

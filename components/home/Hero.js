@@ -9,8 +9,7 @@ import WorkingQuoteForm from '@/components/quote/WorkingQuoteForm'
 
 const stats = [
   { label: 'Vehicles Shipped', value: '50,000+', icon: TruckIcon },
-  { label: 'Customer Rating', value: '4.9/5', icon: ShieldCheckIcon },
-  { label: 'Average Delivery', value: '7-10 Days', icon: ClockIcon },
+  { label: 'Customer Rating', value: '4.9/5', icon: ShieldCheckIcon }, 
 ]
 
 export default function Hero() {
@@ -23,6 +22,18 @@ export default function Hero() {
   if (!mounted) {
     return (
       <section className="relative min-h-screen flex items-center bg-gradient-to-r from-brand-600 to-brand-800">
+        {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero_image.png"
+          alt="Professional car transport truck"
+          fill
+          className="object-cover"
+          priority 
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/90 to-brand-800/80" />
+      </div>
         <div className="container">
           <div className="max-w-4xl">
             <div className="space-y-8">
@@ -47,7 +58,7 @@ export default function Hero() {
                 
                 <a
                   href={`tel:${process.env.NEXT_PUBLIC_COMPANY_PHONE}`}
-                  className="btn-outline btn-lg border-white text-white hover:bg-white hover:text-brand-600"
+                  className="btn-outline btn-lg border-white text-gray-700 hover:bg-white hover:text-brand-600"
                 >
                   Call {process.env.NEXT_PUBLIC_COMPANY_PHONE}
                 </a>
@@ -68,10 +79,10 @@ export default function Hero() {
           alt="Professional car transport truck"
           fill
           className="object-cover"
-          priority
+          priority 
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/90 to-brand-800/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/70 to-brand-800/80" />
       </div>
 
       {/* Content */}
@@ -79,16 +90,16 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Main Content */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, }}
+            animate={{ opacity: 1,}}
             transition={{ duration: 0.8 }}
             className="space-y-8 overflow-hidden"
           >
             {/* Headline */}
             <div className="space-y-6">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, }}
+                animate={{ opacity: 1,}}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium"
               >
@@ -96,22 +107,22 @@ export default function Hero() {
               </motion.div>
               
               <h1 className="heading-1 text-white text-balance">
-                Fast, Reliable Auto Transport 
+                Nationwide Auto Transport: Ship Any Vehicle, 
                 <span className="text-gradient bg-gradient-to-r from-brand-200 to-accent-300 bg-clip-text text-transparent">
-                  {" "}Across America
+                  {" "} Door to Door.
                 </span>
               </h1>
               
-              <p className="text-xl text-brand-100 max-w-2xl leading-relaxed">
-                Get instant quotes for professional car shipping services. Door-to-door delivery, 
-                competitive rates, and exceptional customer service guaranteed.
+              <p className="mt-4 text-base md:text-lg text-brand-100 max-w-xl leading-normal">
+                FMCSA Licensed & Bonded • Direct Service to All 50 States • Zero Upfront Deposit
+                Serving Customers Nationwide with 7+ Years of Industry Experience
               </p>
             </div>
             
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, }}
+              animate={{ opacity: 1,}}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4"
             >
@@ -132,13 +143,13 @@ export default function Hero() {
             </motion.div>
             
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+            {/* <motion.div
+              initial={{ opacity: 0, }}
+              animate={{ opacity: 1,}}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="grid grid-cols-3 gap-8 pt-8 border-t border-white/20"
             >
-              {stats.map((stat, index) => (
+              {stats.map((stat, index) => ( 
                 <div key={stat.label} className="text-center">
                   <div className="flex justify-center mb-2">
                     <stat.icon className="h-8 w-8 text-brand-200" />
@@ -147,7 +158,7 @@ export default function Hero() {
                   <div className="text-sm text-brand-200">{stat.label}</div>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Right Column - Quote Form Preview */}
@@ -155,7 +166,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block relative z-30"
+            className="hidden lg:block relative z-50"
           > 
                <WorkingQuoteForm /> 
           </motion.div>
@@ -163,7 +174,7 @@ export default function Hero() {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent z-20" />
       
       {/* Animated Background Elements */}
       <motion.div

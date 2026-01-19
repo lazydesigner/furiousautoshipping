@@ -253,12 +253,20 @@ export default function QuoteReview({ formData, pricing, register, errors }) {
               </div>
             </div>
             
-            <div className="text-xs text-gray-500 space-y-1">
-              <p>• Quote is valid for 7 days from submission</p>
-              <p>• Final pricing confirmed upon carrier assignment</p>
-              <p>• Deposit required to secure booking (typically $100-300)</p>
-              <p>• Balance due to driver upon delivery</p>
-            </div>
+            <div className="text-xs text-gray-500 space-y-2 mt-3 bg-gray-50 p-3 rounded border border-gray-100">
+            <p className="flex items-center gap-2">
+              <span>🔒</span> 
+              <span><strong>7-Day Price Lock:</strong> This estimate is valid for one week.</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span>💳</span> 
+              <span><strong>$0 Due Today:</strong> No payment required to view your rates.</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span>✅</span> 
+              <span><strong>Pay on Arrival:</strong> Balance is paid to the driver only upon safe delivery.</span>
+            </p>
+          </div>
           </div>
         </div>
 

@@ -1,4 +1,16 @@
 import { UserIcon, PhoneIcon, EnvelopeIcon, TagIcon } from '@heroicons/react/24/outline'
+const formatUSPhone = (value) => {
+  // Remove all non-digits
+  const digits = value.replace(/\D/g, '').slice(0, 10);
+
+  const len = digits.length;
+
+  if (len === 0) return '';
+  if (len < 4) return `(${digits}`;
+  if (len < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+};
 
 export default function ContactForm({ register, errors }) {
   return (
@@ -42,7 +54,11 @@ export default function ContactForm({ register, errors }) {
             </label>
             <input
               type="tel"
-              {...register('phone')}
+              {...register('phone', {
+                onChange: (e) => {
+                  e.target.value = formatUSPhone(e.target.value);
+                }
+              })}
               className="form-input"
               placeholder="(555) 123-4567"
             />

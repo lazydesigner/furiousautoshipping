@@ -17,14 +17,18 @@ export default function AddressAutocomplete({
   const [suggestions, setSuggestions] = useState([])
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [inputValue, setInputValue] = useState(value || '')
-  const [hasSelectedSuggestion, setHasSelectedSuggestion] = useState(false)
   
   const inputRef = useRef(null)
   const autocompleteRef = useRef(null)
   const placesServiceRef = useRef(null)
+  const ignoreNextChange = useRef(false)
+  const isSelectingRef = useRef(false)
 
+  // Sync with external value changes
   useEffect(() => {
-    setInputValue(value || '')
+    if (!isSelectingRef.current) {
+      setInputValue(value || '')
+    }
   }, [value])
 
   useEffect(() => {
@@ -57,11 +61,17 @@ export default function AddressAutocomplete({
   }, [])
 
   const handleInputChange = (e) => {
+    // If we're ignoring this change (because autocomplete just set it), skip it
+    if (ignoreNextChange.current) {
+      ignoreNextChange.current = false
+      return
+    }
+
     const newValue = e.target.value
     setInputValue(newValue)
-    setHasSelectedSuggestion(false) // Reset selection flag when typing
 
-    // Call onChange with just the input value (no details) during typing
+    // Call onChange with just the input value (no details) during manual typing
+    // This allows the parent to track what the user is typing
     onChange(newValue, null)
 
     if (newValue.length > 2 && autocompleteRef.current) {
@@ -89,10 +99,13 @@ export default function AddressAutocomplete({
   }
 
   const handleSuggestionClick = (prediction) => {
+    // Prevent any race conditions
+    isSelectingRef.current = true
+    ignoreNextChange.current = true
+    
     const address = prediction.description
     setInputValue(address)
     setShowSuggestions(false)
-    setHasSelectedSuggestion(true) // Mark that user made a selection
 
     // Get detailed place information
     if (placesServiceRef.current) {
@@ -104,17 +117,24 @@ export default function AddressAutocomplete({
         (place, status) => {
           if (status === window.google.maps.places.PlacesServiceStatus.OK) {
             const details = extractAddressDetails(place)
-            console.log('Calling onChange with selection:', address, details)
+            // Call onChange with both address and details
             onChange(address, details)
           } else {
-            console.log('Place details failed, calling onChange with address only:', address)
+            // If place details fail, still update with the address
             onChange(address, null)
           }
+          
+          // Reset the selecting flag after a brief delay
+          setTimeout(() => {
+            isSelectingRef.current = false
+          }, 100)
         }
       )
     } else {
-      console.log('No places service, calling onChange with address only:', address)
       onChange(address, null)
+      setTimeout(() => {
+        isSelectingRef.current = false
+      }, 100)
     }
   }
 
@@ -122,10 +142,6 @@ export default function AddressAutocomplete({
     // Delay hiding suggestions to allow for clicks
     setTimeout(() => {
       setShowSuggestions(false)
-      
-      // Don't call onChange on blur anymore to prevent interference
-      // The form will already have the current inputValue from handleInputChange
-      console.log('Input blurred, not calling onChange to prevent interference')
     }, 200)
   }
 
@@ -164,9 +180,11 @@ export default function AddressAutocomplete({
 
   return (
     <div className={cn('relative', className)}>
-      <label className="form-label">
-        {label}
-      </label>
+      {label && (
+        <label className="form-label">
+          {label}
+        </label>
+      )}
       
       <div className="relative">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

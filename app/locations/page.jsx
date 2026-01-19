@@ -8,8 +8,8 @@ import CarShippingPricing from '@/components/CarShippingPricing'
 import ReviewsComponent from '@/components/ReviewsComponent'
 
 export const metadata = {
-  title: 'Reliable Auto Shipping in USA & State-to-State Car Transport',
-  description: 'Need auto shipping in USA? We provide professional car shipping across all 50 states and major cities. Get trusted, transparent vehicle transport quotes today',
+  title: 'Nationwide Auto Transport Services | Ship Car to All 50 States',
+  description: 'Reliable nationwide car shipping services. We cover 1000+ routes across the USA including Hawaii & Alaska. Get a free door-to-door quote for any state.',
   keywords: 'auto transport locations, state to state car shipping, auto transport routes, city to city vehicle shipping',
   alternates: {
     canonical: '/locations',
@@ -102,25 +102,25 @@ const serviceAreas = [
   {
     region: 'West Coast',
     states: ['CA', 'OR', 'WA', 'NV', 'AZ'],
-    description: 'Dense network covering the Pacific Coast and Southwest',
+    description: 'Daily routes covering the Pacific Coast Highway (I-5) and inland connections. Frequent service to California, Oregon, and Washington with connections to Hawaii ports.',
     features: ['Daily departures', 'Tech hub connections', 'Snowbird routes']
   },
   {
     region: 'East Coast',
     states: ['NY', 'NJ', 'PA', 'MA', 'CT', 'FL', 'GA', 'NC', 'SC', 'VA'],
-    description: 'Comprehensive coverage from Maine to Florida',
+    description: 'High-volume transport along the Atlantic I-95 corridor. Serving snowbirds and professionals from New England down to Florida and the Keys.',
     features: ['High frequency routes', 'Business corridors', 'Seasonal service']
   },
   {
     region: 'Midwest',
     states: ['IL', 'IN', 'OH', 'MI', 'WI', 'MN', 'IA', 'MO', 'KS'],
-    description: 'Central hub connecting East and West Coast routes',
+    description: 'The central hub of American auto manufacturing. connecting Chicago, Detroit, and Ohio to the Sunbelt states via I-35 and I-55.',
     features: ['Hub connectivity', 'Manufacturing centers', 'Agricultural regions']
   },
   {
     region: 'South',
     states: ['TX', 'LA', 'AR', 'TN', 'AL', 'MS', 'OK'],
-    description: 'Strategic southern routes with oil and energy connections',
+    description: 'Rapidly growing relocation routes. Heavy volume into Texas, Tennessee, and Georgia. Specialized open and enclosed options for the Southern heat.',
     features: ['Energy sector', 'Lower costs', 'Mild weather routes']
   },
 ]
@@ -159,8 +159,12 @@ const faqs = [
     }
   ];
 
+  
+
 export default function LocationsPage() {
   return (
+    <>
+
     <div className="pt-20">
       {/* Hero Section */}
       <section className="section bg-gradient-to-r from-brand-600/70 to-brand-800/70 text-white relative">
@@ -201,8 +205,8 @@ export default function LocationsPage() {
       <CommonTrustBadges />
       <section className="section">
         <div className="container">
-          <p>Welcome to the ultimate resource for all your auto shipping in USA needs. Whether you're moving your family across the country, buying a classic car from a distant seller, or managing a fleet of corporate vehicles, transporting a car state-to-state requires reliable, professional service. This page serves as your central hub, connecting you to our unparalleled network of vehicle transport services covering every state, major city, and critical shipping route nationwide.</p>
-          <p>We understand that entrusting your vehicle to a third party can feel daunting. Our commitment is to provide a transparent, trust-building, and expert-driven experience from the moment you get a quote until your car is safely delivered. We specialize in providing reliable cross-country car shipping for all types of vehicles—from standard sedans and SUVs to motorcycles, RVs, and heavy-duty trucks.</p>
+          <h2 className="heading-2 mb-6 text-center">Your Logistics Partner for Every Mile of America</h2>
+          <p className='my-2 text-center'>Whether you are relocating from the bustle of New York to the sunshine of Florida, or moving a classic car across the Midwest, Furious Auto Shipping has a truck nearby. We operate a vetted network of 15,000+ carriers, ensuring that no matter where you are in the 50 United States, we have a route for you.</p>
         </div>
       </section>
 
@@ -517,6 +521,6 @@ export default function LocationsPage() {
         </div>
       </div>
     </div>
-    </div>
+    </div></>
   )
 }

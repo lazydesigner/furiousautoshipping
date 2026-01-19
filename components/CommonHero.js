@@ -9,8 +9,14 @@ import WorkingQuoteForm from '@/components/quote/WorkingQuoteForm'
 import CommonTrustBadges from '@/components/CommonTrustBadges'
  
 
-export default function Hero({h1}) {
+export default function CommonHero({h1, subheading, img}) {
   const [mounted, setMounted] = useState(false)
+
+  const stats = [
+  { label: 'Vehicles Shipped', value: '50,000+', icon: TruckIcon },
+  { label: 'Customer Rating', value: '4.9/5', icon: ShieldCheckIcon }, 
+]
+
 
   useEffect(() => {
     setMounted(true)
@@ -19,6 +25,18 @@ export default function Hero({h1}) {
   if (!mounted) {
     return (
       <section className="relative min-h-screen flex items-center bg-gradient-to-r from-brand-600 to-brand-800">
+        {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={img || "/images/hero_image.png"}
+          alt="Professional car transport truck"
+          fill
+          className="object-cover"
+          priority 
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/90 to-brand-800/80" />
+      </div>
         <div className="container">
           <div className="max-w-4xl">
             <div className="space-y-8">
@@ -27,8 +45,7 @@ export default function Hero({h1}) {
                   {h1}
                 </h1>
                 <p className="text-xl text-brand-100 max-w-2xl">
-                  Get instant quotes for professional car shipping services. Door-to-door delivery, 
-                  competitive rates, and exceptional customer service.
+                  {subheading || 'Get instant quotes for professional car shipping services. Door-to-door delivery, competitive rates, and exceptional customer service guaranteed.'}
                 </p>
               </div>
               
@@ -61,8 +78,8 @@ export default function Hero({h1}) {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/common-h.png"
-          alt="Professional car transport truck"
+          src={img || "/images/hero_image.png"}
+          alt={h1 || "Professional car transport truck"}
           fill
           className="object-cover"
           priority
@@ -89,8 +106,7 @@ export default function Hero({h1}) {
               </h1>
               
               <p className="text-xl text-brand-100 max-w-2xl leading-relaxed">
-                Get instant quotes for professional car shipping services. Door-to-door delivery, 
-                competitive rates, and exceptional customer service guaranteed.
+                {subheading || 'Get instant quotes for professional car shipping services. Door-to-door delivery, competitive rates, and exceptional customer service guaranteed.'}
               </p>
             </div>
             
@@ -117,8 +133,8 @@ export default function Hero({h1}) {
               </a>
             </motion.div>
             
-            {/* Stats
-            <motion.div
+            {/* Stats */}
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -147,6 +163,9 @@ export default function Hero({h1}) {
           </motion.div>
         </div>
       </div> 
+
+      {/* Floating Elements */}
+      {/* <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent z-20" /> */}
       
       {/* Animated Background Elements */}
       <motion.div

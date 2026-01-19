@@ -7,9 +7,59 @@ const currentYear = new Date().getFullYear()
 const years = Array.from({ length: 30 }, (_, i) => currentYear - i)
 
 const popularMakes = [
-  'Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'BMW', 'Mercedes-Benz',
-  'Audi', 'Lexus', 'Hyundai', 'Kia', 'Mazda', 'Subaru', 'Volkswagen',
-  'Jeep', 'Ram', 'GMC', 'Cadillac', 'Infiniti', 'Acura'
+  'Toyota', 'Lexus', 'Honda', 'Acura', 'Nissan', 'Infiniti', 'Mazda',
+  'Subaru', 'Suzuki', 'Mitsubishi', 'Daihatsu', 'Isuzu',
+
+  // 🇺🇸 USA
+  'Ford', 'Chevrolet', 'GMC', 'Cadillac', 'Buick', 'Chrysler', 'Dodge',
+  'Jeep', 'Ram', 'Tesla', 'Lincoln', 'Rivian', 'Lucid', 'Fisker',
+
+  // 🇩🇪 Germany
+  'Volkswagen', 'Audi', 'BMW', 'Mercedes-Benz', 'Porsche', 'Opel',
+  'Maybach', 'Smart',
+
+  // 🇰🇷 South Korea
+  'Hyundai', 'Kia', 'Genesis', 'SsangYong',
+
+  // 🇫🇷 France
+  'Renault', 'Peugeot', 'Citroën', 'DS Automobiles',
+
+  // 🇮🇹 Italy
+  'Fiat', 'Alfa Romeo', 'Lancia', 'Ferrari', 'Lamborghini',
+  'Maserati', 'Abarth',
+
+  // 🇬🇧 United Kingdom
+  'Jaguar', 'Land Rover', 'Mini', 'Rolls-Royce', 'Bentley',
+  'Aston Martin', 'McLaren', 'Lotus',
+
+  // 🇨🇳 China
+  'BYD', 'Geely', 'Chery', 'Great Wall', 'Haval', 'MG',
+  'NIO', 'XPeng', 'Li Auto', 'Hongqi', 'GAC', 'BAIC',
+
+  // 🇮🇳 India
+  'Maruti Suzuki', 'Tata Motors', 'Mahindra', 'Ashok Leyland',
+  'Force Motors',
+
+  // 🇪🇸 Spain
+  'SEAT', 'Cupra',
+
+  // 🇸🇪 Sweden
+  'Volvo', 'Polestar', 'Koenigsegg',
+
+  // 🇷🇺 Russia
+  'Lada', 'GAZ', 'UAZ',
+
+  // 🇨🇿 Czech Republic
+  'Škoda', 'Tatra',
+
+  // 🇷🇴 Romania
+  'Dacia',
+
+  // 🇮🇷 Iran
+  'Iran Khodro', 'SAIPA',
+
+  // 🌍 Others / Niche
+  'Bugatti', 'Pagani', 'Rimac', 'Zotye', 'Proton', 'Perodua'
 ]
 
 export default function VehicleForm({ register, setValue, watch, errors }) {
