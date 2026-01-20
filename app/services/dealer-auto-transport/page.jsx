@@ -6,7 +6,7 @@ import LinkPage from './LinkPage'
 import { Settings, Send, Truck, MapPin, Bell, FileText, ArrowRight } from 'lucide-react';
 import CommonCTA from '@/components/CommonCTA';
 
-    
+
 export const metadata = {
     title: 'Dealer Auto Transport Services | Auction & Inventory Logistics',
     description: 'Reliable B2B auto transport for dealerships and auctions (Manheim, Adesa). Bulk shipping discounts and fast inventory turnover. Open a dealer account today.',
@@ -183,7 +183,7 @@ const ComponentName = () => {
                         </div>
                     </div>
 
-                    <CommonCTA  b={'Get A Volume Quote Now'} />
+                    <CommonCTA b={'Get A Volume Quote Now'} />
 
                     <h3 className="text-4xl my-4 font-semibold text-gray-900">Strategic Inventory Movement</h3>
                     <p className='my-2'>The modern dealership isn't limited by geography. Buying inventory in the Midwest to sell in the South? Sourcing rust-free trucks from the West Coast? Our Dealer Auto Transport Services bridge the gap, allowing you to source vehicles where they are cheapest and sell them where they command the highest gross.</p>
@@ -250,7 +250,7 @@ const ComponentName = () => {
                         <small><b>Note:</b> Contact our B2B team for a custom rate sheet based on your specific monthly volume.</small>
                     </div>
 
-                                <CommonCTA b={'Get A Volume Quote Now'} />
+                    <CommonCTA b={'Get A Volume Quote Now'} />
 
                     <h2 className='heading-2 mb-6 mt-4'>Auto Auction Expertise: Manheim, Adesa & Copart</h2>
                     <p className='my-2'>Buying at auction is high-stress; shipping shouldn't be. We are deeply embedded in the logistics ecosystem of every major auction house in the United States. We understand that <Link className='font-bold text-brand-500' href=''>auto auction shipping</Link> requires more than just a truck—it requires administrative precision.</p>
@@ -424,7 +424,7 @@ const ComponentName = () => {
 
             </section>
 
-            <Link className='font-bold text-brand-500'Page />
+            <LinkPage />
 
             <FAQ
                 title="Dealer Auto Transport FAQ"
