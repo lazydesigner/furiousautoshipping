@@ -6,7 +6,7 @@ import FAQ from '@/components/FAQ';
 import CommonCTA from '@/components/CommonCTA';
 import { Truck, Clock, Shield, MapPin, DollarSign, TrendingUp, ExternalLink, Users, Sun, Droplet, Wind, CheckCircle, AlertCircle, FileText, CreditCard, CheckSquare } from 'lucide-react';
 import { US_STATES } from '@/lib/utils'
-
+import Script from "next/script";
 
 export const metadata = {
     title: 'Florida Auto Transport Services | Fast & Insured',
@@ -223,7 +223,7 @@ export default function page() {
                         "addressRegion": "Florida"
                     }
                 },
-                "description": "Reliable door-to-door auto transport services to and from Florida. Fully insured carriers serving [MAJOR CITY 1], [MAJOR CITY 2], and all Florida counties.",
+                "description": "Reliable door-to-door auto transport services to and from Florida. Fully insured carriers serving Miami, Orlando, and all Florida counties.",
                 "hasOfferCatalog": {
                     "@type": "OfferCatalog",
                     "name": "Florida Shipping Options",
@@ -266,11 +266,12 @@ export default function page() {
 
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(script)
-                }} />
+            <Script
+  id="schema-BreadcrumbList"
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }}
+/>
             <CommonHero
                 h1="Florida Auto Transport Services: Reliable Door-to-Door Shipping Along I-95, I-75 & Beyond"
                 subheading="Skip the stress of I-95. We provide secure, fully insured door-to-door logistics for your vehicle, so you can fly to your destination with peace of mind."

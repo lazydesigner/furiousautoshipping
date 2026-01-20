@@ -2,16 +2,17 @@
 
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
+import Script from "next/script";
 
-const FAQ = ({ 
-  faqs, 
+const FAQ = ({
+  faqs,
   title = "Frequently Asked Questions",
   subtitle = "Find answers to the most common questions about our services",
   className = "",
   itemClassName = "",
   titleClassName = "",
   subtitleClassName = "",
-  generateSchema = true 
+  generateSchema = true
 }) => {
   const [openItems, setOpenItems] = useState(new Set());
 
@@ -43,8 +44,10 @@ const FAQ = ({
     };
 
     return (
-      <script
+      <Script
+        id="schema-faqpage"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     );
@@ -95,14 +98,13 @@ const FAQ = ({
                     )}
                   </span>
                 </button>
-                
+
                 <div
                   id={`faq-answer-${index}`}
-                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                    openItems.has(index) 
-                      ? 'max-h-96 pb-5 opacity-100' 
+                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openItems.has(index)
+                      ? 'max-h-96 pb-5 opacity-100'
                       : 'max-h-0 pb-0 opacity-0'
-                  }`}
+                    }`}
                 >
                   <div className="text-gray-700 leading-relaxed">
                     {typeof faq.answer === 'string' ? (
@@ -114,7 +116,7 @@ const FAQ = ({
                 </div>
               </div>
             ))}
-          </div> 
+          </div>
         </div>
       </section>
     </>

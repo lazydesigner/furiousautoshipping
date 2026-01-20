@@ -7,7 +7,7 @@ import { Toaster } from 'react-hot-toast'
 import Analytics from '@/components/Analytics'
 import FloatingQuoteButton from '@/components/ui/FloatingQuoteButton'
 import ChristmasDecoration from '@/components/ChristmasDecoration'
-
+import Script from "next/script";
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -65,6 +65,9 @@ export const metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL,
   },
+  other: {
+    "preconnect-google-maps": "https://maps.googleapis.com",
+  },
 }
 
 export const viewport = {
@@ -73,115 +76,111 @@ export const viewport = {
   maximumScale: 1,
 }
 
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Furious Auto Shipping',
+  description: 'Professional auto transport services across the USA',
+  url: process.env.NEXT_PUBLIC_SITE_URL,
+  telephone: process.env.NEXT_PUBLIC_COMPANY_PHONE,
+  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+  },
+  serviceArea: {
+    '@type': 'Country',
+    name: 'United States',
+  },
+  priceRange: '$$',
+  openingHours: 'Mo-Fr 08:00-18:00',
+  sameAs: [
+    'https://www.facebook.com/furiousautoshipping',
+    'https://www.instagram.com/furiousautoshipping',
+    'https://twitter.com/furiousauto',
+  ],
+}
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Furious Auto Shipping",
+  "url": "https://furiousautoshipping.com",
+  "logo": "https://furiousautoshipping.com/logo.png",
+  "foundingDate": "2015",
+  "description": "A nationwide auto transport logistics network specializing in door-to-door vehicle shipping.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-800-555-0199",
+    "contactType": "customer service",
+    "areaServed": "US",
+    "availableLanguage": "en"
+  },
+  "sameAs": [
+    "https://www.facebook.com/furiousautoshipping",
+    "https://www.linkedin.com/company/furiousautoshipping",
+    "https://www.bbb.org/us/tx/furious-auto-shipping",
+    "https://www.transportreviews.com/company/furious-auto-shipping"
+  ]
+}
+
+const autodealer = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Furious Auto Shipping",
+  "description": "Nationwide auto transport broker serving all 50 United States.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "National Shipping Routes",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cross-Country Auto Transport",
+          "description": "Coast-to-coast vehicle shipping."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "State-to-State Shipping",
+          "description": "Direct routes between any two US states."
+        }
+      }
+    ]
+  }
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
-      <head>
-        {/* Preconnect to external domains */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://maps.googleapis.com" />
+      <Script
+        id="schema-localbusiness"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }}
+      />
 
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
+      <Script
+        id="schema-organization"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
+      />
 
-        {/* Schema.org JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'LocalBusiness',
-              name: 'Furious Auto Shipping',
-              description: 'Professional auto transport services across the USA',
-              url: process.env.NEXT_PUBLIC_SITE_URL,
-              telephone: process.env.NEXT_PUBLIC_COMPANY_PHONE,
-              email: process.env.NEXT_PUBLIC_COMPANY_EMAIL,
-              address: {
-                '@type': 'PostalAddress',
-                addressCountry: 'US',
-              },
-              serviceArea: {
-                '@type': 'Country',
-                name: 'United States',
-              },
-              priceRange: '$$',
-              openingHours: 'Mo-Fr 08:00-18:00',
-              sameAs: [
-                'https://www.facebook.com/furiousautoshipping',
-                'https://www.instagram.com/furiousautoshipping',
-                'https://twitter.com/furiousauto',
-              ],
-            }),
-          }}
-        />
+      <Script
+        id="schema-autodealer"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(autodealer) }}
+      />
 
-        <script type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Furious Auto Shipping",
-              "url": "https://furiousautoshipping.com",
-              "logo": "https://furiousautoshipping.com/logo.png",
-              "foundingDate": "2015",
-              "description": "A nationwide auto transport logistics network specializing in door-to-door vehicle shipping.",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+1-800-555-0199",
-                "contactType": "customer service",
-                "areaServed": "US",
-                "availableLanguage": "en"
-              },
-              "sameAs": [
-                "https://www.facebook.com/furiousautoshipping",
-                "https://www.linkedin.com/company/furiousautoshipping",
-                "https://www.bbb.org/us/tx/furious-auto-shipping",
-                "https://www.transportreviews.com/company/furious-auto-shipping"
-              ]
-            }),
-          }} />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "AutoDealer",
-              "name": "Furious Auto Shipping",
-              "description": "Nationwide auto transport broker serving all 50 United States.",
-              "areaServed": {
-                "@type": "Country",
-                "name": "United States"
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "National Shipping Routes",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Cross-Country Auto Transport",
-                      "description": "Coast-to-coast vehicle shipping."
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "State-to-State Shipping",
-                      "description": "Direct routes between any two US states."
-                    }
-                  }
-                ]
-              }
-            })
-          }}
-        />
-      </head>
       <body className={`${inter.className} antialiased bg-white text-gray-900`} suppressHydrationWarnings={true}>
         <Providers>
           <div className="flex flex-col min-h-screen">

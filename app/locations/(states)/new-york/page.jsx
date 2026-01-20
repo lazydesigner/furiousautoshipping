@@ -5,6 +5,7 @@ import CommonHero from '@/components/CommonHero'
 import FAQ from '@/components/FAQ';
 import CommonCTA from '@/components/CommonCTA';
 import { MapPin, DollarSign, Clock, Navigation, TrendingUp, Map, Truck, Shield, Award, Sun } from 'lucide-react';
+import Script from "next/script";
 
 
 export const metadata = {
@@ -28,28 +29,28 @@ export default function page() {
         { from: "New York, NY", to: "Boston, MA", distance: "~220 miles", price: "$350 - $550", time: "1-2 Days" }
     ];
 
-const cities = [
-  { name: "New York City", color: "bg-brand-500" },
-  { name: "Buffalo", color: "bg-purple-500" },
-  { name: "Rochester", color: "bg-pink-500" },
-  { name: "Yonkers", color: "bg-green-500" },
-  { name: "Syracuse", color: "bg-cyan-500" },
-  { name: "Albany", color: "bg-orange-500" },
-  { name: "New Rochelle", color: "bg-red-500" },
-  { name: "Mount Vernon", color: "bg-teal-500" },
-  { name: "Schenectady", color: "bg-indigo-500" },
-  { name: "Utica", color: "bg-violet-500" },
-  { name: "White Plains", color: "bg-fuchsia-500" },
-  { name: "Hempstead", color: "bg-rose-500" },
-  { name: "Brookhaven", color: "bg-amber-500" },
-  { name: "Islip", color: "bg-lime-500" },
-  { name: "Oyster Bay", color: "bg-emerald-500" },
-  { name: "North Hempstead", color: "bg-sky-500" },
-  { name: "Babylon", color: "bg-yellow-500" },
-  { name: "Huntington", color: "bg-brand-600" },
-  { name: "Ramapo", color: "bg-purple-600" },
-  { name: "Amherst", color: "bg-pink-600" },
-];
+    const cities = [
+        { name: "New York City", color: "bg-brand-500" },
+        { name: "Buffalo", color: "bg-purple-500" },
+        { name: "Rochester", color: "bg-pink-500" },
+        { name: "Yonkers", color: "bg-green-500" },
+        { name: "Syracuse", color: "bg-cyan-500" },
+        { name: "Albany", color: "bg-orange-500" },
+        { name: "New Rochelle", color: "bg-red-500" },
+        { name: "Mount Vernon", color: "bg-teal-500" },
+        { name: "Schenectady", color: "bg-indigo-500" },
+        { name: "Utica", color: "bg-violet-500" },
+        { name: "White Plains", color: "bg-fuchsia-500" },
+        { name: "Hempstead", color: "bg-rose-500" },
+        { name: "Brookhaven", color: "bg-amber-500" },
+        { name: "Islip", color: "bg-lime-500" },
+        { name: "Oyster Bay", color: "bg-emerald-500" },
+        { name: "North Hempstead", color: "bg-sky-500" },
+        { name: "Babylon", color: "bg-yellow-500" },
+        { name: "Huntington", color: "bg-brand-600" },
+        { name: "Ramapo", color: "bg-purple-600" },
+        { name: "Amherst", color: "bg-pink-600" },
+    ];
 
 
     const regions = [
@@ -112,8 +113,100 @@ const cities = [
             answer: "Yes, we ship to all military bases in New York, including Fort Drum and West Point. We are familiar with gate entry procedures and can coordinate directly with you or a designated contact on base."
         },
     ]
+
+    const script = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://furiousautoshipping.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Locations",
+                        "item": "https://furiousautoshipping.com/locations"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "New York Car shipping",
+                        "item": "https://furiousautoshipping.com/locations/new-york"
+                    }
+                ]
+            },
+            {
+                "@type": "Service",
+                "name": "New York Car shipping Services",
+                "serviceType": "Vehicle Shipping",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Furious Auto Shipping",
+                    "url": "https://furiousautoshipping.com",
+                    "logo": "https://furiousautoshipping.com/logo.png",
+                    "telephone": "+1-800-555-0199"
+                },
+                "areaServed": {
+                    "@type": "State",
+                    "name": "New York",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressCountry": "US",
+                        "addressRegion": "New York"
+                    }
+                },
+                "description": "Reliable door-to-door Car shipping services to and from New York. Fully insured carriers serving New York City, Buffalo, Rochester, and all New York counties.",
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "New York Shipping Options",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Open Carrier Shipping in New York"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Enclosed Car shipping in New York"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Military PCS Vehicle Shipping to New York"
+                            }
+                        }
+                    ]
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "reviewCount": "1250",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                }
+            }
+        ]
+    }
+
     return (
         <>
+        <Script
+  id="schema-BreadcrumbList"
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }}
+/>
             <CommonHero
                 h1="New York Car Shipping Services: Safe, Reliable, & Direct"
                 subheading="Safe, reliable, and affordable auto transport to and from New York. Get a free quote in seconds."
@@ -470,7 +563,7 @@ const cities = [
                     <h2 className="heading-2 mb-6">We Pick Up in All Major New York Cities</h2>
                     <p className='my-2'>We don't just serve NYC. Our network of carriers extends across the entire state, ensuring we can pick up or deliver your vehicle right to your door (or the nearest safe parking lot if you live on a narrow street).</p>
 
-                    
+
                     <p className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                         Major Service Areas
                     </p>
@@ -489,15 +582,15 @@ const cities = [
                     </div>
 
                     <div className="relative w-full h-28 md:h-96 my-5">
-                                            <Image
-                    
-                                                src='/images/states/new-york-logestic-map.png'
-                                                alt='New York Logestic routes map'
-                                                fill
-                                                className=' md:object-contain'
-                    
-                                            />
-                                        </div>
+                        <Image
+
+                            src='/images/states/new-york-logestic-map.png'
+                            alt='New York Logestic routes map'
+                            fill
+                            className=' md:object-contain'
+
+                        />
+                    </div>
 
                     <h2 className="heading-2 mb-6">Tips for Shipping a Car in New York</h2>
                     <p className='my-2'>As a local logistics expert, we know that shipping in New York requires specific knowledge of the roads and regulations.</p>
@@ -516,7 +609,7 @@ const cities = [
                 </div>
             </section>
 
-             <FAQ
+            <FAQ
                 title="Frequently Asked Questions about Car Shipping in New York"
                 subtitle="Common questions about  New York auto transport services"
                 faqs={faqs} />

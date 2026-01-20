@@ -4,6 +4,7 @@ import CommonHero from '@/components/CommonHero';
 import FAQ from '@/components/FAQ';
 import CommonCTA from '@/components/CommonCTA';
 import { CreditCard, Shield, MapPin, Headphones } from 'lucide-react';
+import Script from "next/script";
 
 import AutoShippingChooser from './AutoShippingChooser'
 import ServicesGrid from './ServicesGrid'
@@ -142,8 +143,10 @@ export default function page() {
 
   return (
     <>
-      <script
+      <Script
+        id="schema-service"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <CommonHero
