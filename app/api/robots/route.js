@@ -11,11 +11,18 @@ export async function GET() {
 # We want these bots to crawl us so we appear in ChatGPT, Gemini, and Claude answers.
 
 
+User-agent: *
 Disallow: /quote-success/
+
+
+User-agent: *
 Disallow: /track/
 
 
+User-agent: *
 Allow: /images/
+
+User-agent: *
 Allow: /favicon.ico
 
 User-agent: Googlebot
