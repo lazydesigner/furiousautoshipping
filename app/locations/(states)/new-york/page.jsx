@@ -5,6 +5,7 @@ import CommonHero from '@/components/CommonHero'
 import FAQ from '@/components/FAQ';
 import CommonCTA from '@/components/CommonCTA';
 import { MapPin, DollarSign, Clock, Navigation, TrendingUp, Map, Truck, Shield, Award, Sun } from 'lucide-react';
+import { US_STATES } from '@/lib/utils'
 import Script from "next/script";
 
 
@@ -605,6 +606,26 @@ export default function page() {
                         <li className='my-2'>E-ZPass: You will need this for the tolls. Get your <Link className='font-bold text-brand-500' href='https://www.e-zpassny.com/'>E-ZPass New York here</Link>.</li>
                         <li className='my-2'>Voter Registration: Update your voting address at the <Link className='font-bold text-brand-500' href='https://www.elections.ny.gov/'>NY Board of Elections</Link>.</li>
                     </ul>
+
+
+                    <div className="text-center mb-12 mt-8">
+                                <h2 className="heading-2 mb-4">New York Covering All 50 States</h2> 
+                              </div>
+                    
+                                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 my-6">
+                                {US_STATES.filter((state) => state.name !== "New York").map((state) => (
+                                  <Link
+                                    key={state.code}
+                                    href={`/locations/new-york/${state.url.toLowerCase()}`}
+                                    title={`Ship Car from New York to ${state.name}`}
+                                    className="bg-brand-50 rounded-lg p-4 text-center hover:shadow-md hover:bg-brand-100 transition-all group"
+                                  > 
+                                    <div className="text-sm font-bold text-brand-600 group-hover:text-brand-700">
+                                     New York {'->'}  {state.name}
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
 
                 </div>
             </section>

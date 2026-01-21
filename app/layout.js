@@ -5,8 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Toaster } from 'react-hot-toast'
 import Analytics from '@/components/Analytics'
-import FloatingQuoteButton from '@/components/ui/FloatingQuoteButton'
-import ChristmasDecoration from '@/components/ChristmasDecoration'
+import FloatingQuoteButton from '@/components/ui/FloatingQuoteButton' 
 import Script from "next/script";
 const inter = Inter({
   subsets: ['latin'],
@@ -17,7 +16,7 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: 'Nationwide Auto Transport & Car Shipping Services | Furious',
+    default: 'Nationwide Auto Transport & Car Shipping Services | Furious Auto Shipping',
     template: '%s | Furious Auto Shipping',
   },
   description: 'Get instant quotes for auto transport services across the USA. Door-to-door car shipping with competitive rates and excellent customer service.',
@@ -182,7 +181,6 @@ export default function RootLayout({ children }) {
       />
 
       <body className={`${inter.className} antialiased bg-white text-gray-900`} suppressHydrationWarnings={true}>
-        <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
@@ -191,6 +189,7 @@ export default function RootLayout({ children }) {
             </main>
             <Footer />
           </div>
+        <Providers>
 
           {/* Floating Quote Button */}
           <FloatingQuoteButton />

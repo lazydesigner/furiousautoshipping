@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRightIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
-export default function CTA({p, b}) {
+export default function CTA({p, s, b}) {
   return (
     <section className="section relative bg-gradient-to-r from-brand-600 -z-10 to-brand-800 text-white" style={{backgroundImage:'url("/images/cta.png")'}}>
       <div className='absolute bg-gradient-to-r top-0 w-full h-full from-brand-600/60 to-brand-800/90 z-10'></div>
@@ -10,6 +10,8 @@ export default function CTA({p, b}) {
           <p className="heading-2 mb-6">
             {p || 'Ready to Ship Your Vehicle?'}
           </p> 
+
+          <p className='my-4 text-center'>{s}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link

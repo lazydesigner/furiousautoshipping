@@ -23,7 +23,7 @@ const navigation = {
     { name: 'How It Works', href: '/how-it-works' },
     { name: 'Reviews', href: '/reviews' },
     { name: 'Blog', href: '/blog' },
-    // { name: 'Careers', href: '/careers' },
+    { name: 'Services', href: '/services' },
     { name: 'Contact', href: '/contact' },
   ],
   locations: [
