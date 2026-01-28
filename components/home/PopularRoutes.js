@@ -26,7 +26,7 @@ export default function PopularRoutes() {
           <div className="relative bg-gradient-to-br from-brand-50 to-indigo-50 rounded-3xl shadow-lg">
             <div className="relative w-full aspect-[4/3] bg-white rounded-2xl shadow-inner overflow-hidden">
               <Image
-                src="/images/Popular-Auto-Shipping-Routes.png"
+                src="/images/Popular-Auto-Shipping-Routes.webp"
                 alt="Popular Auto Shipping Routes of the United States"
                 fill
                 className="object-cover"

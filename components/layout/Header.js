@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import Logo from '@/components/ui/Logo'
+import Logo from '@/components/ui/Logo2'
 import { cn } from '@/lib/utils'
 
 const navigation = [

@@ -6,7 +6,7 @@ const services = [
   {
     title: 'Standard Open Shipping',
     description: 'The most cost-effective way to move daily drivers. Safe, reliable, and insured.',
-    image: '/images/Open-Transport.png',
+    image: '/images/Open-Transport.webp',
     features: ["Family Relocation", "Dealerships", "Auction Deliveries"],
     href: '/services/open-auto-transport',
     popular: true,
@@ -14,21 +14,21 @@ const services = [
   {
     title: 'Premium Enclosed Protection',
     description: 'Climate-controlled protection for exotics, classics, and high-value assets.',
-    image: '/images/Enclosed-Transport.png',
+    image: '/images/Enclosed-Transport.webp',
     features: ["Luxury Cars", "Collectors", "Show Vehicles"],
     href: '/services/enclosed-auto-transport',
   },
   {
     title: 'Door-to-Door Service',
     description: 'Ultimate convenience with pickup and delivery right at your preferred locations.',
-    image: '/images/Door-to-Door.png',
+    image: '/images/Door-to-Door.webp',
     features: ['Maximum convenience', 'No terminal visits', 'Flexible scheduling', "Non-running vehicles"],
     href: '/services/door-to-door-auto-transport',
   },
   {
     title: 'Expedited Shipping',
     description: 'Guaranteed pickup within 24-48 hours for urgent moves.',
-    image: '/images/Expedited-shipping.png',
+    image: '/images/Expedited-shipping.webp',
     features: ['Priority scheduling', '2-7 day delivery', "Last-minute moves", "Corporate transfers"],
     href: '/services/expedited-auto-transport',
   },

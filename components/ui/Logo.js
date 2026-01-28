@@ -9,7 +9,7 @@ export default function Logo({ className, showText = true, ...props }) {
       {showText && (
         <div className="flex flex-col">
           <Image
-          src='/images/final-logo.png'
+          src='/images/white-logo.webp'
           width={200}
           height={50}
           alt='Fast, Reliable Auto Transport Across America'

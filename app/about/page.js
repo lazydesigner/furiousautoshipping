@@ -165,7 +165,7 @@ export default function AboutPage() {
               <div key={member.name} className="text-center">
                 <div className="relative mb-4 ">
                   <Image
-                    src='/images/final-logo.png'
+                    src='/images/final-logo.webp'
                     alt={member.name}
                     width={200}
                     height={200}

@@ -3,22 +3,22 @@ import Image from 'next/image'
 const badges = [
   {
     name: 'Trustpilot A+ Rating',
-    image: '/images/588-5885660_adding-trustpilot-image-next-to-logo-on-supply.png',
+    image: '/images/588-5885660_adding-trustpilot-image-next-to-logo-on-supply.webp',
     description: ''
   },
   {
   name: 'Happy Customers',
-  image: '/images/happy-customers.png',
+  image: '/images/happy-customers.webp',
   description: ''
   },
   {
     name: 'FMCSA Licensed',
-    image: '/images/fmcsa-logo-400x-102.png',
+    image: '/images/fmcsa-logo-400x-102.webp',
     description: ''
   },
   {
     name: 'Damage-Free Guarantee',
-    image: '/images/insurance.png',
+    image: '/images/insurance.webp',
     description: ''
   },
 ]

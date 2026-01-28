@@ -142,6 +142,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
+
+
 export default async function FromStatePage({ params }) {
   // Await the params object before accessing its properties
   const awaitedParams = await params;
@@ -152,8 +154,97 @@ export default async function FromStatePage({ params }) {
     notFound()
   }
 
+  function capitalizeFirstLetter(str) {
+    if (!str) return "";
+
+    return str
+      .split("-") // split by dash
+      .filter(Boolean) // remove empty parts (optional safety)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" "); // join with space
+  }
+
   const destinations = stateDestinations[params.fromState] || []
   const cities = stateCities[params.fromState] || []
+
+
+  const script = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://furiousautoshipping.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Locations",
+                        "item": "https://furiousautoshipping.com/locations"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": `${state.name} Auto Transport`,
+                        "item": `https://furiousautoshipping.com/locations/${params.fromState}`
+                    }
+                ]
+            },
+            {
+                "@type": "Service",
+                "name": `${state.name} Auto Transport Services`,
+                "serviceType": "Vehicle Shipping",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Furious Auto Shipping",
+                    "url": "https://furiousautoshipping.com",
+                    "logo": "https://furiousautoshipping.com/logo.png",
+                    "telephone": "+1-800-555-0199"
+                },
+                "areaServed": {
+                    "@type": "State",
+                    "name": `${state.name}`,
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressCountry": "US",
+                        "addressRegion": `${state.name}`
+                    }
+                },
+                "description": `Need to ship a car to or from ${state.name}? Get a free quote for reliable and insured auto transport services. We offer door-to-door car shipping with professional carriers for every type of vehicle. Contact us today!`,
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": `${state.name} Shipping Options`,
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": `Open Carrier Shipping in ${state.name}`
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": `Enclosed Auto Transport in ${state.name}`
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": `Military PCS Vehicle Shipping to ${state.name}`
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 
   return (
     <div className="pt-20">

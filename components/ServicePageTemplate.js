@@ -121,7 +121,7 @@ export default function ServicePageTemplate({
                     className="rounded-lg shadow-lg"
                   /> */}
                    <Image
-                    src='/images/final-logo.png'
+                    src='/images/final-logo.webp'
                     alt="Service benefits"
                     width={500}
                     height={400}

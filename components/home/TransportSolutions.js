@@ -6,7 +6,7 @@ export default function TransportSolutions() {
       icon: Home,
       title: "Residential Moves",
       description: "Moving across the state or country? We handle the logistics.",
-      link: "/learn-more",
+      link: "/services/residential-car-shipping",
       linkText: "Learn More",
       gradient: "from-blue-500 to-cyan-500"
     },
@@ -14,7 +14,7 @@ export default function TransportSolutions() {
       icon: Building2,
       title: "Dealerships & Auctions",
       description: "Volume discounts for B2B inventory transfers.",
-      link: "/business-accounts",
+      link: "/services/dealer-auto-transport",
       linkText: "Business Accounts",
       gradient: "from-purple-500 to-pink-500"
     },
@@ -22,7 +22,7 @@ export default function TransportSolutions() {
       icon: Shield,
       title: "Military (PCS)",
       description: "Active duty discounts and base-to-base shipping.",
-      link: "/military-shipping",
+      link: "/services/military-car-shipping",
       linkText: "Military Shipping",
       gradient: "from-green-500 to-emerald-500"
     },
@@ -30,7 +30,7 @@ export default function TransportSolutions() {
       icon: Palmtree,
       title: "Snowbirds",
       description: "Seasonal transport from North to South.",
-      link: "/snowbird-routes",
+      link: "/services/snowbird-auto-transport",
       linkText: "Snowbird Routes",
       gradient: "from-orange-500 to-amber-500"
     }

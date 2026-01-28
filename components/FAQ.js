@@ -60,7 +60,7 @@ const FAQ = ({
   return (
     <>
       {generateFAQSchema()}
-      <section className={`py-16 bg-white ${className}`}>
+      <section className={`py-8 bg-white ${className}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">

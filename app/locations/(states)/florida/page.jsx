@@ -250,13 +250,6 @@ export default function page() {
                             }
                         }
                     ]
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "reviewCount": "1250",
-                    "bestRating": "5",
-                    "worstRating": "1"
                 }
             }
         ]
@@ -267,11 +260,11 @@ export default function page() {
     return (
         <>
             <Script
-  id="schema-BreadcrumbList"
-  type="application/ld+json"
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }}
-/>
+                id="schema-BreadcrumbList"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }}
+            />
             <CommonHero
                 h1="Florida Auto Transport Services: Reliable Door-to-Door Shipping Along I-95, I-75 & Beyond"
                 subheading="Skip the stress of I-95. We provide secure, fully insured door-to-door logistics for your vehicle, so you can fly to your destination with peace of mind."
@@ -771,7 +764,7 @@ export default function page() {
                                             </p>
                                             <p className="text-gray-700 leading-relaxed mb-4">
                                                 {resource.description}
-                                            </p> 
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -779,25 +772,25 @@ export default function page() {
                         })}
                     </div>
 
-                    
-          <div className="text-center mb-12 mt-8">
-            <h2 className="heading-2 mb-4">Florida Covering All 50 States</h2> 
-          </div>
+
+                    <div className="text-center mb-12 mt-8">
+                        <h2 className="heading-2 mb-4">Florida Covering All 50 States</h2>
+                    </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 my-6">
-            {US_STATES.filter((state) => state.name !== "Florida").map((state) => (
-              <Link
-                key={state.code}
-                href={`/locations/florida/${state.url.toLowerCase()}`}
-                title={`Ship Car from Florida to ${state.name}`}
-                className="bg-brand-50 rounded-lg p-4 text-center hover:shadow-md hover:bg-brand-100 transition-all group"
-              > 
-                <div className="text-sm font-bold text-brand-600 group-hover:text-brand-700">
-                 Florida {'->'}  {state.name}
-                </div>
-              </Link>
-            ))}
-          </div>
+                        {US_STATES.filter((state) => state.name !== "Florida").map((state) => (
+                            <Link
+                                key={state.code}
+                                href={`/locations/florida/${state.url.toLowerCase()}`}
+                                title={`Ship Car from Florida to ${state.name}`}
+                                className="bg-brand-50 rounded-lg p-4 text-center hover:shadow-md hover:bg-brand-100 transition-all group"
+                            >
+                                <div className="text-sm font-bold text-brand-600 group-hover:text-brand-700">
+                                    Florida {'->'}  {state.name}
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
 
                 </div>
             </section>

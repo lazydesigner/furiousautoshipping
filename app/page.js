@@ -9,6 +9,7 @@ import CTA from '@/components/home/CTA'
 import TransportSolutions from '@/components/home/TransportSolutions'
 import PopularRoutes from '@/components/home/PopularRoutes'
 import Link from 'next/link'
+import Script from "next/script";
 
 import { ArrowRight } from 'lucide-react'
 
@@ -19,7 +20,7 @@ export const metadata = {
   openGraph: {
     title: 'Nationwide Auto Transport & Car Shipping Services | Furious',
     description: 'Rated #1 for nationwide auto transport. We ship any vehicle door-to-door in all 50 states. FMCSA Licensed & Bonded. Get your free instant quote today!.',
-    images: ['/images/hero-bg.jpg'],
+    images: ['/images/hero-bg.webp'],
   },
 }
 
@@ -82,9 +83,81 @@ const routes = [
   }
 ];
 
+
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Furious Auto Shipping',
+  description: 'Professional auto transport services across the USA',
+  url: process.env.NEXT_PUBLIC_SITE_URL,
+  telephone: process.env.NEXT_PUBLIC_COMPANY_PHONE,
+  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+  },
+  serviceArea: {
+    '@type': 'Country',
+    name: 'United States',
+  },
+  priceRange: '$$',
+  openingHours: 'Mo-Fr 08:00-18:00',
+  sameAs: [
+    'https://www.facebook.com/furiousautoshipping',
+    'https://www.instagram.com/furiousautoshipping',
+    'https://twitter.com/furiousauto',
+  ],
+}
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Furious Auto Shipping",
+  "url": "https://furiousautoshipping.com",
+  "logo": "https://furiousautoshipping.com/logo.png",
+  "foundingDate": "2015",
+  "description": "A nationwide auto transport logistics network specializing in door-to-door vehicle shipping.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-800-555-0199",
+    "contactType": "customer service",
+    "areaServed": "US",
+    "availableLanguage": "en"
+  },
+  "sameAs": [
+    "https://www.facebook.com/furiousautoshipping",
+    "https://www.linkedin.com/company/furiousautoshipping",
+    "https://www.bbb.org/us/tx/furious-auto-shipping",
+    "https://www.transportreviews.com/company/furious-auto-shipping"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "1250",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+} 
+
 export default function HomePage() {
+
+
   return (
     <>
+    <Script
+            id="schema-localbusiness"
+            type="application/ld+json"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }}
+          />
+    
+          <Script
+            id="schema-organization"
+            type="application/ld+json"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
+          /> 
       <Hero />
       <TrustBadges />
       <TransportSolutions />

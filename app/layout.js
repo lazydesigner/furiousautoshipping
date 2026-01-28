@@ -5,8 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Toaster } from 'react-hot-toast'
 import Analytics from '@/components/Analytics'
-import FloatingQuoteButton from '@/components/ui/FloatingQuoteButton' 
-import Script from "next/script";
+import FloatingQuoteButton from '@/components/ui/FloatingQuoteButton'
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -17,7 +16,7 @@ const inter = Inter({
 export const metadata = {
   title: {
     default: 'Nationwide Auto Transport & Car Shipping Services | Furious Auto Shipping',
-    template: '%s | Furious Auto Shipping',
+    template: '%s',
   },
   description: 'Get instant quotes for auto transport services across the USA. Door-to-door car shipping with competitive rates and excellent customer service.',
   keywords: 'auto transport, car shipping, vehicle transport, door-to-door, enclosed transport, open transport',
@@ -75,120 +74,20 @@ export const viewport = {
   maximumScale: 1,
 }
 
-const business = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Furious Auto Shipping',
-  description: 'Professional auto transport services across the USA',
-  url: process.env.NEXT_PUBLIC_SITE_URL,
-  telephone: process.env.NEXT_PUBLIC_COMPANY_PHONE,
-  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL,
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'US',
-  },
-  serviceArea: {
-    '@type': 'Country',
-    name: 'United States',
-  },
-  priceRange: '$$',
-  openingHours: 'Mo-Fr 08:00-18:00',
-  sameAs: [
-    'https://www.facebook.com/furiousautoshipping',
-    'https://www.instagram.com/furiousautoshipping',
-    'https://twitter.com/furiousauto',
-  ],
-}
-
-const organization = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Furious Auto Shipping",
-  "url": "https://furiousautoshipping.com",
-  "logo": "https://furiousautoshipping.com/logo.png",
-  "foundingDate": "2015",
-  "description": "A nationwide auto transport logistics network specializing in door-to-door vehicle shipping.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-800-555-0199",
-    "contactType": "customer service",
-    "areaServed": "US",
-    "availableLanguage": "en"
-  },
-  "sameAs": [
-    "https://www.facebook.com/furiousautoshipping",
-    "https://www.linkedin.com/company/furiousautoshipping",
-    "https://www.bbb.org/us/tx/furious-auto-shipping",
-    "https://www.transportreviews.com/company/furious-auto-shipping"
-  ]
-}
-
-const autodealer = {
-  "@context": "https://schema.org",
-  "@type": "AutoDealer",
-  "name": "Furious Auto Shipping",
-  "description": "Nationwide auto transport broker serving all 50 United States.",
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "National Shipping Routes",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Cross-Country Auto Transport",
-          "description": "Coast-to-coast vehicle shipping."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "State-to-State Shipping",
-          "description": "Direct routes between any two US states."
-        }
-      }
-    ]
-  }
-}
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
-      <Script
-        id="schema-localbusiness"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }}
-      />
-
-      <Script
-        id="schema-organization"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
-      />
-
-      <Script
-        id="schema-autodealer"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(autodealer) }}
-      />
+      
 
       <body className={`${inter.className} antialiased bg-white text-gray-900`} suppressHydrationWarnings={true}>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">
-              {/* <ChristmasDecoration /> */}
-              {children}
-            </main>
-            <Footer />
-          </div>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            {/* <ChristmasDecoration /> */}
+            {children}
+          </main>
+          <Footer />
+        </div>
         <Providers>
 
           {/* Floating Quote Button */}

@@ -48,10 +48,10 @@ export default function TransportProcessSection({ fromStateData2, toStateData2 }
   ];
 
   return (
-    <section className="">
+    <section className="mt-3">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             The Seamless Auto Transport Process
           </h2>
@@ -61,7 +61,7 @@ export default function TransportProcessSection({ fromStateData2, toStateData2 }
           <div className="mt-6 w-24 h-1 bg-gradient-to-r from-brand-500 to-pink-500 mx-auto rounded-full"></div>
         </div>
 
-        <p className="text-center text-lg text-gray-700 mb-16 max-w-4xl mx-auto">
+        <p className="text-center text-lg text-gray-700 mb-10 max-w-4xl mx-auto">
           We have refined our process to be as simple and transparent as possible. Here's a step-by-step overview of how we handle your shipment:
         </p>
 
@@ -93,7 +93,7 @@ export default function TransportProcessSection({ fromStateData2, toStateData2 }
                             <span className={`text-3xl hidden md:block font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
                               {step.number}
                             </span>
-                            <h3 className="text-2xl mt-4 font-bold text-gray-900">
+                            <h3 className="text-2xl font-bold text-gray-900">
                               {step.title}
                             </h3>
                           </div>

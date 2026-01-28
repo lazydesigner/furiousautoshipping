@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background Image (priority for LCP) */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero_image.png"
+          src="/images/hero_image.webp"
           alt="Professional car transport truck"
           fill
           className="object-cover"
