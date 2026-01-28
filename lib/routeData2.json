@@ -6266,7 +6266,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Florida to New Jersey",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or New Jersey may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or New Jersey may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -6338,7 +6338,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -6590,7 +6590,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Florida to Massachusetts",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Massachusetts may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Massachusetts may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -6662,7 +6662,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -6909,7 +6909,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Florida to Connecticut",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Connecticut may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Connecticut may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -6981,7 +6981,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -7228,7 +7228,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Florida to Pennsylvania",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Pennsylvania may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Pennsylvania may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -7300,7 +7300,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -7552,7 +7552,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Florida to Illinois",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Illinois may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Florida or Illinois may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -7624,7 +7624,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -7721,7 +7721,7 @@
     }
   },
   {
-    "route_id": "florida-to-ohio-car-shipping",
+    "route_id": "florida-to-ohio",
     "meta": {
       "title": "Car Shipping from Florida to Ohio | Reliable Snowbird Return Transport",
       "description": "Reliable car shipping from Florida to Ohio. Expert handling for Snowbird returns and corporate moves. Get a quote for Florida to Ohio auto transport cost.",
@@ -7871,7 +7871,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Florida to Ohio",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather in the Smoky Mountains or traffic in Atlanta may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather in the Smoky Mountains or traffic in Atlanta may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -7943,7 +7943,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed (Spring Rates)",
-        "note": "Note: Prices shown are market averages for the Spring Peak season. Actual rates vary due to fuel surcharges and vehicle condition. Check our <a class='text-brand-600 hover:text-brand-800 font-bold' href='/get-quote'>Vehicle Shipping Quotes</a> for real-time pricing.",
+        "note": " Prices shown are market averages for the Spring Peak season. Actual rates vary due to fuel surcharges and vehicle condition. Check our <a class='text-brand-600 hover:text-brand-800 font-bold' href='/get-quote'>Vehicle Shipping Quotes</a> for real-time pricing.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -8185,11 +8185,12 @@
     },
     "transport_costs": {
       "heading": "Understanding Your Quote: Car Shipping Cost from Texas to Michigan",
-      "content": "The <b>car shipping cost from Texas to Michigan</b> depends heavily on the calendar. In the spring, thousands of 'Snowbirds' engage us to ship a car from Texas to Michigan as they return home. This competition for truck space drives rates up. Conversely, shipping in late Autumn is often cheaper because most demand is heading in the opposite direction (South).",
+      "content": "The <b>car shipping cost from Texas to Michigan</b> depends heavily on the calendar. In the spring, thousands of 'Snowbirds' engage us to ship a car from Texas to Michigan as they return home. This competition for truck space drives rates up. Conversely, shipping in late Autumn is often cheaper because most demand is heading in the opposite direction (South)."
+    },
       "tables": {
         "transit_times": {
           "title": "Estimated Transit Times: Texas to Michigan",
-          "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or Michigan may impact actual delivery dates.",
+          "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or Michigan may impact actual delivery dates.",
           "headers": [
             "Origin City",
             "Destination City",
@@ -8261,7 +8262,7 @@
         },
         "cost_ranges": {
           "title": "Average Cost Ranges: Open vs. Enclosed",
-          "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
+          "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
           "headers": [
             "Vehicle Type",
             "Open Transport Cost",
@@ -8301,7 +8302,7 @@
             }
           ]
         }
-      }
+      
     },
     "faqs": [
       {
@@ -8509,7 +8510,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Texas to Colorado",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or Colorado may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or Colorado may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -8581,7 +8582,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -8828,7 +8829,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Texas to Illinois",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or Illinois may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or Illinois may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -8900,7 +8901,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Spring migration), and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Spring migration), and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -9147,7 +9148,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Texas to California",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or California may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Texas or California may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -9219,7 +9220,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -9466,7 +9467,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Texas to New York",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather in the Appalachians or traffic in NYC may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather in the Appalachians or traffic in NYC may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -9538,7 +9539,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and seasonal demand. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and seasonal demand. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -9785,7 +9786,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Texas to New Jersey",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather on I-81 or traffic in the Northeast may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather on I-81 or traffic in the Northeast may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -9857,7 +9858,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -10068,7 +10069,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Texas to Washington",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather in the Rockies may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather in the Rockies may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -10140,7 +10141,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages. Actual rates vary due to fuel surcharges and vehicle size. Contact us for a precise quote to move my car to Washington.",
+        "note": " Prices shown are market averages. Actual rates vary due to fuel surcharges and vehicle size. Contact us for a precise quote to move my car to Washington.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -10387,7 +10388,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Arizona to Washington",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather in mountain passes may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather in mountain passes may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -10459,7 +10460,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and seasonal demand. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and seasonal demand. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -10706,7 +10707,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Arizona to Oregon",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather on the Siskiyou Pass or traffic in Los Angeles (if routed that way) may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather on the Siskiyou Pass or traffic in Los Angeles (if routed that way) may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -10778,7 +10779,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and seasonal demand (e.g., Spring Snowbird season). Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges and seasonal demand (e.g., Spring Snowbird season). Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -11025,7 +11026,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Arizona to Illinois",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather in the Plains or traffic in Chicago may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather in the Plains or traffic in Chicago may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -11097,7 +11098,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (Spring Peak), and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (Spring Peak), and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -11344,7 +11345,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: Arizona to Minnesota",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Arizona or Minnesota may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in Arizona or Minnesota may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -11416,7 +11417,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Snowbird season), and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -11663,7 +11664,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: California to Texas",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in California or Texas may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in California or Texas may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -11735,7 +11736,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Summer Peak), and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand (e.g., Summer Peak), and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -11946,7 +11947,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: California to New York",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in California or New York may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in California or New York may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -12018,7 +12019,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -12265,7 +12266,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: California to Washington",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather in the Siskiyou Mountains may delay deliveries.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather in the Siskiyou Mountains may delay deliveries.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -12337,7 +12338,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages. Rates vary due to West Coast fuel prices and seasonal demand. Contact us for a guaranteed price.",
+        "note": " Prices shown are market averages. Rates vary due to West Coast fuel prices and seasonal demand. Contact us for a guaranteed price.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",
@@ -12584,7 +12585,7 @@
     "tables": {
       "transit_times": {
         "title": "Estimated Transit Times: California to Florida",
-        "note": "Note: These are estimated transit times for standard dispatch. Severe weather or traffic conditions in California or Florida may impact actual delivery dates.",
+        "note": " These are estimated transit times for standard dispatch. Severe weather or traffic conditions in California or Florida may impact actual delivery dates.",
         "headers": [
           "Origin City",
           "Destination City",
@@ -12656,7 +12657,7 @@
       },
       "cost_ranges": {
         "title": "Average Cost Ranges: Open vs. Enclosed",
-        "note": "Note: Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
+        "note": " Prices shown are market averages for this route. Actual rates may vary due to fuel surcharges, seasonal demand, and vehicle condition. Contact us for a precise, guaranteed quote.",
         "headers": [
           "Vehicle Type",
           "Open Transport Cost",

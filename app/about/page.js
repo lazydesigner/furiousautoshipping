@@ -12,7 +12,7 @@ export const metadata = {
 
 const stats = [
   { label: 'Vehicles Shipped', value: '50,000+' },
-  { label: 'Years in Business', value: '10+' },
+  { label: 'Years in Business', value: '7+' },
   { label: 'Customer Satisfaction', value: '4.9/5' },
   { label: 'States Covered', value: '50' },
 ]
