@@ -281,7 +281,7 @@ export default function page() {
 />
             <CommonHero
                 h1="Car Shipping from New York to Florida: The Expert’s Guide & Cost Reality" 
-                img="/images/state-to-state/new-york-to-florida-car-shipping.png"
+                img="/images/state-to-state/new-york-to-florida-car-shipping.webp"
             />
 
 
@@ -352,7 +352,7 @@ export default function page() {
                     <div className="relative w-full h-28 md:h-96 my-5">
                                                                 <Image
                                         
-                                                                    src='/images/state-to-state/new-york-to-florida-route.png'
+                                                                    src='/images/state-to-state/new-york-to-florida-route.webp'
                                                                     alt='Florida Logestic routes map'
                                                                     fill
                                                                     className=' md:object-contain'

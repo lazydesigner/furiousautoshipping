@@ -1,136 +1,4 @@
-// lib/nodemailer.js
-import nodemailer from 'nodemailer'
-
-/**
- * Create email transporter based on environment configuration
- */
-export function createTransporter() {
-  // Gmail configuration
-  if (process.env.EMAIL_PROVIDER === 'gmail' || !process.env.EMAIL_PROVIDER) {
-    return nodemailer.createTransport({
-      service: 'gmail', 
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD, // Use App Password, not regular password
-      },
-    })
-  }
-
-  // Custom SMTP configuration
-  if (process.env.EMAIL_PROVIDER === 'smtp') {
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-      },
-    })
-  }
-
-  // SendGrid configuration
-  if (process.env.EMAIL_PROVIDER === 'sendgrid') {
-    return nodemailer.createTransport({
-      service: 'SendGrid',
-      auth: {
-        user: 'apikey',
-        pass: process.env.SENDGRID_API_KEY,
-      },
-    })
-  }
-
-  // Outlook/Hotmail configuration
-  if (process.env.EMAIL_PROVIDER === 'outlook') {
-    return nodemailer.createTransport({
-      service: 'outlook',
-      auth: {
-        user: process.env.OUTLOOK_USER,
-        pass: process.env.OUTLOOK_PASSWORD,
-      },
-    })
-  }
-
-  // Default fallback to Gmail
-  return nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  })
-}
-
-/**
- * Send quote confirmation email to customer
- */
-export async function sendQuoteConfirmation({ to, quote }) {
-  try {
-    const transporter = createTransporter()
-
-    // Custom sender name and email
-    const fromName = process.env.FROM_NAME || 'Furious Auto Shipping'
-    const fromEmail = process.env.FROM_EMAIL || process.env.GMAIL_USER
-    const customFromField = 'Furious Auto Shipping' || `"${fromName}" <${fromEmail}>`
-
-    const mailOptions = {
-      from: 'Furious Auto Shipping <info@furiousautoshipping.com>',
-      to: to,
-      subject: `Quote Request Confirmed - Tracking ID: ${quote.tracking_id}`,
-      html: generateQuoteConfirmationHTML(quote),
-      text: generateQuoteConfirmationText(quote),
-    }
-
-    const result = await transporter.sendMail(mailOptions)
-    return result
-  } catch (error) {
-    console.error('Error sending quote confirmation email:', error)
-    throw error
-  }
-}
-
-/**
- * Send admin notification email
- */
-export async function sendAdminNotification({ quote }) {
-  try {
-    const transporter = createTransporter()
-
-    const adminEmail = process.env.ADMIN_EMAIL || process.env.GMAIL_USER
-
-    const bccEmails = process.env.ADMIN_BCC_EMAILS
-      ? process.env.ADMIN_BCC_EMAILS.split(',').map(e => e.trim())
-      : 'upadhyaybraman@gmail.com'
-
-    const fromName = process.env.FROM_NAME || 'Furious Auto Shipping System'
-    const fromEmail = process.env.FROM_EMAIL || process.env.GMAIL_USER
-    const customFromField = 'Furious Auto Shipping' || `"${fromName}" <${fromEmail}>`
- 
-
-    const mailOptions = {
-      from: 'Furious Auto Shipping <info@furiousautoshipping.com>',
-      to: adminEmail,
-      bcc: bccEmails,
-      subject: `New Quote Request - ${quote.tracking_id}`,
-      html: generateAdminNotificationHTML(quote),
-      text: generateAdminNotificationText(quote),
-    }
-
-    const result = await transporter.sendMail(mailOptions)
-    return result
-  } catch (error) {
-    console.error('Error sending admin notification email:', error)
-    throw error
-  }
-}
-
-/**
- * Generate HTML email for quote confirmation
- */
-function generateQuoteConfirmationHTML(quote) {
-  console.log(quote)
-  return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -173,7 +41,7 @@ function generateQuoteConfirmationHTML(quote) {
                     <tr>
                         <td style="padding: 45px 40px; border-bottom: 1px solid #e8ecf0;">
                             <h2 style="color: #1a3a52; font-size: 24px; font-weight: 700; margin: 0 0 10px 0; letter-spacing: -0.3px;">Quote Request Confirmed</h2>
-                            <p style="color: #555555; font-size: 15px; line-height: 1.7; margin: 0;">Hello ${quote.name},</p>
+                            <p style="color: #555555; font-size: 15px; line-height: 1.7; margin: 0;">Hello {{customer_name}},</p>
                             <p style="color: #555555; font-size: 15px; line-height: 1.7; margin: 15px 0 0 0;">Thank you for choosing Furious Auto Shipping. We have received your auto transport quote request and our team of certified logistics specialists is reviewing your shipment details. You can expect a personalized quote and initial contact from our transport coordination team within 2 business hours.</p>
                         </td>
                     </tr>
@@ -191,7 +59,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Full Name</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${quote.name}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{customer_name}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -199,7 +67,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Email Address</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${quote.email}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{customer_email}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -207,7 +75,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Phone Number</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${quote.phone}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{customer_phone}}</p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -217,13 +85,11 @@ function generateQuoteConfirmationHTML(quote) {
                         </td>
                     </tr>
 
-                    ${quote.vehicles ? `
+                    <!-- Vehicle Information Section -->
                     <tr>
                         <td style="padding: 40px 40px 0;">
                             <p style="color: #1a3a52; font-size: 12px; font-weight: 700; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 1.2px;">Vehicle Details</p>
-                            
                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                            ${quote.vehicles.map(v => `
                                 <tr>
                                     <td style="padding: 12px 20px; background-color: #f8f9fc; border-left: 4px solid #0080d0;">
                                         <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -232,7 +98,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Year</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${v.year}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{vehicle_year}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -240,7 +106,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Make</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${v.make}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{vehicle_make}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -248,7 +114,15 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Model</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${v.model}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{vehicle_model}}</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0;">
+                                                    <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Vehicle Type</p>
+                                                </td>
+                                                <td style="padding: 8px 0; text-align: right;">
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{vehicle_type}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -256,16 +130,15 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Condition</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${v.condition}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{vehicle_condition}}</p>
                                                 </td>
                                             </tr>
                                         </table>
                                     </td>
-                                </tr>`)}
+                                </tr>
                             </table>
                         </td>
                     </tr>
-                    ` : ''}
 
                     <!-- Shipping Details Section -->
                     <tr>
@@ -280,7 +153,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Pickup Location</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${quote.origin_address}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{pickup_city}}, {{pickup_state}} {{pickup_zip}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -288,7 +161,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Delivery Location</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${quote.destination_address}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{delivery_city}}, {{delivery_state}} {{delivery_zip}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -296,7 +169,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Transport Type</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${quote.transport_type}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{transport_type}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -304,7 +177,7 @@ function generateQuoteConfirmationHTML(quote) {
                                                     <p style="color: #888888; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600;">Est. Pickup Date</p>
                                                 </td>
                                                 <td style="padding: 8px 0; text-align: right;">
-                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">${new Date(quote.move_date).toDateString()}</p>
+                                                    <p style="color: #1a3a52; font-size: 14px; margin: 0; font-weight: 600;">{{pickup_date}}</p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -320,8 +193,8 @@ function generateQuoteConfirmationHTML(quote) {
                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                 <tr>
                                     <td style="text-align: center;">
-                                        <a href="https://furiousautoshipping.com/track/${quote.id}" style="display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #1a3a52 0%, #2d5473 100%); color: #ffffff; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(26, 58, 82, 0.25); margin-bottom: 20px;">Track Quote</a>
-                                        <p style="color: #666666; font-size: 13px; margin: 0;">Or call our specialists at <span style="font-weight: 600; color: #1a3a52;">1-888-706-8784</span></p>
+                                        <a href="{{confirm_shipment_url}}" style="display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #1a3a52 0%, #2d5473 100%); color: #ffffff; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(26, 58, 82, 0.25); margin-bottom: 20px;">View & Confirm Quote</a>
+                                        <p style="color: #666666; font-size: 13px; margin: 0;">Or call our specialists at <span style="font-weight: 600; color: #1a3a52;">1-800-AUTO-SHIP</span></p>
                                     </td>
                                 </tr>
                             </table>
@@ -373,8 +246,8 @@ function generateQuoteConfirmationHTML(quote) {
                                         <p style="color: #ffffff; font-size: 15px; font-weight: 700; margin: 0 0 15px 0;">Furious Auto Shipping</p>
                                         <p style="color: #a8d5ff; font-size: 13px; line-height: 1.8; margin: 0;">
                                             Email: support@furiousautoshipping.com<br>
-                                            Phone: 1-888-706-8784<br>
-                                            Website: https://furiousautoshipping.com<br>
+                                            Phone: 1-800-AUTO-SHIP (1-800-288-6674)<br>
+                                            Website: www.furiousautoshipping.com<br>
                                             Hours: Mon-Fri 8 AM - 8 PM EST | Sat-Sun 9 AM - 5 PM EST
                                         </p>
                                     </td>
@@ -382,7 +255,7 @@ function generateQuoteConfirmationHTML(quote) {
                                 <tr>
                                     <td style="text-align: center; padding-top: 20px;">
                                         <p style="color: #7ab3d8; font-size: 12px; line-height: 1.6; margin: 0;">
-                                            Copyright 2026 Furious Auto Shipping. All rights reserved.<br>
+                                            Copyright 2024 Furious Auto Shipping. All rights reserved.<br>
                                             <a href="{{unsubscribe_url}}" style="color: #a8d5ff; text-decoration: none; font-weight: 500;">Manage Preferences</a>
                                         </p>
                                     </td>
@@ -396,133 +269,3 @@ function generateQuoteConfirmationHTML(quote) {
     </table>
 </body>
 </html>
-  `
-}
-
-/**
- * Generate text email for quote confirmation
- */
-function generateQuoteConfirmationText(quote) {
-  return `
-Quote Request Confirmed - Tracking ID: ${quote.tracking_id}
-
-Dear ${quote.name},
-
-Thank you for your auto transport quote request. We have received your information and will contact you within 24 hours with a detailed quote.
-
-Quote Details:
-From: ${quote.origin_address}
-To: ${quote.destination_address}
-Transport Type: ${quote.transport_type}
-Service: ${quote.pickup_type.replace('_', ' ')}
-
-${quote.vehicles ? `
-Vehicles:
-${quote.vehicles.map(v => `• ${v.year} ${v.make} ${v.model}`).join('\n')}
-` : ''}
-
-Please keep this tracking ID for your records: ${quote.tracking_id}
-
-Furious Auto Shipping
-Professional Auto Transport Services
-  `
-}
-
-/**
- * Generate HTML email for admin notification
- */
-function generateAdminNotificationHTML(quote) {
-  return `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-      <title>New Quote Request</title>
-      <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #dc2626; color: white; padding: 20px; text-align: center; }
-        .content { padding: 20px; background: #f9f9f9; }
-        .quote-details { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="header">
-          <h1>New Quote Request</h1>
-          <p>Tracking ID: ${quote.tracking_id}</p>
-        </div>
-        
-        <div class="content">
-          <div class="quote-details">
-            <h3>Customer Information:</h3>
-            <p><strong>Name:</strong> ${quote.name}</p>
-            <p><strong>Email:</strong> ${quote.email}</p>
-            <p><strong>Phone:</strong> ${quote.phone}</p>
-          </div>
-          
-          <div class="quote-details">
-            <h3>Route Information:</h3>
-            <p><strong>From:</strong> ${quote.origin_address}</p>
-            <p><strong>To:</strong> ${quote.destination_address}</p>
-            <p><strong>Distance:</strong> ${quote.distance ? Math.round(quote.distance) + ' miles' : 'N/A'}</p>
-          </div>
-          
-          <div class="quote-details">
-            <h3>Service Options:</h3>
-            <p><strong>Transport Type:</strong> ${quote.transport_type}</p>
-            <p><strong>Service:</strong> ${quote.pickup_type.replace('_', ' ')}</p>
-            <p><strong>Expedited:</strong> ${quote.expedited ? 'Yes' : 'No'}</p>
-          </div>
-          
-          ${quote.vehicles ? `
-            <div class="quote-details">
-              <h3>Vehicles:</h3>
-              ${quote.vehicles.map(v => `
-                <p><strong>${v.year} ${v.make} ${v.model}</strong><br>
-                Condition: ${v.condition}<br>
-                ${v.is_oversized ? 'Oversized: Yes<br>' : ''}
-                ${v.special_instructions ? `Notes: ${v.special_instructions}` : ''}
-                </p>
-              `).join('')}
-            </div>
-          ` : ''}
-          
-          <p><strong>Action Required:</strong> Follow up with this customer within 24 hours.</p>
-        </div>
-      </div>
-    </body>
-    </html>
-  `
-}
-
-/**
- * Generate text email for admin notification
- */
-function generateAdminNotificationText(quote) {
-  return `
-New Quote Request - Tracking ID: ${quote.tracking_id}
-
-Customer Information:
-Name: ${quote.name}
-Email: ${quote.email}
-Phone: ${quote.phone}
-
-Route Information:
-From: ${quote.origin_address}
-To: ${quote.destination_address}
-Distance: ${quote.distance ? Math.round(quote.distance) + ' miles' : 'N/A'}
-
-Service Options:
-Transport Type: ${quote.transport_type}
-Service: ${quote.pickup_type.replace('_', ' ')}
-Expedited: ${quote.expedited ? 'Yes' : 'No'}
-
-${quote.vehicles ? `
-Vehicles:
-${quote.vehicles.map(v => `• ${v.year} ${v.make} ${v.model} (${v.condition})`).join('\n')}
-` : ''}
-
-Action Required: Follow up with this customer within 24 hours.
-  `
-}

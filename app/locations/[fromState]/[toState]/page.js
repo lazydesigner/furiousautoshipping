@@ -167,7 +167,7 @@ export default async function RoutePage({ params }) {
       iconWrap: "bg-red-500/20 border-red-500/30",
     },
   };
-
+  
   if (!routeData) {
     return (<>
 

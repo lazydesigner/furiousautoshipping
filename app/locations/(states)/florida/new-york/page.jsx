@@ -258,7 +258,7 @@ export default function page() {
             <CommonHero
                 h1="Car Shipping from Florida to New York: Expert Guide & Rates (2026)"
                 subheading="Secure, direct, and fully insured auto transport from Florida to New York. Get your guaranteed schedule today."
-                img="/images/state-to-state/car-shipping-florida-to-new-york-banner.png"
+                img="/images/state-to-state/car-shipping-florida-to-new-york-banner.webp"
             />
 
 
@@ -402,7 +402,7 @@ export default function page() {
                     <div className="relative w-full h-28 md:h-96 my-5">
                                             <Image
                     
-                                                src='/images/state-to-state/florida-to-new-york-route.png'
+                                                src='/images/state-to-state/florida-to-new-york-route.webp'
                                                 alt='Florida Logestic routes map'
                                                 fill
                                                 className=' md:object-contain'
