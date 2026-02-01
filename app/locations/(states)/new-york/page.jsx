@@ -199,7 +199,7 @@ export default function page() {
   id="schema-BreadcrumbList"
   type="application/ld+json"
   strategy="afterInteractive"
-  dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }}
 />
             <CommonHero
                 h1="New York Car Shipping Services: Safe, Reliable, & Direct"

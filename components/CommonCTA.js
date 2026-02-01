@@ -11,7 +11,7 @@ export default function CTA({p, s, b}) {
             {p || 'Ready to Ship Your Vehicle?'}
           </p> 
 
-          <p className='my-4 text-center' dangerouslySetInnerHTML={{__html: s}} />
+          {s && (<p className='my-4 text-center' dangerouslySetInnerHTML={{__html: s}} />)}
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
