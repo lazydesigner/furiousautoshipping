@@ -13,15 +13,58 @@ export const metadata = {
 
 // Popular routes with sample data
 const popularRoutes = [
-  { from: 'California', to: 'Texas', distance: 1200, price: '900-1300', time: '5-7 days', code: 'ca/tx', url: 'california/texas' },
-  { from: 'Florida', to: 'New York', distance: 1100, price: '800-1200', time: '4-6 days', code: 'fl/ny', url: 'florida/new-york' },
-  { from: 'California', to: 'Florida', distance: 2400, price: '1200-1800', time: '7-10 days', code: 'ca/fl', url: 'california/florida' },
-  { from: 'Texas', to: 'California', distance: 1400, price: '900-1400', time: '5-8 days', code: 'tx/ca', url: 'texas/california' },
-  { from: 'Illinois', to: 'Florida', distance: 1200, price: '800-1200', time: '5-7 days', code: 'il/fl', url: 'illinois/florida' },
-  { from: 'New York', to: 'California', distance: 2800, price: '1400-2000', time: '8-12 days', code: 'ny/ca', url: 'new-york/california' },
-  { from: 'Pennsylvania', to: 'Florida', distance: 1000, price: '700-1100', time: '4-6 days', code: 'pa/fl', url: 'pennsylvania/florida' },
-  { from: 'Michigan', to: 'Florida', distance: 1100, price: '800-1200', time: '5-7 days', code: 'mi/fl', url: 'michigan/florida' },
-]
+  // Florida Routes
+  { from: 'Florida', to: 'Oregon', distance: 3000, price: '1400-2000', time: '7-10 days', code: 'fl/or', url: 'florida/oregon' },
+  { from: 'Florida', to: 'New Jersey', distance: 1100, price: '700-1100', time: '4-6 days', code: 'fl/nj', url: 'florida/new-jersey' },
+  { from: 'Florida', to: 'Michigan', distance: 1300, price: '800-1200', time: '5-7 days', code: 'fl/mi', url: 'florida/michigan' },
+  { from: 'Florida', to: 'New York', distance: 1100, price: '700-1100', time: '4-6 days', code: 'fl/ny', url: 'florida/new-york' },
+  { from: 'Florida', to: 'Massachusetts', distance: 1300, price: '800-1200', time: '5-7 days', code: 'fl/ma', url: 'florida/massachusetts' },
+  { from: 'Florida', to: 'Connecticut', distance: 1200, price: '800-1200', time: '5-7 days', code: 'fl/ct', url: 'florida/connecticut' },
+  { from: 'Florida', to: 'Pennsylvania', distance: 1000, price: '700-1100', time: '4-6 days', code: 'fl/pa', url: 'florida/pennsylvania' },
+  { from: 'Florida', to: 'Illinois', distance: 1200, price: '800-1200', time: '5-7 days', code: 'fl/il', url: 'florida/illinois' },
+  { from: 'Florida', to: 'Ohio', distance: 1100, price: '700-1100', time: '4-6 days', code: 'fl/oh', url: 'florida/ohio' },
+  
+  // Texas Routes
+  { from: 'Texas', to: 'Ohio', distance: 1200, price: '800-1200', time: '5-7 days', code: 'tx/oh', url: 'texas/ohio' },
+  { from: 'Texas', to: 'Michigan', distance: 1400, price: '900-1400', time: '5-7 days', code: 'tx/mi', url: 'texas/michigan' },
+  { from: 'Texas', to: 'Colorado', distance: 900, price: '700-1000', time: '4-6 days', code: 'tx/co', url: 'texas/colorado' },
+  { from: 'Texas', to: 'Illinois', distance: 1100, price: '800-1200', time: '5-7 days', code: 'tx/il', url: 'texas/illinois' },
+  { from: 'Texas', to: 'Washington', distance: 2100, price: '1200-1700', time: '6-8 days', code: 'tx/wa', url: 'texas/washington' },
+  { from: 'Texas', to: 'California', distance: 1500, price: '900-1400', time: '5-7 days', code: 'tx/ca', url: 'texas/california' },
+  { from: 'Texas', to: 'New York', distance: 1800, price: '1000-1500', time: '6-8 days', code: 'tx/ny', url: 'texas/new-york' },
+  { from: 'Texas', to: 'New Jersey', distance: 1700, price: '1000-1500', time: '6-8 days', code: 'tx/nj', url: 'texas/new-jersey' },
+  
+  // Arizona Routes
+  { from: 'Arizona', to: 'Washington', distance: 1500, price: '900-1400', time: '5-7 days', code: 'az/wa', url: 'arizona/washington' },
+  { from: 'Arizona', to: 'Oregon', distance: 1400, price: '900-1300', time: '5-7 days', code: 'az/or', url: 'arizona/oregon' },
+  { from: 'Arizona', to: 'Illinois', distance: 1700, price: '1000-1500', time: '6-8 days', code: 'az/il', url: 'arizona/illinois' },
+  { from: 'Arizona', to: 'Minnesota', distance: 1700, price: '1000-1500', time: '6-8 days', code: 'az/mn', url: 'arizona/minnesota' },
+  
+  // New York Routes
+  { from: 'New York', to: 'South Carolina', distance: 750, price: '600-900', time: '3-5 days', code: 'ny/sc', url: 'new-york/south-carolina' },
+  { from: 'New York', to: 'Florida', distance: 1100, price: '700-1100', time: '4-6 days', code: 'ny/fl', url: 'new-york/florida' },
+  { from: 'New York', to: 'Utah', distance: 2200, price: '1100-1600', time: '6-8 days', code: 'ny/ut', url: 'new-york/utah' },
+  { from: 'New York', to: 'Michigan', distance: 650, price: '550-850', time: '3-5 days', code: 'ny/mi', url: 'new-york/michigan' },
+  { from: 'New York', to: 'Mississippi', distance: 1200, price: '800-1200', time: '5-7 days', code: 'ny/ms', url: 'new-york/mississippi' },
+  
+  // California Routes
+  { from: 'California', to: 'Texas', distance: 1500, price: '900-1400', time: '5-7 days', code: 'ca/tx', url: 'california/texas' },
+  { from: 'California', to: 'New York', distance: 2900, price: '1400-2000', time: '7-10 days', code: 'ca/ny', url: 'california/new-york' },
+  { from: 'California', to: 'Washington', distance: 1100, price: '700-1100', time: '4-6 days', code: 'ca/wa', url: 'california/washington' },
+  { from: 'California', to: 'Florida', distance: 2700, price: '1300-1900', time: '7-10 days', code: 'ca/fl', url: 'california/florida' },
+  
+  // Other Routes
+  { from: 'Mississippi', to: 'North Dakota', distance: 1500, price: '900-1400', time: '5-7 days', code: 'ms/nd', url: 'mississippi/north-dakota' },
+  { from: 'Alaska', to: 'Colorado', distance: 3000, price: '2000-3000', time: '10-14 days', code: 'ak/co', url: 'alaska/colorado' },
+  { from: 'Idaho', to: 'Tennessee', distance: 1900, price: '1100-1600', time: '6-8 days', code: 'id/tn', url: 'idaho/tennessee' },
+  { from: 'Delaware', to: 'Hawaii', distance: 5000, price: '2500-3500', time: '14-21 days', code: 'de/hi', url: 'delaware/hawaii' },
+  { from: 'Ohio', to: 'New Jersey', distance: 500, price: '450-700', time: '2-4 days', code: 'oh/nj', url: 'ohio/new-jersey' },
+  { from: 'Iowa', to: 'New York', distance: 1100, price: '750-1150', time: '5-7 days', code: 'ia/ny', url: 'iowa/new-york' },
+  { from: 'Maryland', to: 'Texas', distance: 1500, price: '900-1400', time: '6-8 days', code: 'md/tx', url: 'maryland/texas' },
+  { from: 'Michigan', to: 'New York', distance: 650, price: '550-850', time: '3-5 days', code: 'mi/ny', url: 'michigan/new-york' },
+  { from: 'Arkansas', to: 'Hawaii', distance: 4500, price: '2200-3200', time: '14-21 days', code: 'ar/hi', url: 'arkansas/hawaii' },
+  { from: 'Missouri', to: 'New York', distance: 1100, price: '750-1150', time: '5-7 days', code: 'mo/ny', url: 'missouri/new-york' }
+];
 
 // Regional groupings
 const regions = [

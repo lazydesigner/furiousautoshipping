@@ -69,13 +69,167 @@ const regions = ['All Cities', 'West Coast', 'East Coast', 'Midwest', 'South']
 const tiers = ['All Tiers', 'Tier 1', 'Tier 2']
 
 const popularCityPairs = [
-  { from: 'Los Angeles, CA', to: 'New York, NY', price: '$1,400-2,000', time: '8-12 days' },
-  { from: 'Miami, FL', to: 'Seattle, WA', price: '$1,800-2,400', time: '10-14 days' },
-  { from: 'Chicago, IL', to: 'Los Angeles, CA', price: '$1,200-1,700', time: '7-10 days' },
-  { from: 'New York, NY', to: 'Miami, FL', price: '$800-1,300', time: '5-8 days' },
-  { from: 'Houston, TX', to: 'Denver, CO', price: '$700-1,100', time: '4-6 days' },
-  { from: 'Phoenix, AZ', to: 'Detroit, MI', price: '$1,100-1,600', time: '6-9 days' },
-]
+  // Category 1: The "Snowbird Return" (Florida → Northeast)
+  { 
+    from: 'Miami, FL', 
+    to: 'New York City, NY', 
+    url: 'https://furiousautoshipping.com/routes/miami-fl-to-new-york-ny',
+    price: '$800-1,200', 
+    time: '5-7 days',
+    note: '#1 most important route in the country for this season'
+  },
+  { 
+    from: 'Fort Lauderdale, FL', 
+    to: 'New York City, NY', 
+    url: 'https://furiousautoshipping.com/routes/fort-lauderdale-fl-to-new-york-ny',
+    price: '$800-1,200', 
+    time: '5-7 days'
+  },
+  { 
+    from: 'Boca Raton, FL', 
+    to: 'Long Island, NY', 
+    url: 'https://furiousautoshipping.com/routes/boca-raton-fl-to-long-island-ny',
+    price: '$850-1,300', 
+    time: '5-7 days',
+    note: 'Specific wealth corridor. High ticket value.'
+  },
+  { 
+    from: 'West Palm Beach, FL', 
+    to: 'Newark, NJ', 
+    url: 'https://furiousautoshipping.com/routes/west-palm-beach-fl-to-newark-nj',
+    price: '$800-1,200', 
+    time: '5-7 days'
+  },
+  { 
+    from: 'Tampa, FL', 
+    to: 'Boston, MA', 
+    url: 'https://furiousautoshipping.com/routes/tampa-fl-to-boston-ma',
+    price: '$850-1,300', 
+    time: '6-8 days'
+  },
+  { 
+    from: 'Orlando, FL', 
+    to: 'Philadelphia, PA', 
+    url: 'https://furiousautoshipping.com/routes/orlando-fl-to-philadelphia-pa',
+    price: '$750-1,150', 
+    time: '5-7 days'
+  },
+  { 
+    from: 'Naples, FL', 
+    to: 'Greenwich, CT', 
+    url: 'https://furiousautoshipping.com/routes/naples-fl-to-greenwich-ct',
+    price: '$950-1,500', 
+    time: '6-8 days',
+    note: 'Ultra-luxury corridor. Enclosed transport focus.'
+  },
+
+  // Category 2: The "Midwest Return" (Florida & Arizona Snowbirds)
+  { 
+    from: 'Fort Myers, FL', 
+    to: 'Chicago, IL', 
+    url: 'https://furiousautoshipping.com/routes/fort-myers-fl-to-chicago-il',
+    price: '$700-1,100', 
+    time: '5-7 days'
+  },
+  { 
+    from: 'Sarasota, FL', 
+    to: 'Detroit, MI', 
+    url: 'https://furiousautoshipping.com/routes/sarasota-fl-to-detroit-mi',
+    price: '$750-1,150', 
+    time: '6-8 days'
+  },
+  { 
+    from: 'Phoenix, AZ', 
+    to: 'Minneapolis, MN', 
+    url: 'https://furiousautoshipping.com/routes/phoenix-az-to-minneapolis-mn',
+    price: '$800-1,200', 
+    time: '6-8 days'
+  },
+  { 
+    from: 'Scottsdale, AZ', 
+    to: 'Chicago, IL', 
+    url: 'https://furiousautoshipping.com/routes/scottsdale-az-to-chicago-il',
+    price: '$850-1,250', 
+    time: '6-8 days'
+  },
+  { 
+    from: 'Tampa, FL', 
+    to: 'Cleveland, OH', 
+    url: 'https://furiousautoshipping.com/routes/tampa-fl-to-cleveland-oh',
+    price: '$700-1,050', 
+    time: '5-7 days'
+  },
+
+  // Category 3: The "West Coast & Tech" Corridors
+  { 
+    from: 'Phoenix, AZ', 
+    to: 'Seattle, WA', 
+    url: 'https://furiousautoshipping.com/routes/phoenix-az-to-seattle-wa',
+    price: '$750-1,150', 
+    time: '5-7 days'
+  },
+  { 
+    from: 'Los Angeles, CA', 
+    to: 'Austin, TX', 
+    url: 'https://furiousautoshipping.com/routes/los-angeles-ca-to-austin-tx',
+    price: '$800-1,200', 
+    time: '6-8 days',
+    note: 'Major relocation route'
+  },
+  { 
+    from: 'San Francisco, CA', 
+    to: 'Austin, TX', 
+    url: 'https://furiousautoshipping.com/routes/san-francisco-ca-to-austin-tx',
+    price: '$900-1,300', 
+    time: '7-9 days'
+  },
+  { 
+    from: 'San Diego, CA', 
+    to: 'Dallas, TX', 
+    url: 'https://furiousautoshipping.com/routes/san-diego-ca-to-dallas-tx',
+    price: '$750-1,150', 
+    time: '6-8 days'
+  },
+  { 
+    from: 'Los Angeles, CA', 
+    to: 'New York, NY', 
+    url: 'https://furiousautoshipping.com/routes/los-angeles-ca-to-new-york-ny',
+    price: '$1,400-2,000', 
+    time: '8-12 days',
+    note: 'The "Cross Country" standard. Always high volume.'
+  },
+
+  // Category 4: The "Texas Summer" Moves
+  { 
+    from: 'Dallas, TX', 
+    to: 'Denver, CO', 
+    url: 'https://furiousautoshipping.com/routes/dallas-tx-to-denver-co',
+    price: '$600-950', 
+    time: '4-6 days'
+  },
+  { 
+    from: 'Houston, TX', 
+    to: 'Denver, CO', 
+    url: 'https://furiousautoshipping.com/routes/houston-tx-to-denver-co',
+    price: '$650-1,000', 
+    time: '5-6 days'
+  },
+  { 
+    from: 'Austin, TX', 
+    to: 'Chicago, IL', 
+    url: 'https://furiousautoshipping.com/routes/austin-tx-to-chicago-il',
+    price: '$700-1,100', 
+    time: '5-7 days'
+  },
+  { 
+    from: 'Houston, TX', 
+    to: 'Detroit, MI', 
+    url: 'https://furiousautoshipping.com/routes/houston-tx-to-detroit-mi',
+    price: '$750-1,150', 
+    time: '6-8 days',
+    note: 'Auto industry connection'
+  }
+];
 
 export default function CitiesPage() {
   return (
@@ -138,10 +292,10 @@ export default function CitiesPage() {
                 </div>
                 
                 <Link
-                  href="/get-quote"
+                  href={pair.url}
                   className="btn-primary w-full text-center"
                 >
-                  Get Quote
+                  Ship This Route
                 </Link>
               </div>
             ))}
