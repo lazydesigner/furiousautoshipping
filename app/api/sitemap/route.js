@@ -29,6 +29,27 @@ export async function GET() {
     '/faq',
     '/terms',
     '/privacy',
+    '/routes/miami-fl-to-new-york-ny',
+  '/routes/fort-lauderdale-fl-to-new-york-ny',
+  '/routes/boca-raton-fl-to-long-island-ny',
+  '/routes/west-palm-beach-fl-to-newark-nj',
+  '/routes/tampa-fl-to-boston-ma',
+  '/routes/orlando-fl-to-philadelphia-pa',
+  '/routes/naples-fl-to-greenwich-ct',
+  '/routes/fort-myers-fl-to-chicago-il',
+  '/routes/sarasota-fl-to-detroit-mi',
+  '/routes/phoenix-az-to-minneapolis-mn',
+  '/routes/scottsdale-az-to-chicago-il',
+  '/routes/tampa-fl-to-cleveland-oh',
+  '/routes/phoenix-az-to-seattle-wa',
+  '/routes/los-angeles-ca-to-austin-tx',
+  '/routes/san-francisco-ca-to-austin-tx',
+  '/routes/san-diego-ca-to-dallas-tx',
+  '/routes/los-angeles-ca-to-new-york-ny',
+  '/routes/dallas-tx-to-denver-co',
+  '/routes/houston-tx-to-denver-co',
+  '/routes/austin-tx-to-chicago-il',
+  '/routes/houston-tx-to-detroit-mi',
   ]
 
   // Generate state-to-state routes
@@ -2552,7 +2573,7 @@ ${allRoutes.map(route => {
   } else if (route === '/get-quote' || route === '/services') {
     priority = '0.9'
     changefreq = 'weekly'
-  } else if (route.startsWith('/services/') || route === '/about' || route === '/contact') {
+  } else if (route.startsWith('/services/') || route === '/about' || route === '/contact' || route === '/routes/') {
     priority = '0.9'
     changefreq = 'monthly'
   } else if (route.startsWith('/from-') && route.includes('-to-')) {
