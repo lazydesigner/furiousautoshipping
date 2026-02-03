@@ -692,6 +692,7 @@ const RoutePageDesign = async ({params}) => {
                       <td className="px-6 py-4 text-blue-600 font-semibold">{row.cost}</td>
                       <td className="px-6 py-4 text-gray-700">{row.time}</td>
                       <td className="px-6 py-4 text-gray-700">{row.service}</td>
+                      <td className="px-6 py-4 text-gray-700">{row.pitch}</td>
                     </tr>
                   ))}
                 </tbody>
