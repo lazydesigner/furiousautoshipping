@@ -491,7 +491,7 @@ export default async function RoutePage({ params }) {
             {/* Primary Route Card */}
             <div className="bg-brand-500/10 backdrop-brand-md rounded-2xl p-6 border border-brand-500/20 hover:bg-brand-500/15 transition-all duration-300 hover:scale-105">
               <div className="text-4xl mb-4"> <Route className="w-10 h-10 text-slat-700" /></div>
-              <h3 className="text-slat-500 text-sm font-medium mb-2">Primary Route</h3>
+              <h3 className="text-slat-500 text-sm font-medium mb-2">Common Route</h3>
               <p className="text-brand-500 text-xl sm:text-2xl font-bold mb-1">
                 {routeData.hero_section?.quick_facts?.primary_highway}
               </p>

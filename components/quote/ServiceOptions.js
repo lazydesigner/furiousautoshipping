@@ -222,16 +222,17 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                           )} */}
                         </div>
                         
-                        <p className="text-sm text-gray-600 mb-3">{type.description}</p>
+                        <p className="text-sm text-gray-600">{type.description}</p>
+                        {/* <p className="text-sm text-gray-600 mb-3">{type.description}</p> */}
                         
-                        <ul className="space-y-1">
+                        {/* <ul className="space-y-1">
                           {type.features.map((feature) => (
                             <li key={feature} className="flex items-center text-xs">
                               <div className="w-1.5 h-1.5 bg-brand-600 rounded-full mr-2" />
                               <span className="text-gray-600">{feature}</span>
                             </li>
                           ))}
-                        </ul>
+                        </ul> */}
                       </div>
                     </div>
                   </>
@@ -309,16 +310,17 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                           )} */}
                         </div>
                         
-                        <p className="text-sm text-gray-600 mb-3">{type.description}</p>
+                        <p className="text-sm text-gray-600">{type.description}</p>
+                        {/* <p className="text-sm text-gray-600 mb-3">{type.description}</p> */}
                         
-                        <ul className="space-y-1">
+                        {/* <ul className="space-y-1">
                           {type.features.map((feature) => (
                             <li key={feature} className="flex items-center text-xs">
                               <div className="w-1.5 h-1.5 bg-brand-600 rounded-full mr-2" />
                               <span className="text-gray-600">{feature}</span>
                             </li>
                           ))}
-                        </ul>
+                        </ul> */}
                       </div>
                     </div>
                   </>
@@ -330,7 +332,7 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
       </div>
 
       {/* Additional Services */}
-      <div>
+      <div className='hidden'>
         <h3 className="text-lg font-semibold mb-4">Additional Services</h3>
         <div className="space-y-4">
           {additionalServices.map((service) => (
@@ -362,7 +364,7 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                   </div>
                   
                   <p className="text-sm text-gray-600 mb-3">{service.description}</p>
-                  
+{/*                   
                   <ul className="space-y-1">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center text-xs">
@@ -370,7 +372,7 @@ export default function ServiceOptions({ register, setValue, watch, errors, pric
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
 
                   {service.timeReduction && (
                     <div className="mt-2 text-xs text-green-600 font-medium">
