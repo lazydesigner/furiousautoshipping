@@ -50,6 +50,21 @@ export async function GET() {
   '/routes/houston-tx-to-denver-co',
   '/routes/austin-tx-to-chicago-il',
   '/routes/houston-tx-to-detroit-mi',
+  '/routes/louisville-ky-to-new-york-ny',
+  '/routes/lexington-ky-to-new-york-ny',
+  '/routes/chicago-il-to-new-york-ny',
+  '/routes/new-york-ny-to-chicago-il',
+  '/routes/washington-dc-to-boston-ma',
+  '/routes/boston-ma-to-washington-dc',
+  '/routes/charlotte-nc-to-new-york-ny',
+  '/routes/new-york-ny-to-charlotte-nc',
+  '/routes/las-vegas-nv-to-los-angeles-ca',
+  '/routes/los-angeles-ca-to-las-vegas-nv',
+  '/routes/dallas-tx-to-atlanta-ga',
+  '/routes/boston-ma-to-miami-fl',
+  '/routes/seattle-wa-to-los-angeles-ca',
+  '/routes/new-york-ny-to-los-angeles-ca',
+  '/routes/chicago-il-to-miami-fl'
   ]
 
   // Generate state-to-state routes

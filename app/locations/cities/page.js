@@ -70,6 +70,46 @@ const tiers = ['All Tiers', 'Tier 1', 'Tier 2']
 
 const popularCityPairs = [
   // Category 1: The "Snowbird Return" (Florida → Northeast)
+  {
+    "from": "Chicago, IL",
+    "to": "Miami, FL",
+    "url": "https://furiousautoshipping.com/routes/chicago-il-to-miami-fl",
+    "price": "$950-1,350",
+    "time": "4-6 days",
+    "note": "High seasonal volatility; prices spike southward in Q1 due to Snowbird demand."
+  },
+  {
+    "from": "New York, NY",
+    "to": "Los Angeles, CA",
+    "url": "https://furiousautoshipping.com/routes/new-york-ny-to-los-angeles-ca",
+    "price": "$1,300-1,800",
+    "time": "7-10 days",
+    "note": "The 'Golden Lane' is high-volume but subject to heavy weather delays in the Rockies during winter."
+  },
+  {
+    "from": "Seattle, WA",
+    "to": "Los Angeles, CA",
+    "url": "https://furiousautoshipping.com/routes/seattle-wa-to-los-angeles-ca",
+    "price": "$700-1,000",
+    "time": "3-5 days",
+    "note": "Consistent I-5 corridor traffic; northern passes (Siskiyou Summit) can cause 24-48 hour delays."
+  },
+  {
+    "from": "Boston, MA",
+    "to": "Miami, FL",
+    "url": "https://furiousautoshipping.com/routes/boston-ma-to-miami-fl",
+    "price": "$1,100-1,500",
+    "time": "6-8 days",
+    "note": "Maximum dead-haul risk for carriers returning North; expect higher rates for Southbound January-March."
+  },
+  {
+    "from": "Dallas, TX",
+    "to": "Atlanta, GA",
+    "url": "https://furiousautoshipping.com/routes/dallas-tx-to-atlanta-ga",
+    "price": "$650-900",
+    "time": "2-4 days",
+    "note": "Efficient regional hub-to-hub route; high carrier availability makes this price-competitive."
+  },
   { 
     from: 'Miami, FL', 
     to: 'New York City, NY', 
