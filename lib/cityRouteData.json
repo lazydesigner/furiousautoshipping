@@ -3333,12 +3333,12 @@
         "caption": "Direct shipping from Tampa to Cleveland available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/tampa-to-cleveland.webp",
+        "url": "/images/cities/florida-to-ohio-map-infographic.webp",
         "alt_text": "Image showing car shipping from Tampa to Cleveland via Interstate 75",
         "note": "We use the Florida to Ohio map here because the highway route is identical."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/florida-to-ohio-map-infographic.webp",
+        "url": "/images/cities/florida-to-ohio-map-infographic.webp",
         "alt_text": "Map showing the driving route from Tampa to Cleveland via I-75 North",
         "note": "We use the Florida to Ohio map here because the highway route is identical."
       }
@@ -3593,11 +3593,11 @@
         "caption": "Direct shipping from Phoenix to Seattle available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/phoenix-to-seattle.webp",
+        "url": "/images/cities/arizona-to-washington-map-infographic.webp",
         "alt_text": "Image showing Car Shipping from Phoenix to Seattle via I-5 corridor"
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/arizona-to-washington-map-infographic.webp",
+        "url": "/images/cities/arizona-to-washington-map-infographic.webp",
         "alt_text": "Map showing the driving route from Phoenix to Seattle via I-10 West and I-5 North",
         "note": "We use the Arizona to Washington map here because the highway route is identical."
       }
@@ -3849,12 +3849,12 @@
         "caption": "Direct shipping from Los Angeles to Austin available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/los-angeles-to-austin.webp",
+        "url": "/images/cities/california-to-texas-map-infographic.webp",
         "alt_text": "Image showing Car Shipping from Los Angeles to Austin via Interstate 10",
         "note": "We use the California to Texas map here because the highway route is identical."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/california-to-texas-map-infographic.webp",
+        "url": "/images/cities/california-to-texas-map-infographic.webp",
         "alt_text": "Map showing the driving route from Los Angeles to Austin via Interstate 10",
         "note": "We use the California to Texas map here because the highway route is identical."
       }
@@ -4106,12 +4106,12 @@
         "caption": "Direct shipping from San Francisco to Austin available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/san-francisco-to-austin.webp",
+        "url": "/images/cities/san-francisco-to-austin-map-infographic.webp",
         "alt_text": "Image showing Car Shipping from San Francisco to Austin via I-10",
         "note": "We use the California to Texas map here because the highway route is identical."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/california-to-texas-map-infographic.webp",
+        "url": "/images/cities/san-francisco-to-austin-map-infographic.webp",
         "alt_text": "Map showing the driving route from San Francisco to Austin via I-80 and I-10",
         "note": "We use the California to Texas map here because the highway route is identical."
       }
@@ -4387,12 +4387,12 @@
         "caption": "Direct shipping from San Diego to Dallas available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/san-diego-to-dallas.webp",
+        "url": "/images/cities/san-diego-to-dallas-map-infographic.webp",
         "alt_text": "Image showing Car Shipping from San Diego to Dallas via Interstate 10",
         "note": "We use the California to Texas map here because the highway route is identical."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/california-to-texas-map-infographic.webp",
+        "url": "/images/cities/san-diego-to-dallas-map-infographic.webp",
         "alt_text": "Map showing the driving route from San Diego to Dallas via I-8 and I-10",
         "note": "We use the California to Texas map here because the highway route is identical."
       }
@@ -4667,12 +4667,12 @@
         "caption": "Direct shipping from Los Angeles to New York City available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/los-angeles-to-new-york-city.webp",
+        "url": "/images/cities/los-angeles-to-new-york-city-map-infographic.webp",
         "alt_text": "Image showing Car Shipping from Los Angeles to New York City via I-10 East",
         "note": "We use the California to New York map here because the highway route is identical."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/california-to-new-york-map-infographic.webp",
+        "url": "/images/cities/los-angeles-to-new-york-city-map-infographic.webp",
         "alt_text": "Map showing the driving route from Los Angeles to New York City via I-10 and I-80",
         "note": "We use the California to New York State map here because the highway route is identical."
       }
@@ -4940,12 +4940,12 @@
         "caption": "Direct shipping from Dallas to Denver available daily."
       },
       "mid_section_road": {
-        "url": "/images/cities/dallas-to-denver.webp",
+        "url": "/images/cities/dallas-to-denver-map-infographic.webp",
         "alt_text": "Image showing Car Shipping from Dallas to Denver via Interstate 25",
         "note": "Shows I-25 corridor through Colorado with mountain backdrop."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/texas-to-colorado-map-infographic.webp",
+        "url": "/images/cities/dallas-to-denver-map-infographic.webp",
         "alt_text": "Map showing the driving route from Dallas to Denver via Interstate 25",
         "note": "We use the Texas to Colorado map here because the highway route is identical."
       }
@@ -5222,12 +5222,12 @@
         "caption": "Direct shipping from Houston to Denver available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/houston-to-denver.webp",
+        "url": "/images/cities/houston-to-denver-car-shipping.webp",
         "alt_text": "Image showing Car Shipping from Houston to Denver via Interstate 25",
         "note": "We use the Texas to Colorado map here because the highway route is identical."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/texas-to-colorado-map-infographic.webp",
+        "url": "/images/cities/houston-to-denver-map-infographic.webp",
         "alt_text": "Map showing the driving route from Houston to Denver via I-45 and I-25",
         "note": "We use the Texas to Colorado map here because the highway route is identical."
       }
@@ -5477,12 +5477,12 @@
         "caption": "Direct shipping from Austin to Chicago available weekly."
       },
       "mid_section_road": {
-        "url": "/images/cities/austin-to-chicago.webp",
+        "url": "/images/cities/austin-to-chicago-car-shipping.webp",
         "alt_text": "Image showing Car Shipping from Austin to Chicago via I-35 and I-55",
         "note": "We use the Texas to Illinois map here because the highway route is identical."
       },
       "mid_section_map": {
-        "url": "/images/state-to-state/texas-to-illinois-map-infographic.webp",
+        "url": "/images/cities/texas-to-illinois-map-infographic.webp",
         "alt_text": "Map showing the driving route from Austin to Chicago via I-35 and I-55",
         "note": "We use the Texas to Illinois map here because the highway route is identical."
       }
